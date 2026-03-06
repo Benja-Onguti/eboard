@@ -1,66 +1,48 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  Send,
-  CheckCircle,
-  AlertCircle,
-} from "lucide-react";
-import { Button } from "../components/ui/Button";
-import { Card } from "../components/ui/Card";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Button } from '../components/ui/Button';
+import { Card } from '../components/ui/Card';
 
 // Form schema
 const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  organization: z.string().min(2, "Organization name is required"),
-  organizationType: z.enum([
-    "education",
-    "government",
-    "ngo",
-    "corporate",
-    "other",
-  ]),
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Please enter a valid email address'),
+  organization: z.string().min(2, 'Organization name is required'),
+  organizationType: z.enum(['education', 'government', 'ngo', 'corporate', 'other']),
   phone: z.string().optional(),
   boardSize: z.string().optional(),
-  interest: z
-    .array(z.string())
-    .min(1, "Please select at least one area of interest"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  interest: z.array(z.string()).min(1, 'Please select at least one area of interest'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
   preferredDate: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const interestOptions = [
-  "Meeting Management",
-  "Document Security",
-  "AI-Powered Minutes",
-  "E-Signatures",
-  "Surveys & Forms",
-  "Public Meeting Sites",
+  'Meeting Management',
+  'Document Security',
+  'AI-Powered Minutes',
+  'E-Signatures',
+  'Surveys & Forms',
+  'Public Meeting Sites',
 ];
 
 const organizationTypes = [
-  { value: "education", label: "Educational Institution" },
-  { value: "government", label: "Government / Public Sector" },
-  { value: "ngo", label: "NGO / Nonprofit" },
-  { value: "corporate", label: "Corporate / Enterprise" },
-  { value: "other", label: "Other" },
+  { value: 'education', label: 'Educational Institution' },
+  { value: 'government', label: 'Government / Public Sector' },
+  { value: 'ngo', label: 'NGO / Nonprofit' },
+  { value: 'corporate', label: 'Corporate / Enterprise' },
+  { value: 'other', label: 'Other' },
 ];
 
 export const ContactPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
-    null,
-  );
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
 
   const {
     register,
@@ -82,15 +64,15 @@ export const ContactPage: React.FC = () => {
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       // Here you would send data to your backend
-      console.log("Form data:", data);
+      console.log('Form data:', data);
 
-      setSubmitStatus("success");
+      setSubmitStatus('success');
       reset();
 
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000);
     } catch (error) {
-      setSubmitStatus("error");
+      setSubmitStatus('error');
       setTimeout(() => setSubmitStatus(null), 5000);
     } finally {
       setIsSubmitting(false);
@@ -114,8 +96,7 @@ export const ContactPage: React.FC = () => {
             Get in <span className="text-primary-600">touch</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have questions about EBoard? Our team is here to help you transform
-            your board meetings.
+            Have questions about EBoard? Our team is here to help you transform your board meetings.
           </p>
         </div>
       </section>
@@ -157,17 +138,11 @@ export const ContactPage: React.FC = () => {
                   <h3 className="text-lg font-semibold">Call Us</h3>
                 </div>
                 <p className="text-gray-600 mb-2">North America:</p>
-                <a
-                  href="tel:+18885551234"
-                  className="text-primary-600 hover:underline"
-                >
+                <a href="tel:+18885551234" className="text-primary-600 hover:underline">
                   +1 (888) 555-1234
                 </a>
                 <p className="text-gray-600 mt-4 mb-2">International:</p>
-                <a
-                  href="tel:+44123456789"
-                  className="text-primary-600 hover:underline"
-                >
+                <a href="tel:+44123456789" className="text-primary-600 hover:underline">
                   +44 1234 56789
                 </a>
               </Card>
@@ -180,9 +155,7 @@ export const ContactPage: React.FC = () => {
                   <h3 className="text-lg font-semibold">Support Hours</h3>
                 </div>
                 <p className="text-gray-600">Monday - Friday: 24/7</p>
-                <p className="text-gray-600">
-                  Saturday - Sunday: 9am - 5pm EST
-                </p>
+                <p className="text-gray-600">Saturday - Sunday: 9am - 5pm EST</p>
                 <p className="text-gray-500 text-sm mt-2">
                   Emergency support available 24/7 for enterprise clients
                 </p>
@@ -204,12 +177,10 @@ export const ContactPage: React.FC = () => {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <Card variant="elevated" className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Send us a message
-                </h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h2>
 
                 {/* Success/Error Messages */}
-                {submitStatus === "success" && (
+                {submitStatus === 'success' && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -220,7 +191,7 @@ export const ContactPage: React.FC = () => {
                   </motion.div>
                 )}
 
-                {submitStatus === "error" && (
+                {submitStatus === 'error' && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -240,14 +211,12 @@ export const ContactPage: React.FC = () => {
                       </label>
                       <input
                         type="text"
-                        {...register("name")}
+                        {...register('name')}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                         placeholder="John Smith"
                       />
                       {errors.name && (
-                        <p className="mt-1 text-sm text-red-600">
-                          {errors.name.message}
-                        </p>
+                        <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
                       )}
                     </div>
 
@@ -257,14 +226,12 @@ export const ContactPage: React.FC = () => {
                       </label>
                       <input
                         type="email"
-                        {...register("email")}
+                        {...register('email')}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                         placeholder="john@organization.org"
                       />
                       {errors.email && (
-                        <p className="mt-1 text-sm text-red-600">
-                          {errors.email.message}
-                        </p>
+                        <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
                       )}
                     </div>
                   </div>
@@ -276,14 +243,12 @@ export const ContactPage: React.FC = () => {
                     </label>
                     <input
                       type="text"
-                      {...register("organization")}
+                      {...register('organization')}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       placeholder="Lincoln School District"
                     />
                     {errors.organization && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.organization.message}
-                      </p>
+                      <p className="mt-1 text-sm text-red-600">{errors.organization.message}</p>
                     )}
                   </div>
 
@@ -294,7 +259,7 @@ export const ContactPage: React.FC = () => {
                         Organization Type *
                       </label>
                       <select
-                        {...register("organizationType")}
+                        {...register('organizationType')}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       >
                         <option value="">Select type</option>
@@ -317,7 +282,7 @@ export const ContactPage: React.FC = () => {
                       </label>
                       <input
                         type="tel"
-                        {...register("phone")}
+                        {...register('phone')}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                         placeholder="+1 (555) 123-4567"
                       />
@@ -331,7 +296,7 @@ export const ContactPage: React.FC = () => {
                     </label>
                     <input
                       type="number"
-                      {...register("boardSize")}
+                      {...register('boardSize')}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       placeholder="Approximate number of members"
                     />
@@ -344,26 +309,19 @@ export const ContactPage: React.FC = () => {
                     </label>
                     <div className="grid grid-cols-2 gap-3">
                       {interestOptions.map((option) => (
-                        <label
-                          key={option}
-                          className="flex items-center space-x-2"
-                        >
+                        <label key={option} className="flex items-center space-x-2">
                           <input
                             type="checkbox"
                             value={option}
-                            {...register("interest")}
+                            {...register('interest')}
                             className="rounded border-gray-300 text-primary-600 focus:ring-primary-500"
                           />
-                          <span className="text-sm text-gray-700">
-                            {option}
-                          </span>
+                          <span className="text-sm text-gray-700">{option}</span>
                         </label>
                       ))}
                     </div>
                     {errors.interest && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.interest.message}
-                      </p>
+                      <p className="mt-1 text-sm text-red-600">{errors.interest.message}</p>
                     )}
                   </div>
 
@@ -374,14 +332,12 @@ export const ContactPage: React.FC = () => {
                     </label>
                     <textarea
                       rows={5}
-                      {...register("message")}
+                      {...register('message')}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       placeholder="Tell us about your governance needs and how we can help..."
                     />
                     {errors.message && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.message.message}
-                      </p>
+                      <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
                     )}
                   </div>
 
@@ -392,8 +348,8 @@ export const ContactPage: React.FC = () => {
                     </label>
                     <input
                       type="date"
-                      {...register("preferredDate")}
-                      min={new Date().toISOString().split("T")[0]}
+                      {...register('preferredDate')}
+                      min={new Date().toISOString().split('T')[0]}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     />
                   </div>
@@ -410,8 +366,8 @@ export const ContactPage: React.FC = () => {
                   </Button>
 
                   <p className="text-sm text-gray-500 text-center">
-                    We'll respond within 24 hours with customized information
-                    for your organization type.
+                    We'll respond within 24 hours with customized information for your organization
+                    type.
                   </p>
                 </form>
               </Card>

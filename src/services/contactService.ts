@@ -1,5 +1,5 @@
 import { apiService } from './api';
-import { ContactFormData, ContactFormResponse } from '../types/form.types';
+import { ContactFormData, ContactFormResponse } from '@/types/form.types';
 
 export const contactService = {
   async submitContactForm(data: ContactFormData): Promise<ContactFormResponse> {
