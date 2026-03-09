@@ -64,7 +64,7 @@ export const siteContent = {
       sales: { text: 'Talk to Sales', href: '/contact' },
       trial: { text: 'Try Now', href: '/demo' },
     },
-    image: '/images/hero-dashboard.jpg',
+    image: '/images/hero/db.jpg',
     video: '/videos/hero-preview.mp4',
   },
 
@@ -123,7 +123,7 @@ export const siteContent = {
         'Real-time collaboration during meetings',
         'AI-generated minutes with action items',
       ],
-      image: '/images/feature-meetings.jpg',
+      image: '/images/features/meetings.jpg',
       cta: { text: 'Learn more about Meetings', href: '/features/meeting-management' },
     },
     {
@@ -137,7 +137,7 @@ export const siteContent = {
         'Automatic redaction for FOI',
         'Complete audit logging',
       ],
-      image: '/images/feature-security.jpg',
+      image: '/images/features/security.jpg',
       cta: { text: 'Explore Security', href: '/security' },
     },
     {
@@ -151,10 +151,11 @@ export const siteContent = {
         'Voting and approvals',
         'Meeting recordings',
       ],
-      image: '/images/feature-collaboration.jpg',
+      image: '/images/features/collaboration.jpg',
       cta: { text: 'See Collaboration', href: '/features/collaboration' },
     },
-    {
+    
+    /*{
       id: 'compliance',
       painPoint: 'Complex compliance requirements across jurisdictions',
       solution: 'Built-in compliance for global regulations',
@@ -167,7 +168,7 @@ export const siteContent = {
       ],
       image: '/images/feature-compliance.jpg',
       cta: { text: 'View Compliance', href: '/compliance' },
-    },
+    },*/
   ],
 
   // User Role Segmentation
@@ -375,6 +376,6 @@ export const siteContent = {
       { platform: 'Facebook', icon: 'Facebook', href: 'https://facebook.com/eboardsolutions' },
       { platform: 'YouTube', icon: 'YouTube', href: 'https://youtube.com/@eboardsolutions' },
     ],
-    copyright: '© 2025 EBoard Solutions. All rights reserved.',
+    copyright: '© 2026 EBoard Solutions. All rights reserved.',
   },
 };

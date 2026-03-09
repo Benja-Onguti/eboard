@@ -84,7 +84,7 @@ export const HomePage: React.FC = () => {
               {/* Trust indicators */}
               <div className="flex items-center gap-4 text-sm text-gray-500">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
+                  {[1, 2, 3, 4,].map((i) => (
                     <div
                       key={i}
                       className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 border-2 border-white"
@@ -131,7 +131,7 @@ export const HomePage: React.FC = () => {
                     <CountUp
                       end={parseInt(stat.value)}
                       duration={2.5}
-                      suffix={stat.value.includes('+') ? '+' : stat.value.includes('%') ? '%' : ''}
+                      suffix={stat.value.includes('+') ? '+' : stat.value.includes('%') ? '%' :''}
                     />
                   )}
                 </div>

@@ -41,6 +41,7 @@ export default {
           "sans-serif",
         ],
         display: ["Calistoga", "serif"],
+       
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",
