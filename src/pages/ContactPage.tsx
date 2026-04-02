@@ -116,17 +116,17 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <p className="text-gray-600 mb-2">General inquiries:</p>
                 <a
-                  href="mailto:info@eboard-solutions.com"
+                  href="mailto:info@matrixsystems.co.ke"
                   className="text-primary-600 hover:underline"
                 >
-                  info@eboard-solutions.com
+                  info@matrixsystems.co.ke
                 </a>
                 <p className="text-gray-600 mt-4 mb-2">Sales:</p>
                 <a
-                  href="mailto:sales@eboard-solutions.com"
+                  href="mailtoinfo@matrixsystems.co.ke"
                   className="text-primary-600 hover:underline"
                 >
-                  sales@eboard-solutions.com
+                  info@matrixsystems.co.ke
                 </a>
               </Card>
 
@@ -137,13 +137,13 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <h3 className="text-lg font-semibold">Call Us</h3>
                 </div>
-                <p className="text-gray-600 mb-2">North America:</p>
-                <a href="tel:+18885551234" className="text-primary-600 hover:underline">
-                  +1 (888) 555-1234
+                <p className="text-gray-600 mb-2">Kenya :</p>
+                <a href="tel:+254721779429" className="text-primary-600 hover:underline">
+                  (+254) 721 779 429
                 </a>
                 <p className="text-gray-600 mt-4 mb-2">International:</p>
-                <a href="tel:+44123456789" className="text-primary-600 hover:underline">
-                  +44 1234 56789
+                <a href="tel:+254721779429" className="text-primary-600 hover:underline">
+                  (+254) 721 779 429
                 </a>
               </Card>
 
@@ -168,9 +168,8 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <h3 className="text-lg font-semibold">Visit Us</h3>
                 </div>
-                <p className="text-gray-600">EBoard Solutions HQ</p>
-                <p className="text-gray-600">123 Innovation Drive</p>
-                <p className="text-gray-600">San Francisco, CA 94105</p>
+                <p className="text-gray-600">Matrix Vision Systems</p>
+                <p className="text-gray-600">BSK Village, Westlands, Nairobi</p>
               </Card>
             </div>
 

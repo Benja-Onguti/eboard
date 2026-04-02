@@ -6,10 +6,7 @@ import {
   X,
   ChevronDown,
   ChevronRight,
-  LogIn,
-  UserPlus,
   Calendar,
-  Shield,
   BookOpen,
   Building2,
   GraduationCap,
@@ -17,11 +14,8 @@ import {
   Building,
   FileText,
   Brain,
-  PenTool,
-  Globe,
   HelpCircle,
   Mail,
-  ChevronLeft,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ROUTES } from '@/config/routes';
@@ -61,28 +55,10 @@ const navigation: NavItem[] = [
         description: 'AI-powered meeting minutes',
         badge: 'New',
       },
-      {
-        label: 'Document Security',
-        href: ROUTES.PLATFORM.SECURITY,
-        icon: Shield,
-        description: 'Bank-level security & compliance',
-      },
-      {
-        label: 'E-Signatures',
-        href: ROUTES.MARKETING.E_SIGNATURES,
-        icon: PenTool,
-        description: 'Legally binding digital signatures',
-      },
-      {
-        label: 'Public Sites',
-        href: ROUTES.MARKETING.PUBLIC_SITES,
-        icon: Globe,
-        description: 'Transparent public meeting portals',
-      },
     ],
   },
   {
-    label: 'Solutions',
+    label: 'Use Cases',
     children: [
       {
         label: 'Education',
@@ -144,10 +120,6 @@ const navigation: NavItem[] = [
         description: 'Get in touch with our team',
       },
     ],
-  },
-  {
-    label: 'Pricing',
-    href: ROUTES.PRICING.INDEX,
   },
 ];
 
@@ -246,75 +218,73 @@ export const Navbar: React.FC = () => {
                   onMouseLeave={handleDropdownLeave}
                 >
                   {item.children ? (
-                    <button
-                      className={cn(
-                        'flex items-center space-x-1 px-4 py-2 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition font-medium',
-                        activeDropdown === item.label && 'text-primary-600 bg-primary-50'
-                      )}
-                    >
-                      <span>{item.label}</span>
-                      <ChevronDown
+                    <>
+                      <button
                         className={cn(
-                          'w-4 h-4 transition-transform',
-                          activeDropdown === item.label && 'rotate-180'
+                          'flex items-center space-x-1 px-4 py-2 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition font-medium',
+                          activeDropdown === item.label && 'text-primary-600 bg-primary-50'
                         )}
-                      />
-                    </button>
+                      >
+                        <span>{item.label}</span>
+                        <ChevronDown
+                          className={cn(
+                            'w-4 h-4 transition-transform',
+                            activeDropdown === item.label && 'rotate-180'
+                          )}
+                        />
+                      </button>
+
+                      {/* Dropdown Menu - Remove mt-2 gap */}
+                      {activeDropdown === item.label && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 pt-0 w-80 z-50" // Removed mt-2, added pt-0
+                        >
+                          {/* Transparent bridge - this creates a seamless connection */}
+                          <div className="h-2 -mt-2" /> {/* Creates invisible bridge */}
+                          <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
+                            <div className="py-2">
+                              {item.children.map((child) => {
+                                const Icon = child.icon || ChevronRight;
+                                return (
+                                  <Link
+                                    key={child.label}
+                                    to={child.href!}
+                                    className="flex items-start px-4 py-3 hover:bg-gray-50 transition group"
+                                    onClick={() => setActiveDropdown(null)}
+                                  >
+                                    <div className="flex-shrink-0 w-8 h-8 bg-primary-50 rounded-lg flex items-center justify-center text-primary-600 mr-3">
+                                      <Icon className="w-4 h-4" />
+                                    </div>
+                                    <div>
+                                      <div className="font-medium text-gray-900">{child.label}</div>
+                                      {child.description && (
+                                        <p className="text-xs text-gray-500">{child.description}</p>
+                                      )}
+                                      {child.badge && (
+                                        <span className="inline-block mt-1 px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded">
+                                          {child.badge}
+                                        </span>
+                                      )}
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </>
                   ) : (
                     <Link
                       to={item.href!}
-                      className={cn(
-                        'px-4 py-2 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition font-medium',
-                        location.pathname === item.href && 'text-primary-600 bg-primary-50'
-                      )}
+                      className="flex items-center space-x-1 px-4 py-2 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition font-medium"
                     >
                       {item.label}
                     </Link>
-                  )}
-
-                  {/* Dropdown Menu */}
-                  {item.children && activeDropdown === item.label && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden z-50"
-                    >
-                      <div className="py-2">
-                        {item.children.map((child) => {
-                          const Icon = child.icon || ChevronRight;
-                          return (
-                            <Link
-                              key={child.label}
-                              to={child.href!}
-                              className="flex items-start px-4 py-3 hover:bg-gray-50 transition group"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              <div className="flex-shrink-0 w-8 h-8 bg-primary-50 rounded-lg flex items-center justify-center text-primary-600 mr-3 group-hover:bg-primary-600 group-hover:text-white transition">
-                                <Icon className="w-4 h-4" />
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex items-center">
-                                  <span className="font-medium text-gray-900 group-hover:text-primary-600 transition">
-                                    {child.label}
-                                  </span>
-                                  {child.badge && (
-                                    <span className="ml-2 px-2 py-0.5 bg-primary-100 text-primary-600 text-xs rounded-full">
-                                      {child.badge}
-                                    </span>
-                                  )}
-                                </div>
-                                {child.description && (
-                                  <p className="text-xs text-gray-500 mt-1">{child.description}</p>
-                                )}
-                              </div>
-                              <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-primary-600 transition opacity-0 group-hover:opacity-100" />
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </motion.div>
                   )}
                 </div>
               ))}
@@ -322,11 +292,11 @@ export const Navbar: React.FC = () => {
 
             {/* CTA Buttons - Desktop */}
             <div className="hidden lg:flex items-center space-x-3">
-              <Link to={ROUTES.AUTH.LOGIN}>
+              {/*<Link to={ROUTES.AUTH.LOGIN}>
                 <Button variant="ghost" size="md" leftIcon={<LogIn className="w-4 h-4" />}>
                   Log In
                 </Button>
-              </Link>
+              </Link> */}
               <Link to={ROUTES.DEMO.INDEX}>
                 <Button size="md" leftIcon={<Calendar className="w-4 h-4" />}>
                   Book Demo
@@ -454,24 +424,6 @@ export const Navbar: React.FC = () => {
                   )}
                 </div>
               ))}
-
-              <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
-                <Link to={ROUTES.AUTH.LOGIN} onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="outline" fullWidth leftIcon={<LogIn className="w-4 h-4" />}>
-                    Log In
-                  </Button>
-                </Link>
-                <Link to={ROUTES.DEMO.INDEX} onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button fullWidth leftIcon={<Calendar className="w-4 h-4" />}>
-                    Book Demo
-                  </Button>
-                </Link>
-                <Link to={ROUTES.AUTH.SIGNUP} onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="ghost" fullWidth leftIcon={<UserPlus className="w-4 h-4" />}>
-                    Sign Up
-                  </Button>
-                </Link>
-              </div>
 
               {/* Mobile Menu Footer */}
               <div className="mt-6 pt-6 border-t border-gray-200">

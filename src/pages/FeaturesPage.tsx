@@ -283,7 +283,7 @@ export const FeaturesPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-primary-50 to-white">
+      <section className="pt-8 pb-20 bg-gradient-to-b from-primary-50 to-white">
         <div className="container-custom text-center">
           <Badge variant="primary" className="mb-4">
             Platform Features

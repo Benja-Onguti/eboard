@@ -57,9 +57,9 @@ export const siteContent = {
 
   // Hero Section
   hero: {
-    headline: 'Board meetings that drive impact, not just discussion',
+    headline: 'AI-Powered Board solution that drive impact, not just discussion',
     subheadline:
-      'Reduce meeting prep time by 70% with AI-powered governance that keeps everyone aligned and accountable.',
+      'Automate agendas, minutes, and summaries with smart AI. Secure, scalable, and built for modern boards.',
     ctas: {
       sales: { text: 'Talk to Sales', href: '/contact' },
       trial: { text: 'Try Now', href: '/demo' },
@@ -154,7 +154,7 @@ export const siteContent = {
       image: '/images/features/collaboration.jpg',
       cta: { text: 'See Collaboration', href: '/features/collaboration' },
     },
-    
+
     /*{
       id: 'compliance',
       painPoint: 'Complex compliance requirements across jurisdictions',

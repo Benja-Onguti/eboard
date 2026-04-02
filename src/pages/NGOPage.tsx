@@ -13,7 +13,7 @@ import {
   ArrowRight,
   Star,
   DollarSign,
-  //HandHeart,
+  Handshake,
   Leaf,
   Mail,
   Phone,
@@ -45,7 +45,7 @@ export const NGOPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-red-50 to-white overflow-hidden">
+      <section className="pt-8 pb-20 bg-gradient-to-b from-red-50 to-white overflow-hidden">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -137,7 +137,7 @@ export const NGOPage: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-red-600 text-white">
+      {/*<section className="py-16 bg-red-600 text-white">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -160,6 +160,7 @@ export const NGOPage: React.FC = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* Challenges Section */}
       <section className="py-24 bg-white">
@@ -286,6 +287,7 @@ export const NGOPage: React.FC = () => {
               </div>
 
               {/* Pricing Highlight */}
+
               <div className="mt-8 bg-white rounded-xl p-6 border border-red-100">
                 <div className="flex items-center mb-4">
                   <Gift className="w-5 h-5 text-red-600 mr-2" />
@@ -294,12 +296,6 @@ export const NGOPage: React.FC = () => {
                 <p className="text-gray-600 mb-2">
                   Registered nonprofits receive special pricing and flexible payment options.
                 </p>
-                <Link
-                  to={ROUTES.PRICING.NONPROFIT}
-                  className="text-red-600 font-medium hover:underline"
-                >
-                  Learn about nonprofit pricing →
-                </Link>
               </div>
             </div>
 
@@ -419,6 +415,7 @@ export const NGOPage: React.FC = () => {
       </section>
 
       {/* Pricing Options */}
+      {/*}
       <section className="py-24 bg-gray-50">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -524,7 +521,7 @@ export const NGOPage: React.FC = () => {
             * Registered 501(c)(3) organizations receive an additional 20% discount on all plans
           </p>
         </div>
-      </section>
+      </section>*/}
 
       {/* Impact Stories */}
       <section className="py-24 bg-white">
@@ -540,7 +537,7 @@ export const NGOPage: React.FC = () => {
                 impact: 'Reduced meeting costs by 60%, redirected $50K to programs',
               },
               {
-                icon: HandHeart,
+                icon: Handshake,
                 title: 'Habitat for Humanity',
                 impact: 'Engaged 50+ volunteer board members across 3 countries',
               },
@@ -590,29 +587,6 @@ export const NGOPage: React.FC = () => {
                 Schedule Demo
               </Button>
             </Link>
-            <Link to={ROUTES.PRICING.NONPROFIT}>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10"
-              >
-                View Nonprofit Pricing
-              </Button>
-            </Link>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-4 justify-center text-sm text-red-200">
-            <span className="flex items-center">
-              <CheckCircle className="w-4 h-4 mr-2" />
-              No credit card required
-            </span>
-            <span className="flex items-center">
-              <CheckCircle className="w-4 h-4 mr-2" />
-              30-day free trial
-            </span>
-            <span className="flex items-center">
-              <CheckCircle className="w-4 h-4 mr-2" />
-              Nonprofit discount available
-            </span>
           </div>
         </div>
       </section>

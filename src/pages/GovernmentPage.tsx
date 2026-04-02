@@ -45,7 +45,7 @@ export const GovernmentPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-purple-50 to-white overflow-hidden">
+      <section className="pt-8 pb-20s bg-gradient-to-b from-purple-50 to-white overflow-hidden">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -134,7 +134,7 @@ export const GovernmentPage: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-purple-600 text-white">
+      {/*<section className="py-16 bg-purple-600 text-white">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -157,6 +157,7 @@ export const GovernmentPage: React.FC = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* Compliance Section */}
       <section className="py-24 bg-white">
@@ -213,7 +214,7 @@ export const GovernmentPage: React.FC = () => {
                       <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
                         <Icon className="w-6 h-6" />
                       </div>
-                      <Badge variant="purple" size="sm">
+                      <Badge variant="primary" size="sm">
                         {item.badge}
                       </Badge>
                     </div>

@@ -6,6 +6,7 @@ import { ROUTES } from './config/routes';
 import { LoadingSpinner } from './components/common/LoadingSpinner';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { analyticsService } from './services/analyticsService';
+import { SecurityPage } from './pages/SecurityPage';
 
 // Lazy load pages for better performance
 const HomePage = lazy(() =>
@@ -31,10 +32,6 @@ const NGOPage = lazy(() =>
 );
 const EnterprisePage = lazy(() =>
   import('./pages/EnterprisePage').then((module) => ({ default: module.EnterprisePage }))
-);
-
-const PricingPage = lazy(() =>
-  import('./pages/PricingPage').then((module) => ({ default: module.PricingPage }))
 );
 const ContactPage = lazy(() =>
   import('./pages/ContactPage').then((module) => ({ default: module.ContactPage }))
@@ -103,9 +100,6 @@ function App() {
               <Route path={ROUTES.SOLUTIONS.NGOS} element={<NGOPage />} />
               <Route path={ROUTES.SOLUTIONS.ENTERPRISE} element={<EnterprisePage />} />
 
-              {/* Pricing */}
-              <Route path={ROUTES.PRICING.INDEX} element={<PricingPage />} />
-
               {/* Contact & Demo */}
               <Route path={ROUTES.COMPANY.CONTACT} element={<ContactPage />} />
               <Route path={ROUTES.DEMO.INDEX} element={<DemoPage />} />
@@ -137,30 +131,11 @@ function App() {
                 path="/contact-us"
                 element={<Navigate to={ROUTES.COMPANY.CONTACT} replace />}
               />
+              <Route path="/security" element={<SecurityPage />} />
 
               {/* 404 */}
               {/* <Route path="*" element={<NotFoundPage />} /> */}
             </Route>
-
-            {/* Auth routes (separate layout) */}
-            <Route
-              path="/login"
-              element={
-                <Suspense fallback={<PageLoader />}>
-                  {/* Auth layout would go here */}
-                  <div>Login Page</div>
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/signup"
-              element={
-                <Suspense fallback={<PageLoader />}>
-                  <div>Signup Page</div>
-                </Suspense>
-              }
-            />
           </Routes>
         </Suspense>
       </HelmetProvider>

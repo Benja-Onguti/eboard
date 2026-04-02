@@ -56,7 +56,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       behavior: 'smooth',
     });
 
-    // Set loading to false after route change
     setIsLoading(false);
 
     return () => {
@@ -89,7 +88,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       {/* Navbar */}
       {showNavbar && !isAuthPage && <Navbar />}
 
-      {/* Main Content with Page Transitions */}
+      {/* Main Content with Page Transitions - FIXED PADDING */}
       <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
@@ -100,7 +99,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
           exit="exit"
           className={`
             flex-grow
-            ${!showNavbar ? 'pt-0' : ''}
+            w-full
+            ${showNavbar && !isAuthPage ? 'pt-10 md:pt-20' : 'pt-0'}  
             ${isLandingPage ? '' : 'py-8 md:py-12'}
             ${className}
           `}
@@ -125,5 +125,3 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     </div>
   );
 };
-
-export default MainLayout;

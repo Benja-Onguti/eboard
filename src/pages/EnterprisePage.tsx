@@ -36,6 +36,7 @@ import {
   PenTool,
   Share2,
   GitMerge,
+  MessageSquare,
   Code,
   Cpu,
   HardDrive,
@@ -64,7 +65,7 @@ export const EnterprisePage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-slate-900 to-slate-800 text-white overflow-hidden relative">
+      <section className="pt-8 pb-20 bg-gradient-to-b from-slate-900 to-slate-800 text-white overflow-hidden relative">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -191,7 +192,7 @@ export const EnterprisePage: React.FC = () => {
       </section>
 
       {/* Enterprise Stats */}
-      <section className="py-16 bg-slate-800 border-y border-slate-700">
+      {/* <section className="py-16 bg-slate-800 border-y border-slate-700">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -215,7 +216,7 @@ export const EnterprisePage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Enterprise Challenges */}
       <section className="py-24 bg-white">
@@ -743,99 +744,6 @@ export const EnterprisePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Enterprise Pricing */}
-      <section className="py-24 bg-white">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="primary" className="mb-4 bg-primary-100 text-primary-700">
-              Enterprise Pricing
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Custom solutions for enterprise needs
-            </h2>
-            <p className="text-xl text-gray-600">
-              Every enterprise is unique. We'll work with you to build a solution that fits your
-              requirements.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card variant="elevated" className="lg:scale-105">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
-                <div className="text-3xl font-bold text-primary-600 mb-2">Custom</div>
-                <p className="text-gray-500">Tailored to your organization</p>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                {[
-                  'Unlimited board members',
-                  'All Professional features',
-                  'Dedicated account manager',
-                  'SSO & advanced security',
-                  'Custom integrations',
-                  'Private cloud option',
-                  'SLA guarantee',
-                  '24/7 priority support',
-                ].map((feature, index) => (
-                  <li key={index} className="flex items-center text-sm">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Link to={ROUTES.COMPANY.CONTACT}>
-                <Button size="lg" fullWidth className="bg-primary-600 hover:bg-primary-700">
-                  Contact Sales
-                </Button>
-              </Link>
-            </Card>
-
-            <Card>
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Professional</h3>
-                <div className="text-3xl font-bold text-gray-900 mb-2">
-                  $599<span className="text-base font-normal text-gray-500">/month</span>
-                </div>
-                <p className="text-gray-500">Billed annually</p>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                {[
-                  'Up to 25 board members',
-                  'AI-powered minutes',
-                  'Advanced security',
-                  'Priority support',
-                  'API access',
-                  'Custom branding',
-                ].map((feature, index) => (
-                  <li key={index} className="flex items-center text-sm">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Link to={ROUTES.DEMO.INDEX}>
-                <Button size="lg" variant="outline" fullWidth>
-                  Start Free Trial
-                </Button>
-              </Link>
-            </Card>
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4">Need a custom solution?</p>
-            <Link to={ROUTES.PRICING.ENTERPRISE}>
-              <Button variant="link" className="text-primary-600">
-                Learn about enterprise pricing →
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Enterprise Support */}
       <section className="py-24 bg-gray-50">
         <div className="container-custom">
@@ -869,13 +777,13 @@ export const EnterprisePage: React.FC = () => {
                     icon: Phone,
                     title: 'Phone Support',
                     description: '24/7 access to senior support engineers',
-                    contact: '+1 (888) 555-1234',
+                    contact: '(+254) 721 779 429',
                   },
                   {
                     icon: Mail,
                     title: 'Email Support',
                     description: 'Guaranteed 30-minute response',
-                    contact: 'enterprise@eboard.com',
+                    contact: 'info@matrixsystems.co.ke',
                   },
                   {
                     icon: MessageSquare,

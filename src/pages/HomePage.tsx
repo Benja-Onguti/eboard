@@ -50,7 +50,7 @@ export const HomePage: React.FC = () => {
       {/* Header is in layout */}
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-primary-50 to-white">
+      <section className="relative pt-8 pb-20 md:pt-10 md:pb-28 overflow-hidden bg-gradient-to-b from-primary-50 to-white">
         {/* Background decoration */}
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
@@ -84,7 +84,7 @@ export const HomePage: React.FC = () => {
               {/* Trust indicators */}
               <div className="flex items-center gap-4 text-sm text-gray-500">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3, 4,].map((i) => (
+                  {[1, 2, 3, 4].map((i) => (
                     <div
                       key={i}
                       className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 border-2 border-white"
@@ -131,7 +131,7 @@ export const HomePage: React.FC = () => {
                     <CountUp
                       end={parseInt(stat.value)}
                       duration={2.5}
-                      suffix={stat.value.includes('+') ? '+' : stat.value.includes('%') ? '%' :''}
+                      suffix={stat.value.includes('+') ? '+' : stat.value.includes('%') ? '%' : ''}
                     />
                   )}
                 </div>

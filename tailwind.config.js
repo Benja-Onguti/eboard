@@ -5,17 +5,17 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          300: "#93c5fd",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          800: "#1e40af",
-          900: "#1e3a8a",
-          950: "#172554",
+          50: "#e6fbfa",
+          100: "#c9f1ee",
+          200: "#9de6e0",
+          300: "#6dd9d2",
+          400: "#2fcbc4",
+          500: "#00bdae",
+          600: "#009a96",
+          700: "#007973",
+          800: "#005a55",
+          900: "#003b38",
+          950: "#021f23",
         },
         secondary: {
           50: "#f8fafc",
@@ -40,8 +40,7 @@ export default {
           "Roboto",
           "sans-serif",
         ],
-        display: ["Calistoga", "serif"],
-       
+        display: ["Montserrat", "sans-serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",

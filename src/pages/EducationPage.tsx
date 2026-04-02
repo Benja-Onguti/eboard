@@ -3,21 +3,15 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  GraduationCap,
   Calendar,
   Shield,
   FileText,
   Users,
   Globe,
   CheckCircle,
-  ArrowRight,
   Star,
-  BookOpen,
   Clock,
   Award,
-  Mail,
-  Phone,
-  MapPin,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -36,7 +30,7 @@ export const EducationPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
+      <section className="pt-8 pb-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -105,33 +99,8 @@ export const EducationPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: '70%', label: 'Faster meeting prep' },
-              { value: '200+', label: 'Institutions' },
-              { value: '50K+', label: 'Users' },
-              { value: '100%', label: 'FERPA compliant' },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-sm text-blue-100">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Challenges Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gray-50">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="primary" className="mb-4 bg-blue-100 text-blue-700">
@@ -202,7 +171,7 @@ export const EducationPage: React.FC = () => {
       </section>
 
       {/* Solution Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -271,7 +240,7 @@ export const EducationPage: React.FC = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gray-50">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="primary" className="mb-4 bg-blue-100 text-blue-700">
@@ -380,14 +349,9 @@ export const EducationPage: React.FC = () => {
             </Link>
             <Link to={ROUTES.COMPANY.CONTACT}>
               <Button size="lg" variant="outline">
-                Contact Education Team
+                Contact Us
               </Button>
             </Link>
-          </div>
-          <div className="mt-8 text-sm text-gray-500">
-            <span className="mx-2">✓ No credit card required</span>
-            <span className="mx-2">✓ 14-day free trial</span>
-            <span className="mx-2">✓ Education pricing available</span>
           </div>
         </div>
       </section>

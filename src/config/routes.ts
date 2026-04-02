@@ -58,16 +58,6 @@ export const ROUTES = {
     SUPPORT: '/help/support',
   },
 
-  // Pricing routes
-  PRICING: {
-    INDEX: '/pricing',
-    COMPARE: '/pricing/compare',
-    ENTERPRISE: '/pricing/enterprise',
-    NONPROFIT: '/pricing/nonprofit',
-    EDUCATION: '/pricing/education',
-    GOVERNMENT: '/pricing/government',
-  },
-
   // Company routes
   COMPANY: {
     INDEX: '/company',
@@ -94,41 +84,6 @@ export const ROUTES = {
     SLA: '/sla',
     DPA: '/dpa',
     SUBPROCESSORS: '/subprocessors',
-  },
-
-  // Authentication routes
-  AUTH: {
-    LOGIN: '/login',
-    SIGNUP: '/signup',
-    REGISTER: '/register',
-    FORGOT_PASSWORD: '/forgot-password',
-    RESET_PASSWORD: '/reset-password',
-    VERIFY_EMAIL: '/verify-email',
-    LOGOUT: '/logout',
-    PROFILE: '/profile',
-    SETTINGS: '/settings',
-  },
-
-  // App routes (for authenticated users)
-  APP: {
-    DASHBOARD: '/app/dashboard',
-    MEETINGS: '/app/meetings',
-    MEETING: (id: string) => `/app/meetings/${id}`,
-    DOCUMENTS: '/app/documents',
-    DOCUMENT: (id: string) => `/app/documents/${id}`,
-    VOTING: '/app/voting',
-    VOTE: (id: string) => `/app/voting/${id}`,
-    MEMBERS: '/app/members',
-    MEMBER: (id: string) => `/app/members/${id}`,
-    COMMITTEES: '/app/committees',
-    COMMITTEE: (id: string) => `/app/committees/${id}`,
-    CALENDAR: '/app/calendar',
-    TASKS: '/app/tasks',
-    NOTIFICATIONS: '/app/notifications',
-    REPORTS: '/app/reports',
-    SETTINGS: '/app/settings',
-    INTEGRATIONS: '/app/integrations',
-    BILLING: '/app/billing',
   },
 
   // Demo & Trial routes
@@ -213,8 +168,6 @@ export const NAVIGATION = {
         { label: 'Government', href: ROUTES.SOLUTIONS.GOVERNMENT },
         { label: 'NGOs', href: ROUTES.SOLUTIONS.NGOS },
         { label: 'Enterprise', href: ROUTES.SOLUTIONS.ENTERPRISE },
-        { label: 'Healthcare', href: ROUTES.SOLUTIONS.HEALTHCARE },
-        { label: 'Financial Services', href: ROUTES.SOLUTIONS.FINANCIAL },
       ],
     },
     {
@@ -230,17 +183,6 @@ export const NAVIGATION = {
         { label: 'Help Center', href: ROUTES.RESOURCES.HELP_CENTER },
       ],
     },
-    {
-      label: 'Pricing',
-      href: ROUTES.PRICING.INDEX,
-      children: [
-        { label: 'Compare Plans', href: ROUTES.PRICING.COMPARE },
-        { label: 'Enterprise', href: ROUTES.PRICING.ENTERPRISE },
-        { label: 'Nonprofit', href: ROUTES.PRICING.NONPROFIT },
-        { label: 'Education', href: ROUTES.PRICING.EDUCATION },
-        { label: 'Government', href: ROUTES.PRICING.GOVERNMENT },
-      ],
-    },
   ],
 
   footer: {
@@ -248,7 +190,6 @@ export const NAVIGATION = {
       { label: 'Features', href: ROUTES.PLATFORM.FEATURES },
       { label: 'Security', href: ROUTES.PLATFORM.SECURITY },
       { label: 'Integrations', href: ROUTES.PLATFORM.INTEGRATIONS },
-      { label: 'Pricing', href: ROUTES.PRICING.INDEX },
       { label: 'Roadmap', href: ROUTES.PLATFORM.ROADMAP },
     ],
     industries: [
@@ -296,19 +237,6 @@ export const NAVIGATION = {
       { label: 'DPA', href: ROUTES.LEGAL.DPA },
     ],
   },
-
-  auth: [
-    { label: 'Log In', href: ROUTES.AUTH.LOGIN },
-    { label: 'Sign Up', href: ROUTES.AUTH.SIGNUP },
-  ],
-
-  user: [
-    { label: 'Dashboard', href: ROUTES.APP.DASHBOARD },
-    { label: 'Profile', href: ROUTES.AUTH.PROFILE },
-    { label: 'Settings', href: ROUTES.AUTH.SETTINGS },
-    { label: 'Billing', href: ROUTES.APP.BILLING },
-    { label: 'Log Out', href: ROUTES.AUTH.LOGOUT },
-  ],
 } as const;
 
 // Breadcrumb mappings
@@ -333,9 +261,6 @@ export const BREADCRUMBS: Record<string, { label: string; parent?: string }> = {
   [ROUTES.RESOURCES.BLOG]: { label: 'Blog', parent: ROUTES.RESOURCES.INDEX },
   [ROUTES.RESOURCES.GUIDES]: { label: 'Guides', parent: ROUTES.RESOURCES.INDEX },
   [ROUTES.RESOURCES.CASE_STUDIES]: { label: 'Case Studies', parent: ROUTES.RESOURCES.INDEX },
-
-  // Pricing
-  [ROUTES.PRICING.INDEX]: { label: 'Pricing', parent: ROUTES.HOME },
 
   // Company
   [ROUTES.COMPANY.ABOUT]: { label: 'About Us', parent: ROUTES.HOME },
@@ -373,71 +298,10 @@ export const SLUGS = {
 // Redirect rules (for old URLs or marketing campaigns)
 export const REDIRECTS: Record<string, string> = {
   '/old-features': ROUTES.PLATFORM.FEATURES,
-  '/old-pricing': ROUTES.PRICING.INDEX,
   '/old-contact': ROUTES.COMPANY.CONTACT,
   '/blog/old-post': '/blog/new-post',
   '/whitepaper': ROUTES.RESOURCES.WHITEPAPERS,
 };
-
-// Route permissions (for role-based access)
-export const ROUTE_PERMISSIONS: Record<string, string[]> = {
-  [ROUTES.APP.DASHBOARD]: ['user', 'admin'],
-  [ROUTES.APP.MEETINGS]: ['user', 'admin'],
-  [ROUTES.APP.DOCUMENTS]: ['user', 'admin'],
-  [ROUTES.APP.VOTING]: ['user', 'admin'],
-  [ROUTES.APP.MEMBERS]: ['admin'],
-  [ROUTES.APP.SETTINGS]: ['user', 'admin'],
-  [ROUTES.APP.BILLING]: ['admin'],
-  [ROUTES.APP.REPORTS]: ['admin'],
-};
-
-// API route patterns (for backend)
-export const API_ROUTES = {
-  AUTH: {
-    LOGIN: '/api/auth/login',
-    REGISTER: '/api/auth/register',
-    LOGOUT: '/api/auth/logout',
-    REFRESH: '/api/auth/refresh',
-    VERIFY: '/api/auth/verify',
-    RESET_PASSWORD: '/api/auth/reset-password',
-  },
-  USERS: {
-    PROFILE: '/api/users/profile',
-    UPDATE: '/api/users/update',
-    PREFERENCES: '/api/users/preferences',
-  },
-  MEETINGS: {
-    LIST: '/api/meetings',
-    CREATE: '/api/meetings',
-    GET: (id: string) => `/api/meetings/${id}`,
-    UPDATE: (id: string) => `/api/meetings/${id}`,
-    DELETE: (id: string) => `/api/meetings/${id}`,
-    MINUTES: (id: string) => `/api/meetings/${id}/minutes`,
-    ATTENDEES: (id: string) => `/api/meetings/${id}/attendees`,
-  },
-  DOCUMENTS: {
-    LIST: '/api/documents',
-    UPLOAD: '/api/documents/upload',
-    GET: (id: string) => `/api/documents/${id}`,
-    UPDATE: (id: string) => `/api/documents/${id}`,
-    DELETE: (id: string) => `/api/documents/${id}`,
-    SHARE: (id: string) => `/api/documents/${id}/share`,
-    VERSIONS: (id: string) => `/api/documents/${id}/versions`,
-  },
-  VOTING: {
-    LIST: '/api/votes',
-    CREATE: '/api/votes',
-    GET: (id: string) => `/api/votes/${id}`,
-    CAST: (id: string) => `/api/votes/${id}/cast`,
-    RESULTS: (id: string) => `/api/votes/${id}/results`,
-  },
-  CONTACT: {
-    SEND: '/api/contact',
-    NEWSLETTER: '/api/newsletter',
-    DEMO: '/api/demo/request',
-    SUPPORT: '/api/support',
-  },
-} as const;
 
 // Type for route keys
 export type RouteKey = keyof typeof ROUTES;
