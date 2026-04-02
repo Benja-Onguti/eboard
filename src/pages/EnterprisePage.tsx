@@ -3,44 +3,31 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  Building,
   Shield,
   Users,
   Globe,
   BarChart,
-  Settings,
-  CheckCircle,
-  ArrowRight,
-  Star,
   Award,
   Lock,
-  Cloud,
   Database,
-  Zap,
   Clock,
   Mail,
   Phone,
-  MapPin,
-  Download,
   TrendingUp,
-  Briefcase,
   LineChart,
   Network,
   Server,
   Key,
   UserCheck,
   Headphones,
-  FileText,
   Calendar,
   Brain,
-  PenTool,
-  Share2,
   GitMerge,
   MessageSquare,
   Code,
-  Cpu,
   HardDrive,
   RefreshCw,
+  Star,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -454,7 +441,7 @@ export const EnterprisePage: React.FC = () => {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {['ISO 27001', 'SOC 2 Type II', 'GDPR', 'HIPAA', 'FedRAMP'].map((cert) => (
-                        <Badge key={cert} variant="primary" size="lg">
+                        <Badge key={cert} variant="primary" size="md">
                           {cert}
                         </Badge>
                       ))}

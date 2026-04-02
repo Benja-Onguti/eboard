@@ -12,26 +12,17 @@ import {
   FileSearch,
   Star,
   Award,
-  Key,
   Database,
   Server,
-  Users,
   Clock,
-  AlertCircle,
   Download,
   Mail,
   Fingerprint,
   Globe,
   UserCheck,
-  FileCheck,
-  TrendingUp,
   BadgeCheck,
   HardDrive,
-  RefreshCw,
   Cloud,
-  Terminal,
-  Bug,
-  Zap,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -262,7 +253,12 @@ export const SecurityPage: React.FC = () => {
             </p>
           </div>
 
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <Tabs
+            value={activeTab}
+            onValueChange={setActiveTab}
+            defaultValue="overview"
+            className="w-full"
+          >
             <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 mb-8">
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="encryption">Encryption</TabsTrigger>
@@ -541,25 +537,25 @@ export const SecurityPage: React.FC = () => {
                       Compliance at a glance
                     </h4>
                     <div className="flex flex-wrap gap-3">
-                      <Badge variant="primary" size="lg">
+                      <Badge variant="primary" size="md">
                         ISO 27001
                       </Badge>
-                      <Badge variant="primary" size="lg">
+                      <Badge variant="primary" size="md">
                         SOC 2 Type II
                       </Badge>
-                      <Badge variant="primary" size="lg">
+                      <Badge variant="primary" size="md">
                         GDPR
                       </Badge>
-                      <Badge variant="primary" size="lg">
+                      <Badge variant="primary" size="md">
                         FedRAMP
                       </Badge>
-                      <Badge variant="primary" size="lg">
+                      <Badge variant="primary" size="md">
                         CCPA
                       </Badge>
-                      <Badge variant="primary" size="lg">
+                      <Badge variant="primary" size="md">
                         HIPAA
                       </Badge>
-                      <Badge variant="primary" size="lg">
+                      <Badge variant="primary" size="md">
                         PCI DSS
                       </Badge>
                     </div>
