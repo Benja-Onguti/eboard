@@ -17,14 +17,41 @@ import {
   Scale,
   Download,
   ChevronRight,
+  PenTool,
   Star,
+  Mic,
+  Volume2,
+  Layout,
+  Video,
+  Lock,
+  Fingerprint,
+  Activity,
+  Key,
+  Plug,
+  Headphones,
+  Cloud,
+  FileCheck,
+  Copy,
+  Vote,
+  Building2,
+  GraduationCap,
+  Heart,
+  Building,
+  Zap,
+  Database,
+  Globe,
+  Clock,
+  Award,
+  CheckCircle,
 } from 'lucide-react';
 import { siteContent } from '@/data/siteContent';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { Badge } from '@/components/ui/Badge';
 
-// Icon mapping
+// Icon mapping - expanded for new features
 const iconMap: Record<string, React.ElementType> = {
+  // Original icons
   Calendar,
   Shield,
   Brain,
@@ -33,6 +60,36 @@ const iconMap: Record<string, React.ElementType> = {
   Settings,
   Users,
   Scale,
+  // New AI icons
+  Mic,
+  Volume2,
+  Layout,
+  Video,
+  // New Security icons
+  Lock,
+  Fingerprint,
+  Activity,
+  Key,
+  // New Integration icons
+  Plug,
+  Headphones,
+  Cloud,
+  // New Document icons
+  FileCheck,
+  Copy,
+  Vote,
+  // Industry icons
+  Building2,
+  GraduationCap,
+  Heart,
+  Building,
+  // Utility icons
+  Zap,
+  Database,
+  Globe,
+  Clock,
+  Award,
+  CheckCircle,
 };
 
 export const HomePage: React.FC = () => {
@@ -45,9 +102,12 @@ export const HomePage: React.FC = () => {
       <Helmet>
         <title>EBoard Solutions - Modern Governance Platform</title>
         <meta name="description" content={siteContent.hero.subheadline} />
+        <meta
+          name="keywords"
+          content="board management, governance, AI meeting minutes, committee management, board portal, secure governance"
+        />
+        <link rel="canonical" href="https://eboard-solutions.com" />
       </Helmet>
-
-      {/* Header is in layout */}
 
       {/* Hero Section */}
       <section className="relative pt-8 pb-20 md:pt-10 md:pb-28 overflow-hidden bg-gradient-to-b from-primary-50 to-white">
@@ -63,6 +123,9 @@ export const HomePage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
+              <Badge variant="primary" className="mb-4 inline-flex">
+                ✨ AI-Powered Governance Platform
+              </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 {siteContent.hero.headline}
               </h1>
@@ -82,7 +145,7 @@ export const HomePage: React.FC = () => {
               </div>
 
               {/* Trust indicators */}
-              <div className="flex items-center gap-4 text-sm text-gray-500">
+              <div className="flex items-center gap-6 text-sm text-gray-500">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
                     <div
@@ -91,7 +154,15 @@ export const HomePage: React.FC = () => {
                     />
                   ))}
                 </div>
-                <span>Trusted by 2M+ users</span>
+                <div>
+                  <div className="flex items-center gap-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                    <span className="ml-2 font-medium text-gray-700">4.9/5</span>
+                  </div>
+                  <span>Trusted by 2M+ users</span>
+                </div>
               </div>
             </motion.div>
 
@@ -128,11 +199,13 @@ export const HomePage: React.FC = () => {
               >
                 <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">
                   {statsInView && (
-                    <CountUp
-                      end={parseInt(stat.value)}
-                      duration={2.5}
-                      suffix={stat.value.includes('+') ? '+' : stat.value.includes('%') ? '%' : ''}
-                    />
+                    <>
+                      <CountUp
+                        end={typeof stat.value === 'number' ? stat.value : parseInt(stat.value)}
+                        duration={2.5}
+                      />
+                      {stat.suffix && <span>{stat.suffix}</span>}
+                    </>
                   )}
                 </div>
                 <div className="text-sm text-gray-600">{stat.label}</div>
@@ -142,57 +215,210 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Core Features */}
+      {/* Core Features - Updated with new feature set */}
       <section ref={featuresRef} className="py-24 bg-gray-50">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
+            <Badge variant="primary" className="mb-4">
+              Platform Features
+            </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {siteContent.coreFeatures.headline}
+              Everything you need for modern governance
             </h2>
-            <p className="text-xl text-gray-600">{siteContent.coreFeatures.subheadline}</p>
+            <p className="text-xl text-gray-600">
+              From AI-powered tools to enterprise-grade security, EBoard has you covered.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {siteContent.coreFeatures.features.map((feature, index) => {
-              const Icon = iconMap[feature.icon];
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={featuresInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Card variant="elevated" className="h-full">
-                    <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 mb-4">
-                      {Icon && <Icon className="w-6 h-6" />}
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600 mb-4">{feature.description}</p>
-                    <ul className="space-y-2">
-                      {feature.benefits.map((benefit, i) => (
-                        <li key={i} className="text-sm text-gray-500 flex items-center">
-                          <span className="w-1.5 h-1.5 bg-primary-400 rounded-full mr-2" />
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </Card>
-                </motion.div>
-              );
-            })}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {/* Meeting & Agenda Management */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={featuresInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Card variant="elevated" className="h-full">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white mb-4">
+                  <Calendar className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Meeting & Agenda Management
+                </h3>
+                <p className="text-gray-600 mb-4">Streamline your entire meeting workflow</p>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Layout className="w-4 h-4 text-blue-500 mr-2" />
+                    Agenda Builder – Drag-and-drop tool
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <PenTool className="w-4 h-4 text-blue-500 mr-2" />
+                    Minute Builder – Track decisions
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Video className="w-4 h-4 text-blue-500 mr-2" />
+                    Zoom & Teams integration
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
+
+            {/* Committee Management */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={featuresInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Card variant="elevated" className="h-full">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-teal-600 rounded-xl flex items-center justify-center text-white mb-4">
+                  <Users className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Committee Management</h3>
+                <p className="text-gray-600 mb-4">Organize all your committees efficiently</p>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Users className="w-4 h-4 text-green-500 mr-2" />
+                    Unlimited committees
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Database className="w-4 h-4 text-green-500 mr-2" />
+                    Dedicated committee libraries
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <FileText className="w-4 h-4 text-green-500 mr-2" />
+                    Membership register & history
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
+
+            {/* AI Capabilities Feature */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={featuresInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Card variant="elevated" className="h-full">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center text-white mb-4">
+                  <Brain className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">AI Capabilities</h3>
+                <p className="text-gray-600 mb-4">Powered by Google Gemini and Google Cloud</p>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Mic className="w-4 h-4 text-purple-500 mr-2" />
+                    Speech to Text – Transcribe meetings
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Volume2 className="w-4 h-4 text-purple-500 mr-2" />
+                    Text to Speech – Listen on the go
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Brain className="w-4 h-4 text-purple-500 mr-2" />
+                    AI Summarisation – 100+ page reports
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
+
+            {/* Document & Pack Features */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={featuresInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Card variant="elevated" className="h-full">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-600 to-red-600 rounded-xl flex items-center justify-center text-white mb-4">
+                  <FileText className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Document & Pack Features</h3>
+                <p className="text-gray-600 mb-4">Complete document management solution</p>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <FileCheck className="w-4 h-4 text-orange-500 mr-2" />
+                    All file types supported
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <PenTool className="w-4 h-4 text-orange-500 mr-2" />
+                    Document signing
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Copy className="w-4 h-4 text-orange-500 mr-2" />
+                    Clone any agenda
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
+
+            {/* Security Feature */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={featuresInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <Card variant="elevated" className="h-full">
+                <div className="w-12 h-12 bg-gradient-to-br from-slate-600 to-gray-600 rounded-xl flex items-center justify-center text-white mb-4">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Security</h3>
+                <p className="text-gray-600 mb-4">Military-grade protection for your data</p>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Lock className="w-4 h-4 text-slate-500 mr-2" />
+                    Military-grade encryption
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Fingerprint className="w-4 h-4 text-slate-500 mr-2" />
+                    Two-factor authentication (2FA)
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Activity className="w-4 h-4 text-slate-500 mr-2" />
+                    Activity tracking & audit logs
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
+
+            {/* Integrations & Support */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={featuresInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <Card variant="elevated" className="h-full">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-xl flex items-center justify-center text-white mb-4">
+                  <Settings className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Integrations & Support</h3>
+                <p className="text-gray-600 mb-4">Connect with your favorite tools</p>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Plug className="w-4 h-4 text-cyan-500 mr-2" />
+                    SharePoint, email, calendar sync
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Headphones className="w-4 h-4 text-cyan-500 mr-2" />
+                    Unlimited training & support
+                  </li>
+                  <li className="text-sm text-gray-500 flex items-center">
+                    <Cloud className="w-4 h-4 text-cyan-500 mr-2" />
+                    Self-hosted or cloud-hosted
+                  </li>
+                </ul>
+              </Card>
+            </motion.div>
           </div>
 
           <div className="text-center">
             <Link to={siteContent.coreFeatures.cta.href}>
               <Button size="lg" variant="outline" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                {siteContent.coreFeatures.cta.text}
+                Explore All Features
               </Button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Feature Deep Dives (Alternating) */}
+      {/* Feature Deep Dives (Alternating) - Updated with new features */}
       {siteContent.featureDeepDives.map((feature, index) => (
         <section
           key={feature.id}
@@ -202,9 +428,11 @@ export const HomePage: React.FC = () => {
             <div
               className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
             >
-              {/* Content */}
               <div className={index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}>
                 <div className="max-w-xl">
+                  <Badge variant="primary" className="mb-4">
+                    {feature.id.replace('-', ' ')}
+                  </Badge>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Pain Point</h3>
                   <p className="text-xl text-gray-600 mb-6">{feature.painPoint}</p>
 
@@ -233,7 +461,6 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Image */}
               <div className={index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}>
                 <div className="relative rounded-2xl shadow-2xl overflow-hidden">
                   <img src={feature.image} alt={feature.id} className="w-full h-auto" />
@@ -307,7 +534,6 @@ export const HomePage: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card variant="elevated" className="h-full">
-                  {/* Rating */}
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star
@@ -348,7 +574,6 @@ export const HomePage: React.FC = () => {
       <section className="py-24 bg-primary-600 text-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Metrics */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-12">
                 Real results from real organizations
@@ -364,7 +589,6 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Video Case Study */}
             <div>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
                 <img
@@ -404,7 +628,7 @@ export const HomePage: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {siteContent.resources.map((resource, index) => (
               <Card key={index} variant="elevated" className="h-full">
-                <div className="aspect-w-16 aspect-h-9 mb-4">
+                <div className="mb-4">
                   <img
                     src={resource.image}
                     alt={resource.title}
@@ -484,8 +708,6 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer - handled in layout */}
     </>
   );
 };

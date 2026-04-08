@@ -90,7 +90,7 @@ export const ContactPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-b from-primary-50 to-white">
+      <section className="pt-10 pb-16 bg-gradient-to-b from-primary-50 to-white">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Get in <span className="text-primary-600">touch</span>
@@ -102,7 +102,7 @@ export const ContactPage: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 bg-white">
+      <section className="py-8 bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Contact Info Cards */}

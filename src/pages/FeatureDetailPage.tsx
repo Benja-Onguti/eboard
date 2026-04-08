@@ -16,18 +16,27 @@ import {
   ChevronRight,
   Zap,
   Lock,
+  Eye,
+  Mail,
   FileSearch,
-  MessageSquare,
   Vote,
   BarChart,
   Play,
-  AlertCircle,
   Award,
   Layers,
-  Share2,
   Database,
   Cloud,
-  Smartphone,
+  Mic,
+  Volume2,
+  Layout,
+  Video,
+  Fingerprint,
+  Activity,
+  Key,
+  Plug,
+  Headphones,
+  FileCheck,
+  Copy,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -96,517 +105,114 @@ interface FeatureDetail {
   };
 }
 
-// Mock data for all features
+// Complete feature details for all features
 const featureDetails: Record<string, FeatureDetail> = {
-  'meeting-management': {
-    id: 'meeting-management',
-    name: 'Meeting Management',
-    tagline: 'Streamline your entire meeting workflow',
+  // AI Capabilities Feature
+  'ai-capabilities': {
+    id: 'ai-capabilities',
+    name: 'AI Capabilities',
+    tagline: 'Powered by Google Gemini and Google Cloud',
     description:
-      'From scheduling to minutes, manage every aspect of your board meetings in one secure platform.',
+      'Leverage cutting-edge AI to transform how your board works. From transcription to summarization, our AI capabilities save time and improve accuracy.',
     longDescription:
-      'Meeting Management transforms how boards prepare for, conduct, and follow up on meetings. With AI-powered scheduling, collaborative agenda building, automated board pack assembly, and intelligent minute-taking, you can reduce meeting preparation time by up to 70% while improving engagement and decision quality.',
-    icon: Calendar,
-    image: '/images/features/meeting-management-detail.jpg',
-    video: '/videos/meeting-management-demo.mp4',
+      "EBoard's AI capabilities are powered by Google Gemini and Google Cloud, bringing enterprise-grade artificial intelligence to your board governance. From real-time speech transcription to intelligent document summarization, our AI tools help you work smarter, not harder.",
+    icon: Brain,
+    image: '/images/features/ai-capabilities-detail.jpg',
+    video: '/videos/ai-capabilities-demo.mp4',
     benefits: [
       {
-        title: 'AI-Powered Scheduling',
-        description:
-          'Automatically find the perfect meeting time across time zones with smart scheduling that learns member preferences.',
-        icon: Zap,
+        title: 'Speech to Text',
+        description: 'Transcribe meetings, minutes, and dictation in real-time with high accuracy.',
+        icon: Mic,
       },
       {
-        title: 'Collaborative Agendas',
-        description:
-          'Build agendas together with drag-and-drop simplicity, real-time comments, and version tracking.',
-        icon: Layers,
+        title: 'Text to Speech',
+        description: 'Listen to documents on the go with natural-sounding voice synthesis.',
+        icon: Volume2,
       },
       {
-        title: 'Automated Board Packs',
-        description:
-          'One-click assembly of board packs with automatic document compilation and distribution.',
-        icon: Database,
-      },
-      {
-        title: 'Intelligent Minutes',
-        description:
-          'AI-generated minutes that capture decisions, actions, and key discussion points in real-time.',
-        icon: Brain,
-      },
-    ],
-    features: [
-      {
-        title: 'Smart Scheduling',
-        description:
-          'AI-powered scheduling that finds the perfect time for all members across time zones, with calendar integration (Google, Outlook, iCal).',
-        icon: Clock,
-      },
-      {
-        title: 'Agenda Builder',
-        description:
-          'Drag-and-drop interface for building comprehensive agendas with time allocations, attachments, and presenter assignments.',
-        icon: FileText,
-      },
-      {
-        title: 'Board Pack Assembly',
-        description:
-          'Automatically compile documents, reports, and presentations into a single board book with automatic pagination and bookmarking.',
-        icon: Layers,
-      },
-      {
-        title: 'Real-time Collaboration',
-        description:
-          'Live document editing, annotations, and discussions during meetings with threaded comments and @mentions.',
-        icon: MessageSquare,
-      },
-      {
-        title: 'Minutes Generation',
-        description:
-          'AI-powered minutes that capture decisions, action items, and key discussion points with speaker attribution.',
+        title: 'AI Summarisation',
+        description: 'Get concise summaries of board packs, even for 100+ page reports.',
         icon: Brain,
       },
       {
-        title: 'Action Tracking',
-        description:
-          'Automated action item tracking with assignment, due dates, and progress monitoring.',
-        icon: CheckCircle,
-      },
-      {
-        title: 'Meeting Analytics',
-        description:
-          'Insights into meeting effectiveness, attendance patterns, and decision velocity.',
-        icon: BarChart,
-      },
-      {
-        title: 'Mobile Access',
-        description: 'Full meeting functionality on iOS and Android devices with offline access.',
-        icon: Smartphone,
-      },
-    ],
-    useCases: [
-      {
-        title: 'Board of Directors Meetings',
-        description:
-          'Streamline quarterly board meetings with automated board packs and real-time collaboration.',
-        industry: 'Corporate',
-      },
-      {
-        title: 'Committee Meetings',
-        description:
-          'Manage sub-committee meetings with focused agendas and targeted document sharing.',
-        industry: 'All Industries',
-      },
-      {
-        title: 'Annual General Meetings',
-        description:
-          'Handle large-scale meetings with voting, presentations, and attendee management.',
-        industry: 'All Industries',
-      },
-      {
-        title: 'Emergency Board Meetings',
-        description:
-          'Quickly convene urgent meetings with instant notifications and rapid document assembly.',
-        industry: 'All Industries',
-      },
-    ],
-    stats: [
-      {
-        value: '70%',
-        label: 'Faster meeting prep',
-        icon: Zap,
-      },
-      {
-        value: '45%',
-        label: 'Higher engagement',
-        icon: Users,
-      },
-      {
-        value: '100%',
-        label: 'Audit-ready records',
-        icon: Award,
-      },
-      {
-        value: '50K+',
-        label: 'Meetings hosted',
-        icon: Calendar,
-      },
-    ],
-    integrations: ['Google Calendar', 'Microsoft Outlook', 'Zoom', 'Microsoft Teams', 'Dropbox'],
-    security: {
-      encryption: 'AES-256 encryption for all data at rest and in transit',
-      compliance: ['SOC 2 Type II', 'ISO 27001', 'GDPR', 'HIPAA (available)'],
-      certifications: [
-        'Enterprise-grade security',
-        'Role-based access control',
-        'Complete audit trails',
-        'Single sign-on (SSO)',
-      ],
-    },
-    faq: [
-      {
-        question: 'How long does it take to set up my first meeting?',
-        answer:
-          'Most users can schedule and prepare their first meeting within 15 minutes. Our intuitive interface requires no training, and we provide guided onboarding to help you get started quickly.',
-      },
-      {
-        question: 'Can board members access meeting materials offline?',
-        answer:
-          'Yes, all meeting materials can be downloaded for offline access. The mobile app automatically syncs when connectivity is restored.',
-      },
-      {
-        question: 'How are meeting minutes secured?',
-        answer:
-          'Meeting minutes are encrypted with AES-256 and stored with complete version history. Access is controlled by role-based permissions, and all views and edits are logged in the audit trail.',
-      },
-      {
-        question: 'Can I integrate with my existing calendar?',
-        answer:
-          'Yes, EBoard integrates seamlessly with Google Calendar, Microsoft Outlook, and iCal. Meeting invitations and reminders sync automatically.',
-      },
-    ],
-    relatedFeatures: [
-      {
-        id: 'document-security',
-        name: 'Document Security',
-        icon: Shield,
-        description: 'Enterprise-grade encryption and compliance',
-      },
-      {
-        id: 'ai-minutes',
-        name: 'AI Minutes',
-        icon: Brain,
-        description: 'Automated minute-taking with AI',
-      },
-      {
-        id: 'voting',
-        name: 'Voting & Approvals',
-        icon: Vote,
-        description: 'Secure electronic voting',
-      },
-    ],
-    caseStudy: {
-      title: 'Lincoln School District',
-      quote:
-        'EBoard reduced our board meeting prep time from two weeks to two days. Our members actually enjoy using the platform.',
-      author: 'Dr. Sarah Chen',
-      role: 'Board Chair',
-      company: 'Lincoln School District',
-      link: '/case-studies/lincoln-school-district',
-    },
-    pricing: {
-      included: true,
-      plan: 'All plans include Meeting Management',
-    },
-  },
-  'document-security': {
-    id: 'document-security',
-    name: 'Document Security',
-    tagline: 'Bank-level security for sensitive board materials',
-    description:
-      'Protect your board documents with military-grade encryption, granular access controls, and complete audit trails.',
-    longDescription:
-      'Document Security provides enterprise-grade protection for all your board materials. With AES-256 encryption, role-based access control, and comprehensive audit logging, you can ensure that sensitive information remains confidential while maintaining compliance with regulations like GDPR, HIPAA, and SOX.',
-    icon: Shield,
-    image: '/images/features/security-detail.jpg',
-    benefits: [
-      {
-        title: 'AES-256 Encryption',
-        description: 'Military-grade encryption for all documents at rest and in transit.',
-        icon: Lock,
-      },
-      {
-        title: 'Granular Access Control',
-        description: 'Role-based permissions with folder and document-level controls.',
-        icon: Users,
-      },
-      {
-        title: 'Complete Audit Trails',
-        description: 'Every view, edit, and share is logged with timestamp and user information.',
-        icon: FileSearch,
-      },
-      {
-        title: 'Compliance Ready',
-        description: 'ISO 27001, SOC 2, GDPR, and HIPAA compliant infrastructure.',
-        icon: Award,
-      },
-    ],
-    features: [
-      {
-        title: 'End-to-End Encryption',
-        description:
-          'AES-256 encryption for all data at rest and in transit, with secure key management.',
-        icon: Lock,
-      },
-      {
-        title: 'Role-Based Access',
-        description: 'Granular permissions at folder, document, and even page level.',
-        icon: Users,
-      },
-      {
-        title: 'Audit Logging',
-        description: 'Complete visibility into who accessed what, when, and from where.',
-        icon: FileSearch,
-      },
-      {
-        title: 'Watermarking',
-        description: 'Dynamic watermarks with user information to prevent unauthorized sharing.',
-        icon: Share2,
-      },
-      {
-        title: 'DRM Protection',
-        description: 'Prevent downloading, printing, or forwarding of sensitive documents.',
-        icon: Shield,
-      },
-      {
-        title: 'Auto-Redaction',
-        description: 'Automatically redact sensitive information for FOI requests.',
-        icon: AlertCircle,
-      },
-    ],
-    useCases: [
-      {
-        title: 'Confidential Board Materials',
-        description:
-          'Protect sensitive financial reports, strategic plans, and executive communications.',
-        industry: 'All Industries',
-      },
-      {
-        title: 'M&A Due Diligence',
-        description: 'Secure document rooms for merger and acquisition activities.',
-        industry: 'Corporate',
-      },
-      {
-        title: 'FOI Compliance',
-        description: 'Automatically manage public records requests with redaction tools.',
-        industry: 'Government',
-      },
-      {
-        title: 'Regulatory Compliance',
-        description: 'Maintain audit-ready records for regulatory inspections.',
-        industry: 'Financial, Healthcare',
-      },
-    ],
-    stats: [
-      {
-        value: '99.9%',
-        label: 'Uptime SLA',
+        title: 'Powered by Google Gemini',
+        description: 'Enterprise-grade AI technology trusted by millions worldwide.',
         icon: Cloud,
       },
-      {
-        value: '100%',
-        label: 'Compliance rate',
-        icon: Award,
-      },
-      {
-        value: '0',
-        label: 'Security breaches',
-        icon: Shield,
-      },
-      {
-        value: '10+',
-        label: 'Certifications',
-        icon: CheckCircle,
-      },
-    ],
-    integrations: [
-      'Microsoft Information Protection',
-      'Google DLP',
-      'Box Shield',
-      'Dropbox Business',
-      'SharePoint',
-      'Okta',
-      'Microsoft Azure AD',
-      'OneLogin',
-    ],
-    security: {
-      encryption: 'AES-256 encryption with HSM key management',
-      compliance: ['ISO 27001', 'SOC 2 Type II', 'GDPR', 'HIPAA', 'FedRAMP (available)'],
-      certifications: ['ISO 27001 Certified', 'SOC 2 Type II', 'GDPR Compliant', 'HIPAA Eligible'],
-    },
-    faq: [
-      {
-        question: 'What encryption standards do you use?',
-        answer:
-          'We use AES-256 encryption for all data at rest and TLS 1.3 for data in transit. Encryption keys are managed in hardware security modules (HSM).',
-      },
-      {
-        question: 'Can I control who sees specific documents?',
-        answer:
-          'Yes, you can set permissions at the folder, document, and even page level. You can also set expiration dates for access and require additional authentication for sensitive documents.',
-      },
-      {
-        question: 'Do you have compliance certifications?',
-        answer:
-          'Yes, we are ISO 27001 certified, SOC 2 Type II compliant, and GDPR ready. We also offer HIPAA compliance for healthcare organizations and FedRAMP for government agencies.',
-      },
-      {
-        question: 'How long are audit logs retained?',
-        answer:
-          'Audit logs are retained for 7 years (or longer for enterprise customers) and are tamper-proof to ensure compliance with regulatory requirements.',
-      },
-    ],
-    relatedFeatures: [
-      {
-        id: 'meeting-management',
-        name: 'Meeting Management',
-        icon: Calendar,
-        description: 'Streamline your entire meeting workflow',
-      },
-      {
-        id: 'e-signatures',
-        name: 'E-Signatures',
-        icon: PenTool,
-        description: 'Legally binding digital signatures',
-      },
-      {
-        id: 'public-sites',
-        name: 'Public Sites',
-        icon: Globe,
-        description: 'Transparent public meeting portals',
-      },
-    ],
-    pricing: {
-      included: false,
-      plan: 'Included in all plans',
-    },
-  },
-  'ai-minutes': {
-    id: 'ai-minutes',
-    name: 'AI-Powered Minutes',
-    tagline: 'Never miss a moment with AI assistance',
-    description:
-      'Let artificial intelligence capture decisions, actions, and key discussion points automatically.',
-    longDescription:
-      'AI Minutes revolutionizes meeting documentation by automatically capturing, transcribing, and summarizing your board meetings. With real-time transcription, speaker identification, and intelligent extraction of decisions and action items, you can focus on the discussion while we handle the documentation.',
-    icon: Brain,
-    image: '/images/features/ai-minutes-detail.jpg',
-    video: '/videos/ai-minutes-demo.mp4',
-    benefits: [
-      {
-        title: 'Real-time Transcription',
-        description: 'Live transcription with speaker identification and timestamping.',
-        icon: FileText,
-      },
-      {
-        title: 'Smart Summaries',
-        description: 'AI-generated summaries of key discussion points and decisions.',
-        icon: Zap,
-      },
-      {
-        title: 'Action Item Extraction',
-        description: 'Automatic identification and tracking of action items.',
-        icon: CheckCircle,
-      },
-      {
-        title: 'Searchable Archive',
-        description: 'Full-text search across all meeting transcripts and minutes.',
-        icon: FileSearch,
-      },
     ],
     features: [
       {
-        title: 'Live Transcription',
-        description: 'Real-time transcription with 95%+ accuracy and speaker identification.',
-        icon: FileText,
-      },
-      {
-        title: 'Smart Summaries',
-        description: 'AI-generated executive summaries of key decisions and discussions.',
-        icon: Brain,
-      },
-      {
-        title: 'Action Tracking',
-        description: 'Automatic extraction and assignment of action items with due dates.',
-        icon: CheckCircle,
-      },
-      {
-        title: 'Decision Log',
-        description: 'Centralized log of all board decisions with context and voting results.',
-        icon: Vote,
-      },
-      {
-        title: 'Searchable Archive',
+        title: 'Speech to Text',
         description:
-          'Full-text search across all meetings with filters by date, topic, or participant.',
-        icon: FileSearch,
+          'Real-time transcription of meetings with speaker identification and punctuation.',
+        icon: Mic,
+      },
+      {
+        title: 'Text to Speech',
+        description: 'Natural voice synthesis for document playback, perfect for accessibility.',
+        icon: Volume2,
+      },
+      {
+        title: 'AI Summarisation',
+        description: 'Smart summarization of board packs, agendas, and meeting minutes.',
+        icon: Brain,
       },
       {
         title: 'Multi-language Support',
         description: 'Transcription and translation in over 30 languages.',
         icon: Globe,
       },
+      {
+        title: 'Google Cloud Integration',
+        description: 'Seamless integration with Google Cloud services for enhanced capabilities.',
+        icon: Cloud,
+      },
     ],
     useCases: [
       {
-        title: 'Board Meetings',
-        description: 'Automatically capture formal board meetings with accurate minutes.',
+        title: 'Board Meeting Transcription',
+        description: 'Automatically transcribe and summarize board discussions.',
         industry: 'All Industries',
       },
       {
-        title: 'Committee Meetings',
-        description: 'Track sub-committee discussions and recommendations.',
+        title: 'Accessibility Support',
+        description: 'Text-to-speech for visually impaired board members.',
         industry: 'All Industries',
       },
       {
-        title: 'Annual General Meetings',
-        description: 'Document AGM proceedings with speaker attribution.',
-        industry: 'Corporate',
-      },
-      {
-        title: 'Public Hearings',
-        description: 'Maintain accurate records of public testimony and discussions.',
-        industry: 'Government',
+        title: 'Document Review',
+        description: 'Quickly understand 100+ page board packs with AI summaries.',
+        industry: 'All Industries',
       },
     ],
     stats: [
-      {
-        value: '95%',
-        label: 'Transcription accuracy',
-        icon: Brain,
-      },
-      {
-        value: '5min',
-        label: 'Average setup time',
-        icon: Clock,
-      },
-      {
-        value: '30+',
-        label: 'Languages supported',
-        icon: Globe,
-      },
-      {
-        value: '50K+',
-        label: 'Minutes generated',
-        icon: FileText,
-      },
+      { value: '95%', label: 'Transcription accuracy', icon: Brain },
+      { value: '30+', label: 'Languages supported', icon: Globe },
+      { value: '5min', label: 'Setup time', icon: Clock },
+      { value: 'Google', label: 'Powered by', icon: Cloud },
     ],
-    integrations: ['Zoom', 'Microsoft Teams', 'Google Meet', 'Webex'],
+    integrations: ['Google Cloud', 'Google Gemini', 'Zoom', 'Microsoft Teams'],
     security: {
-      encryption: 'End-to-end encryption for all audio and transcripts',
-      compliance: ['GDPR compliant', 'HIPAA compliant', 'Data residency options'],
-      certifications: ['ISO 27001', 'SOC 2 Type II', 'GDPR'],
+      encryption: 'End-to-end encryption for all AI processed data',
+      compliance: ['GDPR compliant', 'HIPAA compliant', 'SOC 2 Type II'],
+      certifications: ['ISO 27001', 'Google Cloud Certified'],
     },
     faq: [
       {
-        question: 'How accurate is the transcription?',
+        question: 'How accurate is the speech-to-text transcription?',
         answer:
-          "Our AI achieves over 95% accuracy in ideal conditions, with speaker identification and punctuation. Accuracy improves over time as the system learns your board's terminology and speaker patterns.",
+          "Our AI achieves over 95% accuracy in ideal conditions, with continuous improvement as the system learns your board's terminology and speaker patterns.",
       },
       {
-        question: 'Can I edit the AI-generated minutes?',
+        question: 'Can I use AI summarisation for any document?',
         answer:
-          'Yes, you can review and edit all AI-generated content before finalizing. The system tracks all edits for transparency.',
+          'Yes, AI summarisation works on board packs, agendas, reports, and meeting minutes. It can handle documents of any length, including 100+ page reports.',
       },
       {
-        question: 'Does it work with virtual meetings?',
+        question: 'Is the AI powered by Google Gemini?',
         answer:
-          'Yes, AI Minutes integrates seamlessly with Zoom, Teams, Google Meet, and other virtual meeting platforms. It captures both in-person and virtual discussions.',
-      },
-      {
-        question: 'How are recordings stored?',
-        answer:
-          'Meeting recordings are encrypted and stored securely. You can set retention policies and control who has access to recordings.',
+          'Yes, all AI capabilities are powered by Google Gemini and Google Cloud, ensuring enterprise-grade reliability and accuracy.',
       },
     ],
     relatedFeatures: [
@@ -617,31 +223,564 @@ const featureDetails: Record<string, FeatureDetail> = {
         description: 'Streamline your entire meeting workflow',
       },
       {
-        id: 'voting',
-        name: 'Voting & Approvals',
-        icon: Vote,
-        description: 'Secure electronic voting',
-      },
-      {
-        id: 'document-security',
-        name: 'Document Security',
-        icon: Shield,
-        description: 'Enterprise-grade protection',
+        id: 'document-features',
+        name: 'Document Features',
+        icon: FileText,
+        description: 'Complete document management solution',
       },
     ],
-    caseStudy: {
-      title: 'Torres Industries',
-      quote:
-        'AI Minutes saves our executive team at least 10 hours per month. The accuracy is remarkable, and the action item tracking ensures nothing falls through the cracks.',
-      author: 'Michael Torres',
-      role: 'Corporate Secretary',
-      company: 'Torres Industries',
-      link: '/case-studies/torres-industries',
+    pricing: { included: true, plan: 'Professional and Enterprise plans' },
+  },
+
+  // Meeting & Agenda Management Feature
+  'meeting-management': {
+    id: 'meeting-management',
+    name: 'Meeting & Agenda Management',
+    tagline: 'Streamline your entire meeting workflow',
+    description: 'From scheduling to minutes, automate every aspect of your board meetings.',
+    longDescription:
+      'Meeting Management transforms how boards prepare for, conduct, and follow up on meetings. With powerful agenda building, minute tracking, and video conferencing integration, you can reduce meeting preparation time while improving engagement.',
+    icon: Calendar,
+    image: '/images/features/meeting-management-detail.jpg',
+    video: '/videos/meeting-management-demo.mp4',
+    benefits: [
+      {
+        title: 'Agenda Builder',
+        description:
+          'Drag-and-drop tool for creating and publishing agendas with time allocations.',
+        icon: Layout,
+      },
+      {
+        title: 'Minute Builder',
+        description: 'Records decisions, actions, and discussions in real-time.',
+        icon: PenTool,
+      },
+      {
+        title: 'Meeting Scheduling',
+        description: 'Powerful scheduling tools with governance oversight.',
+        icon: Calendar,
+      },
+      {
+        title: 'Video Conferencing',
+        description: 'Seamless integration with Zoom & Microsoft Teams.',
+        icon: Video,
+      },
+    ],
+    features: [
+      {
+        title: 'Agenda Builder',
+        description:
+          'Drag-and-drop interface for building comprehensive agendas with time allocations.',
+        icon: Layout,
+      },
+      {
+        title: 'Minute Builder',
+        description: 'Real-time minute taking with decision and action tracking.',
+        icon: PenTool,
+      },
+      {
+        title: 'Meeting Scheduling',
+        description: 'Smart scheduling with calendar integration and governance controls.',
+        icon: Calendar,
+      },
+      {
+        title: 'Video Conferencing',
+        description:
+          'Native integration with Zoom and Microsoft Teams for seamless virtual meetings.',
+        icon: Video,
+      },
+      {
+        title: 'Pre-meeting Metrics',
+        description: 'Track preparation metrics and readiness indicators.',
+        icon: BarChart,
+      },
+      {
+        title: 'Action Tracking',
+        description: 'Automated action item tracking with assignment and due dates.',
+        icon: CheckCircle,
+      },
+    ],
+    useCases: [
+      {
+        title: 'Board Meetings',
+        description: 'Streamline quarterly board meetings with automated tools.',
+        industry: 'Corporate',
+      },
+      {
+        title: 'Committee Meetings',
+        description: 'Manage sub-committee meetings efficiently.',
+        industry: 'All Industries',
+      },
+      {
+        title: 'Annual General Meetings',
+        description: 'Handle large-scale meetings with ease.',
+        industry: 'All Industries',
+      },
+    ],
+    stats: [
+      { value: '70%', label: 'Faster meeting prep', icon: Zap },
+      { value: '45%', label: 'Higher engagement', icon: Users },
+      { value: '50K+', label: 'Meetings hosted', icon: Calendar },
+    ],
+    integrations: ['Google Calendar', 'Microsoft Outlook', 'Zoom', 'Microsoft Teams'],
+    security: {
+      encryption: 'AES-256 encryption for all meeting data',
+      compliance: ['SOC 2 Type II', 'ISO 27001', 'GDPR'],
+      certifications: ['Enterprise-grade security', 'Complete audit trails'],
     },
-    pricing: {
-      included: true,
-      plan: 'Professional and Enterprise plans',
+    faq: [
+      {
+        question: 'How long does it take to set up my first meeting?',
+        answer: 'Most users can schedule and prepare their first meeting within 15 minutes.',
+      },
+      {
+        question: 'Can I integrate with my existing calendar?',
+        answer:
+          'Yes, EBoard integrates seamlessly with Google Calendar, Microsoft Outlook, and iCal.',
+      },
+    ],
+    relatedFeatures: [
+      {
+        id: 'ai-capabilities',
+        name: 'AI Capabilities',
+        icon: Brain,
+        description: 'AI-powered features',
+      },
+      {
+        id: 'committee-management',
+        name: 'Committee Management',
+        icon: Users,
+        description: 'Manage committees',
+      },
+    ],
+    pricing: { included: true, plan: 'All plans include Meeting Management' },
+  },
+
+  // Committee Management Feature
+  'committee-management': {
+    id: 'committee-management',
+    name: 'Committee Management',
+    tagline: 'Organize and manage all your committees',
+    description: 'Efficiently manage unlimited committees with dedicated spaces for each group.',
+    longDescription:
+      'Committee Management provides dedicated workspaces for every committee, sub-committee, and working group. With unlimited committees, dedicated libraries, and membership tracking, you can organize governance at scale.',
+    icon: Users,
+    image: '/images/features/committee-management-detail.jpg',
+    benefits: [
+      {
+        title: 'Unlimited Committees',
+        description: 'Create and manage as many committees as you need.',
+        icon: Users,
+      },
+      {
+        title: 'Committee Libraries',
+        description: 'Dedicated document libraries per committee.',
+        icon: Database,
+      },
+      {
+        title: 'Membership Register',
+        description: 'Track member history, roles, and terms.',
+        icon: FileText,
+      },
+      { title: 'Cover Pages', description: 'Custom cover page per committee.', icon: Layout },
+    ],
+    features: [
+      {
+        title: 'Unlimited Committees',
+        description: 'No limits on the number of committees you can create.',
+        icon: Users,
+      },
+      {
+        title: 'Dedicated Libraries',
+        description: 'Each committee gets its own document library.',
+        icon: Database,
+      },
+      {
+        title: 'Membership Register',
+        description: 'Complete history of committee members and their roles.',
+        icon: FileText,
+      },
+      {
+        title: 'Cover Pages',
+        description: 'Customize the look and feel of each committee.',
+        icon: Layout,
+      },
+      {
+        title: 'Committee Analytics',
+        description: 'Track committee activity and engagement.',
+        icon: BarChart,
+      },
+    ],
+    useCases: [
+      {
+        title: 'Board Committees',
+        description: 'Manage audit, compensation, and governance committees.',
+        industry: 'Corporate',
+      },
+      {
+        title: 'Sub-committees',
+        description: 'Create task forces and working groups.',
+        industry: 'All Industries',
+      },
+    ],
+    stats: [
+      { value: 'Unlimited', label: 'Committees', icon: Users },
+      { value: '100%', label: 'Visibility', icon: Eye },
+    ],
+    integrations: ['SharePoint', 'Microsoft Teams'],
+    security: {
+      encryption: 'Committee-level access controls',
+      compliance: ['SOC 2 Type II', 'ISO 27001'],
+      certifications: ['Role-based access', 'Audit trails'],
     },
+    faq: [
+      {
+        question: 'Is there a limit to how many committees I can create?',
+        answer: 'No, you can create unlimited committees, sub-committees, and working groups.',
+      },
+      {
+        question: 'Can committee members have different access levels?',
+        answer: 'Yes, you can set granular permissions for each committee and its members.',
+      },
+    ],
+    relatedFeatures: [
+      {
+        id: 'meeting-management',
+        name: 'Meeting Management',
+        icon: Calendar,
+        description: 'Run committee meetings',
+      },
+      {
+        id: 'document-features',
+        name: 'Document Features',
+        icon: FileText,
+        description: 'Manage committee documents',
+      },
+    ],
+    pricing: { included: true, plan: 'All plans include Committee Management' },
+  },
+
+  // Document & Pack Features
+  'document-features': {
+    id: 'document-features',
+    name: 'Document & Pack Features',
+    tagline: 'Complete document management solution',
+    description:
+      'Manage all your board documents with powerful features including signing and surveys.',
+    longDescription:
+      'Document & Pack Features provide comprehensive document management for your board. From supporting all file types to document signing and survey creation, you have everything you need to manage board materials efficiently.',
+    icon: FileText,
+    image: '/images/features/document-features-detail.jpg',
+    benefits: [
+      {
+        title: 'All File Types',
+        description: 'Support for all common document formats.',
+        icon: FileText,
+      },
+      {
+        title: 'Document Signing',
+        description: 'Legally binding digital signatures.',
+        icon: PenTool,
+      },
+      { title: 'Forms & Surveys', description: 'Powered by Orbeon Forms.', icon: FileCheck },
+      { title: 'Clone Agenda', description: 'Quickly duplicate any agenda.', icon: Copy },
+    ],
+    features: [
+      {
+        title: 'All File Types',
+        description: 'PDF, Word, Excel, PowerPoint, images, and more.',
+        icon: FileText,
+      },
+      {
+        title: 'Document Signing',
+        description: 'Legally binding e-signatures with audit trails.',
+        icon: PenTool,
+      },
+      {
+        title: 'Forms & Surveys',
+        description: 'Create custom forms and surveys with Orbeon Forms.',
+        icon: FileCheck,
+      },
+      { title: 'Clone Agenda', description: 'Save time by cloning existing agendas.', icon: Copy },
+      {
+        title: 'Votes & Resolutions',
+        description: 'Track votes and resolutions within documents.',
+        icon: Vote,
+      },
+      {
+        title: 'Board Pack Assembly',
+        description: 'One-click compilation of board packs.',
+        icon: Layers,
+      },
+    ],
+    useCases: [
+      {
+        title: 'Board Pack Creation',
+        description: 'Assemble comprehensive board packs quickly.',
+        industry: 'All Industries',
+      },
+      {
+        title: 'Document Approval',
+        description: 'Streamline document approval workflows.',
+        industry: 'All Industries',
+      },
+    ],
+    stats: [
+      { value: '50+', label: 'File types', icon: FileText },
+      { value: '100%', label: 'Compliant', icon: CheckCircle },
+    ],
+    integrations: ['Orbeon Forms', 'DocuSign', 'Adobe Sign', 'SharePoint'],
+    security: {
+      encryption: 'Document-level encryption',
+      compliance: ['ESIGN', 'UETA', 'eIDAS'],
+      certifications: ['Digital signature certified'],
+    },
+    faq: [
+      {
+        question: 'What file types are supported?',
+        answer:
+          'We support all major file types including PDF, Word, Excel, PowerPoint, images, and text files.',
+      },
+      {
+        question: 'Are e-signatures legally binding?',
+        answer: 'Yes, our e-signatures comply with ESIGN, UETA, and eIDAS regulations.',
+      },
+    ],
+    relatedFeatures: [
+      { id: 'security', name: 'Security', icon: Shield, description: 'Protect your documents' },
+      {
+        id: 'ai-capabilities',
+        name: 'AI Capabilities',
+        icon: Brain,
+        description: 'Smart document processing',
+      },
+    ],
+    pricing: { included: true, plan: 'All plans include Document Features' },
+  },
+
+  // Security Feature
+  security: {
+    id: 'security',
+    name: 'Security',
+    tagline: 'Military-grade protection for your data',
+    description:
+      'Protect your board documents with enterprise-grade security built on the Microsoft Enterprise Framework.',
+    longDescription:
+      'EBoard Security provides military-grade protection for all your board materials. Built on the Microsoft Enterprise Framework, our security infrastructure includes AES-256 encryption, two-factor authentication, activity tracking, and role-based access controls.',
+    icon: Shield,
+    image: '/images/features/security-detail.jpg',
+    benefits: [
+      {
+        title: 'Military-grade Encryption',
+        description: 'Built on the Microsoft Enterprise Framework.',
+        icon: Lock,
+      },
+      {
+        title: 'Two-Factor Authentication',
+        description: 'Enhanced security with 2FA.',
+        icon: Fingerprint,
+      },
+      {
+        title: 'Activity Tracking',
+        description: 'Background audit logs for all actions.',
+        icon: Activity,
+      },
+      { title: 'Role-based Access', description: 'Granular document permissions.', icon: Key },
+    ],
+    features: [
+      {
+        title: 'Military-grade Encryption',
+        description: 'AES-256 encryption built on Microsoft Enterprise Framework.',
+        icon: Lock,
+      },
+      {
+        title: 'Two-Factor Authentication',
+        description: 'SMS, email, or authenticator app verification.',
+        icon: Fingerprint,
+      },
+      {
+        title: 'Activity Tracking',
+        description: 'Complete audit logs of all document activity.',
+        icon: Activity,
+      },
+      {
+        title: 'Role-based Access',
+        description: 'Granular permissions at every level.',
+        icon: Key,
+      },
+      {
+        title: 'Audit Logs',
+        description: '7-year retention of tamper-proof logs.',
+        icon: FileSearch,
+      },
+      {
+        title: 'Single Sign-On',
+        description: 'SSO integration with major providers.',
+        icon: Shield,
+      },
+    ],
+    useCases: [
+      {
+        title: 'Compliance Management',
+        description: 'Meet regulatory requirements.',
+        industry: 'All Industries',
+      },
+      {
+        title: 'Data Protection',
+        description: 'Protect sensitive board materials.',
+        industry: 'All Industries',
+      },
+    ],
+    stats: [
+      { value: 'AES-256', label: 'Encryption', icon: Lock },
+      { value: '99.99%', label: 'Uptime SLA', icon: Cloud },
+      { value: '0', label: 'Breaches', icon: Shield },
+    ],
+    integrations: ['Microsoft Azure AD', 'Okta', 'OneLogin', 'Ping Identity'],
+    security: {
+      encryption: 'AES-256 encryption with HSM key management',
+      compliance: ['ISO 27001', 'SOC 2 Type II', 'GDPR', 'FedRAMP'],
+      certifications: ['Microsoft Enterprise Framework', 'ISO 27001 Certified'],
+    },
+    faq: [
+      {
+        question: 'What encryption standards do you use?',
+        answer:
+          'We use AES-256 encryption built on the Microsoft Enterprise Framework, the same standard used by government agencies.',
+      },
+      {
+        question: 'Do you offer SSO?',
+        answer:
+          'Yes, we support SSO with major providers including Microsoft Azure AD, Okta, and OneLogin.',
+      },
+    ],
+    relatedFeatures: [
+      {
+        id: 'document-features',
+        name: 'Document Features',
+        icon: FileText,
+        description: 'Secure document management',
+      },
+      {
+        id: 'integrations-support',
+        name: 'Integrations',
+        icon: Plug,
+        description: 'Secure integrations',
+      },
+    ],
+    pricing: { included: true, plan: 'All plans include enterprise security' },
+  },
+
+  // Integrations & Support Feature
+  'integrations-support': {
+    id: 'integrations-support',
+    name: 'Integrations & Support',
+    tagline: 'Connect with your favorite tools',
+    description:
+      'Seamlessly integrate with your existing tools and get unlimited training and support.',
+    longDescription:
+      'EBoard integrates seamlessly with your existing technology stack, including SharePoint, email, calendar, and task management tools. Plus, every plan includes unlimited training and support to ensure your success.',
+    icon: Plug,
+    image: '/images/features/integrations-detail.jpg',
+    benefits: [
+      { title: 'SharePoint Integration', description: 'Seamless document sync.', icon: Plug },
+      {
+        title: 'Email & Calendar Sync',
+        description: 'Connect with Outlook and Gmail.',
+        icon: Calendar,
+      },
+      {
+        title: 'Task Management',
+        description: 'Integrate with your task tools.',
+        icon: CheckCircle,
+      },
+      { title: 'Unlimited Training', description: 'Included in every plan.', icon: Headphones },
+    ],
+    features: [
+      {
+        title: 'SharePoint Integration',
+        description: 'Sync documents and libraries with SharePoint.',
+        icon: Plug,
+      },
+      {
+        title: 'Email Integration',
+        description: 'Connect with Outlook, Gmail, and other email providers.',
+        icon: Mail,
+      },
+      {
+        title: 'Calendar Sync',
+        description: 'Two-way sync with Google Calendar and Outlook.',
+        icon: Calendar,
+      },
+      {
+        title: 'Task Management',
+        description: 'Integrate with Asana, Trello, Jira, and more.',
+        icon: CheckCircle,
+      },
+      {
+        title: 'Unlimited Training',
+        description: 'Onboarding and ongoing training included.',
+        icon: Headphones,
+      },
+      {
+        title: 'Flexible Hosting',
+        description: 'Self-hosted or cloud-hosted options.',
+        icon: Cloud,
+      },
+    ],
+    useCases: [
+      {
+        title: 'Enterprise Integration',
+        description: 'Connect with your existing enterprise tools.',
+        industry: 'Enterprise',
+      },
+      {
+        title: 'Team Collaboration',
+        description: 'Sync with team communication tools.',
+        industry: 'All Industries',
+      },
+    ],
+    stats: [
+      { value: '24/7', label: 'Support', icon: Headphones },
+      { value: '50+', label: 'Integrations', icon: Plug },
+      { value: 'Unlimited', label: 'Training', icon: Users },
+    ],
+    integrations: [
+      'SharePoint',
+      'Microsoft 365',
+      'Google Workspace',
+      'Slack',
+      'Asana',
+      'Trello',
+      'Jira',
+    ],
+    security: {
+      encryption: 'Secure API connections',
+      compliance: ['SOC 2 Type II', 'ISO 27001'],
+      certifications: ['Integration certified'],
+    },
+    faq: [
+      {
+        question: 'What integrations are available?',
+        answer:
+          'We integrate with SharePoint, Microsoft 365, Google Workspace, Slack, Asana, Trello, Jira, and more.',
+      },
+      {
+        question: 'Is training really unlimited?',
+        answer:
+          'Yes, every plan includes unlimited training for all board members and administrators.',
+      },
+    ],
+    relatedFeatures: [
+      { id: 'security', name: 'Security', icon: Shield, description: 'Secure integrations' },
+      {
+        id: 'document-features',
+        name: 'Document Features',
+        icon: FileText,
+        description: 'Document management',
+      },
+    ],
+    pricing: { included: true, plan: 'All plans include integrations and support' },
   },
 };
 
@@ -651,11 +790,27 @@ export const FeatureDetailPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const [showVideo, setShowVideo] = useState(false);
 
-  const feature = id ? featureDetails[id] : null;
+  // Map URL parameters to feature IDs
+  const getFeatureId = (paramId: string): string => {
+    const mapping: Record<string, string> = {
+      'meeting-management': 'meeting-management',
+      'ai-minutes': 'ai-capabilities',
+      'document-security': 'security',
+      'document-hub': 'document-features',
+      'e-signatures': 'document-features',
+      'public-sites': 'document-features',
+      voting: 'document-features',
+      analytics: 'meeting-management',
+      integrations: 'integrations-support',
+    };
+    return mapping[paramId] || paramId;
+  };
+
+  const actualId = id ? getFeatureId(id) : null;
+  const feature = actualId ? featureDetails[actualId] : null;
 
   useEffect(() => {
     if (!feature) {
-      // Redirect to features page if feature not found
       navigate(ROUTES.PLATFORM.FEATURES);
     }
   }, [feature, navigate]);
@@ -703,7 +858,7 @@ export const FeatureDetailPage: React.FC = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-primary-600 rounded-2xl flex items-center justify-center text-white mr-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl flex items-center justify-center text-white mr-4 shadow-lg">
                   <Icon className="w-8 h-8" />
                 </div>
                 <div>
@@ -714,8 +869,7 @@ export const FeatureDetailPage: React.FC = () => {
                 </div>
               </div>
 
-              <p className="text-2xl text-primary-600 font-medium mb-4">{feature.tagline}</p>
-
+              <p className="text-xl text-primary-600 font-medium mb-4">{feature.tagline}</p>
               <p className="text-lg text-gray-600 mb-8">{feature.longDescription}</p>
 
               <div className="flex flex-wrap gap-4 mb-8">
@@ -739,7 +893,7 @@ export const FeatureDetailPage: React.FC = () => {
                 {feature.stats.map((stat, index) => {
                   const StatIcon = stat.icon || Award;
                   return (
-                    <div key={index} className="text-center">
+                    <div key={index} className="text-center p-3 bg-gray-50 rounded-xl">
                       <div className="text-2xl font-bold text-primary-600">{stat.value}</div>
                       <div className="text-xs text-gray-500 flex items-center justify-center">
                         <StatIcon className="w-3 h-3 mr-1" />
@@ -843,7 +997,6 @@ export const FeatureDetailPage: React.FC = () => {
                     How {feature.name} works
                   </h3>
                   <p className="text-gray-600 mb-6">{feature.longDescription}</p>
-
                   <div className="space-y-4">
                     {feature.features.slice(0, 4).map((feat, index) => {
                       const FeatIcon = feat.icon || CheckCircle;
@@ -863,7 +1016,6 @@ export const FeatureDetailPage: React.FC = () => {
                 </div>
 
                 <div>
-                  {/* Case Study */}
                   {feature.caseStudy && (
                     <Card className="bg-primary-50 border-primary-100 mb-6">
                       <div className="flex items-center mb-4">
@@ -888,7 +1040,6 @@ export const FeatureDetailPage: React.FC = () => {
                     </Card>
                   )}
 
-                  {/* Integrations */}
                   <Card>
                     <h4 className="font-semibold text-gray-900 mb-3">Integrations</h4>
                     <div className="flex flex-wrap gap-2">
@@ -897,11 +1048,6 @@ export const FeatureDetailPage: React.FC = () => {
                           {integration}
                         </Badge>
                       ))}
-                      {feature.integrations.length > 6 && (
-                        <Badge variant="secondary" size="sm">
-                          +{feature.integrations.length - 6} more
-                        </Badge>
-                      )}
                     </div>
                   </Card>
                 </div>
@@ -987,7 +1133,6 @@ export const FeatureDetailPage: React.FC = () => {
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Security & Compliance</h3>
               <p className="text-gray-600 mb-6">{feature.security.encryption}</p>
-
               <div className="space-y-4">
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Compliance</h4>
@@ -999,7 +1144,6 @@ export const FeatureDetailPage: React.FC = () => {
                     ))}
                   </div>
                 </div>
-
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Certifications</h4>
                   <div className="flex flex-wrap gap-2">
@@ -1012,7 +1156,6 @@ export const FeatureDetailPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to get started?</h3>
               <p className="text-gray-600 mb-6">

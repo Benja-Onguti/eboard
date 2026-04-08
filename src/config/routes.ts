@@ -24,8 +24,6 @@ export const ROUTES = {
     GOVERNMENT: '/solutions/government',
     NGOS: '/solutions/ngos',
     ENTERPRISE: '/solutions/enterprise',
-    HEALTHCARE: '/solutions/healthcare',
-    FINANCIAL: '/solutions/financial-services',
   },
 
   // Role-specific routes
@@ -41,8 +39,6 @@ export const ROUTES = {
   // Resources routes
   RESOURCES: {
     INDEX: '/resources',
-    BLOG: '/blog',
-    BLOG_POST: (slug: string) => `/blog/${slug}`,
     GUIDES: '/resources/guides',
     GUIDE: (slug: string) => `/resources/guides/${slug}`,
     CASE_STUDIES: '/resources/case-studies',
@@ -174,7 +170,6 @@ export const NAVIGATION = {
       label: 'Resources',
       href: ROUTES.RESOURCES.INDEX,
       children: [
-        { label: 'Blog', href: ROUTES.RESOURCES.BLOG },
         { label: 'Guides', href: ROUTES.RESOURCES.GUIDES },
         { label: 'Case Studies', href: ROUTES.RESOURCES.CASE_STUDIES },
         { label: 'Whitepapers', href: ROUTES.RESOURCES.WHITEPAPERS },
@@ -197,8 +192,6 @@ export const NAVIGATION = {
       { label: 'Government', href: ROUTES.SOLUTIONS.GOVERNMENT },
       { label: 'NGOs', href: ROUTES.SOLUTIONS.NGOS },
       { label: 'Enterprise', href: ROUTES.SOLUTIONS.ENTERPRISE },
-      { label: 'Healthcare', href: ROUTES.SOLUTIONS.HEALTHCARE },
-      { label: 'Financial Services', href: ROUTES.SOLUTIONS.FINANCIAL },
     ],
     roles: [
       { label: 'Executives', href: ROUTES.ROLES.EXECUTIVES },
@@ -208,7 +201,6 @@ export const NAVIGATION = {
       { label: 'IT', href: ROUTES.ROLES.IT },
     ],
     resources: [
-      { label: 'Blog', href: ROUTES.RESOURCES.BLOG },
       { label: 'Guides', href: ROUTES.RESOURCES.GUIDES },
       { label: 'Case Studies', href: ROUTES.RESOURCES.CASE_STUDIES },
       { label: 'Whitepapers', href: ROUTES.RESOURCES.WHITEPAPERS },
@@ -258,7 +250,6 @@ export const BREADCRUMBS: Record<string, { label: string; parent?: string }> = {
 
   // Resources
   [ROUTES.RESOURCES.INDEX]: { label: 'Resources', parent: ROUTES.HOME },
-  [ROUTES.RESOURCES.BLOG]: { label: 'Blog', parent: ROUTES.RESOURCES.INDEX },
   [ROUTES.RESOURCES.GUIDES]: { label: 'Guides', parent: ROUTES.RESOURCES.INDEX },
   [ROUTES.RESOURCES.CASE_STUDIES]: { label: 'Case Studies', parent: ROUTES.RESOURCES.INDEX },
 

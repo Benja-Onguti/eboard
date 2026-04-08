@@ -9,8 +9,18 @@ export const siteContent = {
         label: 'Platform',
         items: [
           { label: 'Features', href: '/features', description: 'Explore all features' },
-          { label: 'Security', href: '/security', description: 'Enterprise-grade security' },
+          {
+            label: 'AI Capabilities',
+            href: '/features/ai-capabilities',
+            description: 'Powered by Google Gemini',
+          },
+          { label: 'Security', href: '/security', description: 'Military-grade encryption' },
           { label: 'Integrations', href: '/integrations', description: 'Connect your tools' },
+          {
+            label: 'Committee Management',
+            href: '/features/committee-management',
+            description: 'Organize committees',
+          },
         ],
       },
       useCases: {
@@ -57,9 +67,9 @@ export const siteContent = {
 
   // Hero Section
   hero: {
-    headline: 'AI-Powered Board solution that drive impact, not just discussion',
+    headline: 'AI-Powered Board solution that drives impact, not just discussion',
     subheadline:
-      'Automate agendas, minutes, and summaries with smart AI. Secure, scalable, and built for modern boards.',
+      'Automate agendas, minutes, and summaries with smart AI. Powered by Google Gemini. Secure, scalable, and built for modern boards.',
     ctas: {
       sales: { text: 'Talk to Sales', href: '/contact' },
       trial: { text: 'Try Now', href: '/demo' },
@@ -70,105 +80,156 @@ export const siteContent = {
 
   // Social Proof Stats
   stats: [
-    { value: '2M+', label: 'Users worldwide' },
-    { value: '500+', label: 'Organizations' },
-    { value: '50K+', label: 'Meetings hosted' },
-    { value: '99.9%', label: 'Uptime SLA' },
+    { value: 2, suffix: 'M+', label: 'Users worldwide' },
+    { value: 500, suffix: '+', label: 'Organizations' },
+    { value: 50, suffix: 'K+', label: 'Meetings hosted' },
+    { value: 99.9, suffix: '%', label: 'Uptime SLA' },
   ],
 
-  // Core Features
+  // Core Features - Updated with all 6 features
   coreFeatures: {
     headline: 'Everything you need for modern governance',
-    subheadline:
-      'Streamline your entire board workflow with integrated tools designed for efficiency and security.',
-    cta: { text: 'See it in action', href: '/demo' },
+    subheadline: 'From AI-powered tools to enterprise-grade security, EBoard has you covered.',
+    cta: { text: 'Explore All Features', href: '/features' },
     features: [
       {
-        icon: 'Calendar',
-        title: 'Meeting Management',
-        description: 'From scheduling to minutes, automate your entire meeting workflow.',
-        benefits: ['AI-powered scheduling', 'Digital agendas', 'Automated minutes'],
-      },
-      {
-        icon: 'Shield',
-        title: 'Bank-Level Security',
-        description: 'Enterprise-grade encryption and compliance for sensitive board materials.',
-        benefits: ['AES-256 encryption', 'ISO 27001 certified', 'Audit trails'],
-      },
-      {
         icon: 'Brain',
-        title: 'AI-Powered Minutes',
-        description: 'Let AI capture decisions, actions, and key discussion points automatically.',
-        benefits: ['Real-time transcription', 'Action item tracking', 'Smart summaries'],
+        title: 'AI Capabilities',
+        description: 'Powered by Google Gemini and Google Cloud',
+        benefits: [
+          'Speech to Text transcription',
+          'Text to Speech playback',
+          'AI summarisation of 100+ page reports',
+        ],
+        gradient: 'from-purple-600 to-pink-600',
+        badge: 'New',
+      },
+      {
+        icon: 'Calendar',
+        title: 'Meeting & Agenda Management',
+        description: 'Streamline your entire meeting workflow',
+        benefits: ['Agenda Builder', 'Minute Builder', 'Video conferencing integration'],
+        gradient: 'from-blue-600 to-indigo-600',
+      },
+      {
+        icon: 'Users',
+        title: 'Committee Management',
+        description: 'Organize all your committees efficiently',
+        benefits: ['Unlimited committees', 'Dedicated libraries', 'Membership register'],
+        gradient: 'from-green-600 to-teal-600',
       },
       {
         icon: 'FileText',
-        title: 'Document Hub',
-        description: 'Centralized, version-controlled repository for all board documents.',
-        benefits: ['Version history', 'Granular permissions', 'Full-text search'],
+        title: 'Document & Pack Features',
+        description: 'Complete document management solution',
+        benefits: ['All file types supported', 'Document signing', 'Clone any agenda'],
+        gradient: 'from-orange-600 to-red-600',
+      },
+      {
+        icon: 'Shield',
+        title: 'Security',
+        description: 'Military-grade protection for your data',
+        benefits: ['AES-256 encryption', 'Two-factor authentication', 'Activity tracking'],
+        gradient: 'from-slate-600 to-gray-600',
+      },
+      {
+        icon: 'Settings',
+        title: 'Integrations & Support',
+        description: 'Connect with your favorite tools',
+        benefits: ['SharePoint integration', 'Unlimited training', 'Self-hosted or cloud-hosted'],
+        gradient: 'from-cyan-600 to-blue-600',
       },
     ],
   },
 
-  // Feature Deep Dives (alternating pattern)
+  // Feature Deep Dives - Updated with new features
   featureDeepDives: [
     {
-      id: 'meetings',
-      painPoint: 'Hours wasted on meeting prep and manual minutes',
-      solution: 'AI-powered meeting management that cuts prep time by 70%',
-      outcome: 'Your team focuses on strategic decisions, not administrative work',
+      id: 'ai-capabilities',
+      painPoint: 'Hours spent transcribing meetings and reviewing lengthy board packs',
+      solution:
+        'AI-powered tools that automate transcription, summarization, and document playback',
+      outcome: 'Save 95% of documentation time with 100+ page reports summarized instantly',
       capabilities: [
-        'Automated agenda building from previous meetings',
-        'One-click board pack assembly',
-        'Real-time collaboration during meetings',
-        'AI-generated minutes with action items',
+        'Speech to Text – Transcribe meetings, minutes, and dictation',
+        'Text to Speech – Listen to documents on the go',
+        'AI Summarisation – Concise summaries of board packs (100+ page reports)',
+        'Powered by Google Gemini and Google Cloud',
       ],
-      image: '/images/features/meetings.jpg',
-      cta: { text: 'Learn more about Meetings', href: '/features/meeting-management' },
+      image: '/images/features/ai-capabilities.jpg',
+      cta: { text: 'Explore AI Capabilities', href: '/features/ai-capabilities' },
+    },
+    {
+      id: 'meeting-management',
+      painPoint: 'Disorganized agendas, messy minutes, and disconnected virtual meetings',
+      solution:
+        'Complete meeting management with agenda builder, minute tracker, and video conferencing',
+      outcome: '70% faster meeting prep with seamless Zoom & Teams integration',
+      capabilities: [
+        'Agenda Builder – Drag-and-drop tool for creating and publishing agendas',
+        'Minute Builder – Records decisions, actions, and discussions',
+        'Meeting Scheduling & Governance tools',
+        'Pre-meeting preparation metrics',
+      ],
+      image: '/images/features/meeting-management.jpg',
+      cta: { text: 'Learn about Meeting Management', href: '/features/meeting-management' },
+    },
+    {
+      id: 'committee-management',
+      painPoint: 'Multiple committees with scattered documents and unclear membership',
+      solution: 'Centralized committee management with dedicated spaces for each group',
+      outcome: '100% visibility across all committees with organized document libraries',
+      capabilities: [
+        'Unlimited committees – Create as many as you need',
+        'Dedicated committee libraries for each group',
+        'Membership register & history tracking',
+        'Cover page per committee for branding',
+      ],
+      image: '/images/features/committee-management.jpg',
+      cta: { text: 'Explore Committee Management', href: '/features/committee-management' },
+    },
+    {
+      id: 'document-features',
+      painPoint: 'File format limitations, missing signatures, and manual agenda cloning',
+      solution: 'Comprehensive document management with e-signatures and form builders',
+      outcome: '50+ file types supported with legally binding signatures',
+      capabilities: [
+        'All file types supported – PDF, Word, Excel, images, and more',
+        'Document signing – Legally binding e-signatures',
+        'Forms & surveys – Powered by Orbeon Forms',
+        'Clone any agenda – Save time with templates',
+        'Votes & resolutions – Track decisions',
+      ],
+      image: '/images/features/document-features.jpg',
+      cta: { text: 'View Document Features', href: '/features/document-features' },
     },
     {
       id: 'security',
-      painPoint: 'Sensitive board materials spread across insecure channels',
-      solution: 'Bank-level security with complete audit trails',
-      outcome: 'Peace of mind knowing your data is protected and compliant',
+      painPoint: 'Sensitive board materials vulnerable to breaches and unauthorized access',
+      solution: 'Military-grade encryption built on the Microsoft Enterprise Framework',
+      outcome: 'Zero security breaches with complete audit trails and compliance',
       capabilities: [
-        'End-to-end encryption',
-        'Granular access controls',
-        'Automatic redaction for FOI',
-        'Complete audit logging',
+        'Military-grade encryption – Built on Microsoft Enterprise Framework',
+        'Two-factor authentication (2FA) – Extra layer of security',
+        'Activity tracking and background audit logs',
+        'Role-based document access – Granular permissions',
       ],
       image: '/images/features/security.jpg',
-      cta: { text: 'Explore Security', href: '/security' },
+      cta: { text: 'Explore Security Features', href: '/security' },
     },
     {
-      id: 'collaboration',
-      painPoint: 'Disconnected board members struggling to stay aligned',
-      solution: 'Unified platform for seamless board collaboration',
-      outcome: 'Better decisions through informed, engaged directors',
+      id: 'integrations',
+      painPoint: 'Disconnected tools and workflows across your organization',
+      solution: 'Seamless integrations with your existing tech stack',
+      outcome: 'Unified platform with unlimited training and support',
       capabilities: [
-        'Secure messaging and discussions',
-        'Document annotations',
-        'Voting and approvals',
-        'Meeting recordings',
+        'SharePoint, email, calendar, and task management integrations',
+        'Unlimited training and support included in every plan',
+        'Self-hosted or cloud-hosted options – Your choice',
       ],
-      image: '/images/features/collaboration.jpg',
-      cta: { text: 'See Collaboration', href: '/features/collaboration' },
+      image: '/images/features/integrations.jpg',
+      cta: { text: 'View Integrations', href: '/integrations' },
     },
-
-    /*{
-      id: 'compliance',
-      painPoint: 'Complex compliance requirements across jurisdictions',
-      solution: 'Built-in compliance for global regulations',
-      outcome: 'Automated compliance with FOI, GDPR, and industry standards',
-      capabilities: [
-        'FOI-compliant record keeping',
-        'GDPR-ready data handling',
-        'Public meeting portals',
-        'Retention policies',
-      ],
-      image: '/images/feature-compliance.jpg',
-      cta: { text: 'View Compliance', href: '/compliance' },
-    },*/
   ],
 
   // User Role Segmentation
@@ -275,6 +336,14 @@ export const siteContent = {
     },
     {
       type: 'whitepaper',
+      title: 'AI in Governance: Transforming Board Meetings',
+      description: 'How AI is revolutionizing board governance',
+      image: '/images/whitepaper-ai.jpg',
+      downloadUrl: '/downloads/ai-governance-whitepaper.pdf',
+      pages: 28,
+    },
+    {
+      type: 'whitepaper',
       title: 'Board Portal Security: ISO 27001 and Beyond',
       description: 'Understanding security certifications',
       image: '/images/whitepaper-cover.jpg',
@@ -297,6 +366,14 @@ export const siteContent = {
       videoUrl: '/videos/product-demo.mp4',
       duration: '5:24',
     },
+    {
+      type: 'guide',
+      title: 'Committee Management Best Practices',
+      description: 'How to organize and run effective committees',
+      image: '/images/committee-guide.jpg',
+      downloadUrl: '/downloads/committee-management-guide.pdf',
+      pages: 18,
+    },
   ],
 
   // Final CTA
@@ -316,6 +393,10 @@ export const siteContent = {
       title: 'Product',
       links: [
         { label: 'Features', href: '/features' },
+        { label: 'AI Capabilities', href: '/features/ai-capabilities' },
+        { label: 'Meeting Management', href: '/features/meeting-management' },
+        { label: 'Committee Management', href: '/features/committee-management' },
+        { label: 'Document Features', href: '/features/document-features' },
         { label: 'Security', href: '/security' },
         { label: 'Integrations', href: '/integrations' },
         { label: 'Pricing', href: '/pricing' },
@@ -328,6 +409,8 @@ export const siteContent = {
         { label: 'Government', href: '/solutions/government' },
         { label: 'NGOs', href: '/solutions/ngos' },
         { label: 'Enterprise', href: '/solutions/enterprise' },
+        { label: 'Healthcare', href: '/solutions/healthcare' },
+        { label: 'Financial Services', href: '/solutions/financial' },
       ],
     },
     roles: {
@@ -337,6 +420,7 @@ export const siteContent = {
         { label: 'Administrators', href: '/roles/administrators' },
         { label: 'Directors', href: '/roles/directors' },
         { label: 'Legal', href: '/roles/legal' },
+        { label: 'IT', href: '/roles/it' },
       ],
     },
     resources: {
@@ -345,7 +429,9 @@ export const siteContent = {
         { label: 'Blog', href: '/blog' },
         { label: 'Guides', href: '/resources/guides' },
         { label: 'Case Studies', href: '/resources/case-studies' },
+        { label: 'Whitepapers', href: '/resources/whitepapers' },
         { label: 'Help Center', href: '/help' },
+        { label: 'ROI Calculator', href: '/resources/roi-calculator' },
       ],
     },
     company: {
@@ -355,6 +441,8 @@ export const siteContent = {
         { label: 'Contact', href: '/contact' },
         { label: 'Careers', href: '/careers' },
         { label: 'Partners', href: '/partners' },
+        { label: 'News', href: '/news' },
+        { label: 'Press', href: '/press' },
       ],
     },
     legal: {
@@ -364,6 +452,8 @@ export const siteContent = {
         { label: 'Terms of Service', href: '/terms' },
         { label: 'Compliance', href: '/compliance' },
         { label: 'Cookie Policy', href: '/cookies' },
+        { label: 'GDPR', href: '/gdpr' },
+        { label: 'Security', href: '/security' },
       ],
     },
     social: [

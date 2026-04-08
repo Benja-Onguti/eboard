@@ -7,21 +7,10 @@ import {
   Shield,
   Brain,
   FileText,
-  Globe,
-  PenTool,
-  Users,
-  Clock,
   CheckCircle,
   ArrowRight,
-  Zap,
-  Lock,
-  FileSearch,
-  MessageSquare,
-  Vote,
-  Download,
-  BookOpen,
-  BarChart,
-  Bell,
+  Users,
+  Plug,
   Settings,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -31,25 +20,50 @@ import { ROUTES } from '@/config/routes';
 
 const features = [
   {
-    id: 'meeting-management',
-    icon: Calendar,
-    title: 'Meeting Management',
-    tagline: 'Streamline your entire meeting workflow',
+    id: 'ai-capabilities',
+    icon: Brain,
+    title: 'AI Capabilities',
+    tagline: 'Powered by Google Gemini and Google Cloud',
     description:
-      'From scheduling to minutes, automate every aspect of your board meetings with AI-powered tools.',
+      'Leverage cutting-edge AI to transform how your board works. From transcription to summarization, our AI capabilities save time and improve accuracy.',
     benefits: [
-      'AI-powered scheduling that finds the perfect time for all members across time zones',
-      'Digital agenda builder with drag-and-drop simplicity and time allocations',
-      'Automated board pack assembly with one-click distribution',
-      'Real-time collaboration and annotations during meetings',
-      'AI-generated minutes with action item tracking and summaries',
+      'Speech to Text – Transcribe meetings, minutes, and dictation',
+      'Text to Speech – Listen to documents on the go',
+      'AI Summarisation – Concise summaries of board packs (100+ page reports)',
     ],
     features: [
-      'Smart Scheduling',
+      'Speech to Text',
+      'Text to Speech',
+      'AI Summarisation',
+      'Powered by Google Gemini',
+      'Google Cloud Integration',
+    ],
+    image: '/images/features/ai-capabilities.jpg',
+    gradient: 'from-purple-600 to-pink-600',
+    link: '/features/ai-capabilities',
+    badge: 'New',
+    stats: { value: '95%', label: 'Time saved on documentation' },
+  },
+  {
+    id: 'meeting-management',
+    icon: Calendar,
+    title: 'Meeting & Agenda Management',
+    tagline: 'Streamline your entire meeting workflow',
+    description:
+      'From scheduling to minutes, automate every aspect of your board meetings with powerful management tools.',
+    benefits: [
+      'Agenda Builder – Drag-and-drop tool for creating and publishing agendas',
+      'Minute Builder – Records decisions, actions, and discussions',
+      'Meeting Scheduling & Governance',
+      'Video conferencing integration (Zoom & Teams)',
+      'Pre-meeting preparation metrics',
+    ],
+    features: [
       'Agenda Builder',
-      'Board Pack Assembly',
-      'Real-time Collaboration',
-      'Minutes Generation',
+      'Minute Builder',
+      'Meeting Scheduling',
+      'Video Conferencing',
+      'Pre-meeting Metrics',
     ],
     image: '/images/features/meeting-management.jpg',
     gradient: 'from-blue-600 to-indigo-600',
@@ -57,215 +71,123 @@ const features = [
     stats: { value: '70%', label: 'Faster prep time' },
   },
   {
-    id: 'document-security',
-    icon: Shield,
-    title: 'Bank-Level Security',
-    tagline: 'Enterprise-grade protection for sensitive materials',
+    id: 'committee-management',
+    icon: Users,
+    title: 'Committee Management',
+    tagline: 'Organize and manage all your committees',
     description:
-      'Protect your board documents with military-grade encryption and complete compliance certifications.',
+      'Efficiently manage unlimited committees with dedicated spaces for each group, complete with member tracking and custom branding.',
     benefits: [
-      'AES-256 encryption for all documents at rest and in transit',
-      'Granular role-based access controls with permissions',
-      'Complete audit logs of all document activity',
-      'ISO 27001, SOC 2, and GDPR compliant infrastructure',
-      'Automated redaction tools for FOI requests',
+      'Unlimited committees',
+      'Dedicated committee libraries',
+      'Membership register & history',
+      'Cover page per committee',
     ],
     features: [
-      'End-to-End Encryption',
-      'Access Control',
-      'Audit Trails',
-      'Compliance Certifications',
-      'Auto-Redaction',
+      'Unlimited Committees',
+      'Committee Libraries',
+      'Membership Register',
+      'Cover Pages',
+      'Committee Analytics',
     ],
-    image: '/images/features/security.jpg',
-    gradient: 'from-purple-600 to-pink-600',
-    link: ROUTES.PLATFORM.SECURITY,
-    stats: { value: '99.9%', label: 'Uptime SLA' },
-  },
-  {
-    id: 'ai-minutes',
-    icon: Brain,
-    title: 'AI-Powered Minutes',
-    tagline: 'Never miss a moment with AI assistance',
-    description:
-      'Let artificial intelligence capture decisions, actions, and key discussion points automatically.',
-    benefits: [
-      'Real-time transcription with speaker identification',
-      'Automatic extraction of decisions and action items',
-      'Smart summaries of key discussion points',
-      'Searchable meeting transcripts with timestamps',
-      'Integration with task management systems',
-    ],
-    features: [
-      'Live Transcription',
-      'Decision Extraction',
-      'Smart Summaries',
-      'Searchable Transcripts',
-      'Task Integration',
-    ],
-    image: '/images/features/ai-minutes.jpg',
+    image: '/images/features/committee-management.jpg',
     gradient: 'from-green-600 to-teal-600',
-    link: ROUTES.MARKETING.AI_MINUTES,
-    badge: 'New',
-    stats: { value: '5min', label: 'Setup time' },
+    link: '/features/committee-management',
+    stats: { value: '100%', label: 'Committee visibility' },
   },
   {
-    id: 'document-hub',
+    id: 'document-features',
     icon: FileText,
-    title: 'Central Document Hub',
-    tagline: 'Secure, version-controlled repository',
+    title: 'Document & Pack Features',
+    tagline: 'Complete document management solution',
     description:
-      'Store, manage, and share board documents with powerful search and organization features.',
+      'Manage all your board documents with powerful features including signing, surveys, and cloning capabilities.',
     benefits: [
-      'Centralized storage for all board materials',
-      'Version control with complete history and restore',
-      'Full-text search across all documents with filters',
-      'Smart folders and automated organization',
-      'Offline access for mobile users',
+      'All file types supported',
+      'Document signing',
+      'Forms & surveys (powered by Orbeon Forms)',
+      'Clone any agenda',
+      'Votes & resolutions',
     ],
     features: [
-      'Central Storage',
-      'Version Control',
-      'Full-Text Search',
-      'Smart Organization',
-      'Offline Access',
+      'All File Types',
+      'Document Signing',
+      'Forms & Surveys',
+      'Clone Agenda',
+      'Votes & Resolutions',
     ],
-    image: '/images/features/document-hub.jpg',
+    image: '/images/features/document-features.jpg',
     gradient: 'from-orange-600 to-red-600',
     link: ROUTES.MARKETING.DOCUMENT_MANAGEMENT,
-    stats: { value: '10K+', label: 'Documents' },
+    stats: { value: '50+', label: 'File types supported' },
   },
   {
-    id: 'e-signatures',
-    icon: PenTool,
-    title: 'E-Signatures',
-    tagline: 'Legally binding digital signatures',
+    id: 'security',
+    icon: Shield,
+    title: 'Security',
+    tagline: 'Military-grade protection for your data',
     description:
-      'Execute documents with legally binding electronic signatures that comply with global standards.',
+      'Protect your board documents with enterprise-grade security built on the Microsoft Enterprise Framework.',
     benefits: [
-      'Compliant with ESIGN, UETA, and eIDAS regulations',
-      'Multi-party signing workflows with automated reminders',
-      'Complete audit trail of every signature and action',
-      'Mobile-friendly signing experience',
-      'Integration with document management',
+      'Military-grade encryption built on the Microsoft Enterprise Framework',
+      'Two-factor authentication (2FA)',
+      'Activity tracking and background audit logs',
+      'Role-based document access',
     ],
     features: [
-      'Legal Compliance',
-      'Multi-Party Workflows',
-      'Audit Trails',
-      'Mobile Signing',
-      'Document Integration',
+      'Military-grade Encryption',
+      'Two-Factor Authentication',
+      'Activity Tracking',
+      'Audit Logs',
+      'Role-based Access',
     ],
-    image: '/images/features/esignatures.jpg',
-    gradient: 'from-pink-600 to-rose-600',
-    link: ROUTES.MARKETING.E_SIGNATURES,
-    stats: { value: '100%', label: 'Compliant' },
-  },
-  {
-    id: 'public-sites',
-    icon: Globe,
-    title: 'Public Meeting Sites',
-    tagline: 'Transparent public meeting portals',
-    description:
-      'Publish agendas, documents, and minutes to public-facing archives with one click.',
-    benefits: [
-      'FOI-compliant public archives',
-      'Customizable public portals with your branding',
-      'Automated document redaction tools',
-      'Meeting live-streaming integration',
-      'Transparency and accountability metrics',
-    ],
-    features: [
-      'Public Archives',
-      'FOI Compliance',
-      'Custom Portals',
-      'Redaction Tools',
-      'Live Streaming',
-    ],
-    image: '/images/features/public-sites.jpg',
-    gradient: 'from-cyan-600 to-blue-600',
-    link: ROUTES.MARKETING.PUBLIC_SITES,
-    stats: { value: '100%', label: 'Compliance' },
-  },
-  {
-    id: 'voting',
-    icon: Vote,
-    title: 'Voting & Approvals',
-    tagline: 'Streamlined decision-making',
-    description:
-      'Conduct secure votes and approvals with complete audit trails and real-time results.',
-    benefits: [
-      'Secure electronic voting with anonymity options',
-      'Customizable approval workflows',
-      'Real-time results tabulation',
-      'Complete audit trail of all votes',
-      'Integration with meeting minutes',
-    ],
-    features: [
-      'Electronic Voting',
-      'Approval Workflows',
-      'Real-Time Results',
-      'Audit Trails',
-      'Minutes Integration',
-    ],
-    image: '/images/features/voting.jpg',
-    gradient: 'from-indigo-600 to-purple-600',
-    link: '/features/voting',
-  },
-  {
-    id: 'analytics',
-    icon: BarChart,
-    title: 'Governance Analytics',
-    tagline: 'Data-driven insights',
-    description:
-      'Gain valuable insights into board activities, attendance, and decision-making patterns.',
-    benefits: [
-      'Board attendance and engagement metrics',
-      'Decision tracking and outcomes analysis',
-      'Meeting efficiency scores',
-      'Document access analytics',
-      'Custom report generation',
-    ],
-    features: [
-      'Engagement Metrics',
-      'Decision Tracking',
-      'Efficiency Scores',
-      'Access Analytics',
-      'Custom Reports',
-    ],
-    image: '/images/features/analytics.jpg',
-    gradient: 'from-emerald-600 to-green-600',
-    link: '/features/analytics',
+    image: '/images/features/security.jpg',
+    gradient: 'from-slate-600 to-gray-600',
+    link: ROUTES.PLATFORM.SECURITY,
+    stats: { value: '99.99%', label: 'Uptime SLA' },
   },
   {
     id: 'integrations',
     icon: Settings,
-    title: 'Integrations',
-    tagline: 'Connect your existing tools',
+    title: 'Integrations & Support',
+    tagline: 'Connect with your favorite tools',
     description:
-      'Seamlessly integrate with your favorite tools including Zoom, Teams, Google Workspace, and more.',
+      'Seamlessly integrate with your existing tools and get unlimited training and support with every plan.',
     benefits: [
-      'Zoom and Microsoft Teams integration',
-      'Google Workspace and Office 365 sync',
-      'Slack notifications and updates',
-      'Calendar integrations (Google, Outlook, iCal)',
-      'API access for custom integrations',
+      'SharePoint, email, calendar, and task management integrations',
+      'Unlimited training and support included in every plan',
+      'Self-hosted or cloud-hosted options',
     ],
     features: [
-      'Video Conferencing',
-      'Calendar Sync',
-      'Slack Integration',
-      'Office 365',
-      'API Access',
+      'SharePoint Integration',
+      'Email & Calendar Sync',
+      'Task Management',
+      'Unlimited Training',
+      'Flexible Hosting',
     ],
     image: '/images/features/integrations.jpg',
-    gradient: 'from-slate-600 to-gray-600',
+    gradient: 'from-cyan-600 to-blue-600',
     link: ROUTES.PLATFORM.INTEGRATIONS,
+    stats: { value: '24/7', label: 'Support available' },
   },
 ];
 
 export const FeaturesPage: React.FC = () => {
   const [selectedFeature, setSelectedFeature] = React.useState(features[0]);
+
+  // Helper function to render benefit with proper formatting
+  const renderBenefit = (benefit: string) => {
+    // Check if benefit has a colon (for features with specific names)
+    if (benefit.includes(' – ')) {
+      const [title, description] = benefit.split(' – ');
+      return (
+        <span className="text-gray-700">
+          <span className="font-semibold text-gray-900">{title}</span> – {description}
+        </span>
+      );
+    }
+    return <span className="text-gray-700">{benefit}</span>;
+  };
 
   return (
     <>
@@ -273,7 +195,7 @@ export const FeaturesPage: React.FC = () => {
         <title>Features - EBoard Solutions</title>
         <meta
           name="description"
-          content="Explore EBoard's comprehensive governance features: meeting management, document security, AI minutes, e-signatures, and more."
+          content="Explore EBoard's comprehensive governance features: AI capabilities, meeting management, committee management, document features, security, and integrations."
         />
         <meta property="og:title" content="Features - EBoard Solutions" />
         <meta
@@ -316,12 +238,12 @@ export const FeaturesPage: React.FC = () => {
       {/* Feature Navigation */}
       <section className="sticky top-20 bg-white border-b border-gray-200 z-30 py-4">
         <div className="container-custom">
-          <div className="flex overflow-x-auto hide-scrollbar">
+          <div className="flex overflow-x-auto hide-scrollbar gap-2 justify-center flex-wrap">
             {features.map((feature) => (
               <button
                 key={feature.id}
                 onClick={() => setSelectedFeature(feature)}
-                className={`flex items-center px-4 py-2 mx-1 rounded-lg whitespace-nowrap transition ${
+                className={`flex items-center px-4 py-2 rounded-lg whitespace-nowrap transition ${
                   selectedFeature.id === feature.id
                     ? 'bg-primary-600 text-white'
                     : 'text-gray-600 hover:bg-gray-100'
@@ -372,12 +294,12 @@ export const FeaturesPage: React.FC = () => {
                 )}
 
                 {/* Benefits */}
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Key benefits:</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Key capabilities:</h3>
                 <ul className="space-y-3 mb-8">
                   {selectedFeature.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-primary-600 mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{benefit}</span>
+                      {renderBenefit(benefit)}
                     </li>
                   ))}
                 </ul>
@@ -416,6 +338,9 @@ export const FeaturesPage: React.FC = () => {
                     src={selectedFeature.image}
                     alt={selectedFeature.title}
                     className="w-full h-auto"
+                    onError={(e) => {
+                      e.currentTarget.src = `https://placehold.co/600x400/${selectedFeature.gradient.split(' ')[0].replace('from-', '').replace('-600', '')}/ffffff?text=${selectedFeature.title.replace(/ /g, '+')}`;
+                    }}
                   />
                   <div
                     className={`absolute inset-0 bg-gradient-to-tr ${selectedFeature.gradient} opacity-10`}
@@ -445,7 +370,7 @@ export const FeaturesPage: React.FC = () => {
               >
                 <Card
                   variant="elevated"
-                  className={`h-full cursor-pointer ${
+                  className={`h-full cursor-pointer transition-all duration-300 hover:shadow-xl ${
                     selectedFeature.id === feature.id ? 'ring-2 ring-primary-500' : ''
                   }`}
                   onClick={() => setSelectedFeature(feature)}
@@ -456,22 +381,88 @@ export const FeaturesPage: React.FC = () => {
                     >
                       <feature.icon className="w-5 h-5" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900">{feature.title}</h3>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-semibold text-gray-900">{feature.title}</h3>
+                        {feature.badge && (
+                          <Badge variant="primary" size="sm">
+                            {feature.badge}
+                          </Badge>
+                        )}
+                      </div>
                       <p className="text-sm text-gray-500 line-clamp-2">{feature.tagline}</p>
                     </div>
                   </div>
 
-                  <p className="text-sm text-gray-600 line-clamp-3">{feature.description}</p>
+                  <p className="text-sm text-gray-600 line-clamp-3 mb-3">{feature.description}</p>
 
-                  {feature.badge && (
-                    <Badge variant="primary" size="sm" className="mt-4">
-                      {feature.badge}
-                    </Badge>
+                  {/* Show first 3 benefits as preview */}
+                  <div className="mt-2">
+                    {feature.benefits.slice(0, 2).map((benefit, idx) => (
+                      <div key={idx} className="text-xs text-gray-500 flex items-center mt-1">
+                        <div className="w-1 h-1 bg-primary-400 rounded-full mr-2" />
+                        <span className="truncate">{benefit.substring(0, 60)}...</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {feature.stats && (
+                    <div className="mt-3 pt-3 border-t border-gray-100">
+                      <div className="text-xs text-gray-400">
+                        <span className="font-semibold text-primary-600">
+                          {feature.stats.value}
+                        </span>{' '}
+                        {feature.stats.label}
+                      </div>
+                    </div>
                   )}
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Comparison Highlights */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Everything you need in one platform
+            </h2>
+            <p className="text-xl text-gray-600">
+              From AI-powered tools to enterprise-grade security, EBoard has you covered.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="w-16 h-16 mx-auto bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-4">
+                <Brain className="w-8 h-8" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">AI-Powered</h3>
+              <p className="text-gray-600 text-sm">
+                Speech to text, text to speech, and AI summarization powered by Google Gemini
+              </p>
+            </div>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 mx-auto bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-4">
+                <Shield className="w-8 h-8" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Military-Grade Security</h3>
+              <p className="text-gray-600 text-sm">
+                Built on Microsoft Enterprise Framework with 2FA and audit logs
+              </p>
+            </div>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 mx-auto bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mb-4">
+                <Plug className="w-8 h-8" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Seamless Integrations</h3>
+              <p className="text-gray-600 text-sm">
+                Connect with SharePoint, email, calendar, and task management tools
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -483,17 +474,21 @@ export const FeaturesPage: React.FC = () => {
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
             See how EBoard can transform your board meetings with a personalized demo.
           </p>
-          <Link to={ROUTES.DEMO.INDEX}>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="bg-white text-primary-600 hover:bg-gray-100"
-            >
-              Book Your Demo
-            </Button>
-          </Link>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link to={ROUTES.DEMO.INDEX}>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="bg-white text-primary-600 hover:bg-gray-100"
+              >
+                Book Your Demo
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </>
   );
 };
+
+export default FeaturesPage;
