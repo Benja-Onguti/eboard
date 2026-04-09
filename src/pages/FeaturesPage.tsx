@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -12,102 +12,56 @@ import {
   Users,
   Settings,
   Zap,
- Headphones, 
-  Eye,
+  Headphones,
   MessageSquare,
-  Clock,
-  TrendingUp,
-  Award,
   Sparkles,
   Mail,
   Video,
   HardDrive,
-  Server,
   Key,
-  BarChart3,
-  Plug,
+  Globe,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
 import { ROUTES } from '@/config/routes';
 
-// Feature categories
+// Feature categories for filtering
 const featureCategories = [
   { id: 'all', label: 'All Features', icon: Zap },
-  { id: 'ai', label: 'AI & Intelligence', icon: Brain },
-  { id: 'meetings', label: 'Meetings & Agendas', icon: Calendar },
-  { id: 'documents', label: 'Documents & Signatures', icon: FileText },
-  { id: 'security', label: 'Security & Compliance', icon: Shield },
-  { id: 'integrations', label: 'Integrations & Support', icon: Settings },
+  { id: 'ai', label: 'AI', icon: Brain },
+  { id: 'meetings', label: 'Meetings', icon: Calendar },
+  { id: 'documents', label: 'Documents', icon: FileText },
+  { id: 'security', label: 'Security', icon: Shield },
+  { id: 'integrations', label: 'Integrations', icon: Settings },
 ];
 
+// Main features data with IDs matching anchor links
 const features = [
-  // AI & Intelligence Category
-  {
-    id: 'ai-capabilities',
-    category: 'ai',
-    icon: Brain,
-    title: 'AI-Powered Governance',
-    tagline: 'Powered by Google Gemini AI',
-    description:
-      'Transform your board meetings with cutting-edge AI capabilities that save time, improve accuracy, and enhance accessibility.',
-    longDescription:
-      'Leverage Google Gemini AI to automate meeting documentation, generate intelligent summaries, and make board materials accessible to all members. Our AI reduces manual work by up to 95% while improving accuracy and consistency.',
-    benefits: [
-      'Speech-to-text transcription with 95%+ accuracy',
-      'AI-powered meeting summarization and key decision extraction',
-      'Text-to-speech accessibility for board materials',
-      'Automated action item detection and assignment',
-      'Intelligent search across all meeting transcripts',
-    ],
-    features: [
-      {
-        name: 'Speech to Text',
-        description: 'Real-time transcription with speaker identification',
-      },
-      {
-        name: 'AI Summarization',
-        description: 'Automatic extraction of decisions and action items',
-      },
-      { name: 'Text to Speech', description: 'Accessible board materials for all members' },
-      { name: 'Smart Search', description: 'Find anything across all meetings instantly' },
-    ],
-    image: '/images/features/ai-capabilities.jpg',
-    gradient: 'from-purple-600 to-pink-600',
-    link: '/features/ai-capabilities',
-    badge: 'New',
-    stats: { value: '95%', label: 'Time saved on minutes', icon: Clock },
-    enterprise: true,
-  },
   {
     id: 'meeting-management',
     category: 'meetings',
     icon: Calendar,
-    title: 'Meeting & Agenda Management',
+    title: 'Meeting & Agenda',
     tagline: 'Streamline every meeting',
-    description:
-      'Automate every aspect of your board meetings from scheduling to minutes, with seamless video conferencing integration.',
+    description: 'Automate every aspect of your board meetings from scheduling to minutes.',
     longDescription:
-      'Say goodbye to manual meeting coordination. Our platform automates scheduling, agenda building, minute taking, and follow-up tracking, integrating seamlessly with Zoom and Microsoft Teams.',
+      'Say goodbye to manual meeting coordination. Our platform automates scheduling, agenda building, minute taking, and follow-up tracking.',
     benefits: [
-      'Drag-and-drop agenda builder with time allocations',
-      'Automatic minute tracking and distribution',
-      'Zoom & Microsoft Teams native integration',
+      'Drag-and-drop agenda builder',
+      'Automatic minute tracking',
+      'Zoom & Teams integration',
       'One-click board pack assembly',
-      'Automated meeting reminders and calendar sync',
     ],
     features: [
-      { name: 'Agenda Builder', description: 'Collaborative agenda creation with version history' },
-      { name: 'Minute Builder', description: 'AI-assisted minute taking with action tracking' },
-      { name: 'Video Integration', description: 'Seamless Zoom and Teams integration' },
-      { name: 'Board Packs', description: 'One-click compilation of all meeting materials' },
+      { name: 'Agenda Builder', description: 'Collaborative agenda creation' },
+      { name: 'Minute Builder', description: 'AI-assisted minute taking' },
+      { name: 'Video Integration', description: 'Zoom and Teams' },
+      { name: 'Board Packs', description: 'One-click compilation' },
     ],
     image: '/images/features/meeting-management.jpg',
     gradient: 'from-blue-600 to-indigo-600',
-    link: ROUTES.MARKETING.MEETING_MANAGEMENT,
-    stats: { value: '70%', label: 'Faster meeting prep', icon: Clock },
+    stats: { value: '70%', label: 'Faster prep' },
   },
   {
     id: 'committee-management',
@@ -115,58 +69,72 @@ const features = [
     icon: Users,
     title: 'Committee Management',
     tagline: 'Organize unlimited committees',
-    description:
-      'Manage unlimited committees with dedicated workspaces, member tracking, and independent governance.',
-    longDescription:
-      'Whether you have 3 committees or 30, our platform scales to meet your needs. Each committee gets its own dedicated space with customized permissions, document libraries, and meeting schedules.',
+    description: 'Manage unlimited committees with dedicated workspaces and member tracking.',
+    longDescription: 'Whether you have 3 committees or 30, our platform scales to meet your needs.',
     benefits: [
-      'Unlimited committees and sub-committees',
-      'Dedicated document libraries per committee',
-      'Automated membership tracking and term limits',
-      'Cross-committee reporting and analytics',
-      'Independent meeting scheduling and minutes',
+      'Unlimited committees',
+      'Dedicated document libraries',
+      'Membership tracking',
+      'Cross-committee reporting',
     ],
     features: [
-      {
-        name: 'Unlimited Committees',
-        description: 'No limits on how many committees you can create',
-      },
-      { name: 'Committee Libraries', description: 'Separate document storage for each committee' },
-      { name: 'Membership Register', description: 'Automated member tracking and term management' },
-      { name: 'Cross-Committee View', description: 'Executive dashboard for oversight' },
+      { name: 'Unlimited Committees', description: 'No limits' },
+      { name: 'Committee Libraries', description: 'Separate storage' },
+      { name: 'Membership Register', description: 'Term management' },
+      { name: 'Cross-Committee View', description: 'Executive dashboard' },
     ],
     image: '/images/features/committee-management.jpg',
     gradient: 'from-green-600 to-teal-600',
-    link: '/features/committee-management',
-    stats: { value: '100%', label: 'Visibility across committees', icon: Eye },
+    stats: { value: '100%', label: 'Visibility' },
+  },
+  {
+    id: 'ai-capabilities',
+    category: 'ai',
+    icon: Brain,
+    title: 'AI Capabilities',
+    tagline: 'Powered by Google Gemini',
+    description: 'Transform meetings with AI-powered transcription, summarization, and text-to-speech.',
+    longDescription:
+      'Leverage Google Gemini AI to automate meeting documentation, generate intelligent summaries, and make board materials accessible to all members.',
+    benefits: [
+      'Speech-to-text transcription with 95%+ accuracy',
+      'AI-powered meeting summarization',
+      'Text-to-speech accessibility',
+    ],
+    features: [
+      { name: 'Speech to Text', description: 'Real-time transcription' },
+      { name: 'AI Summarization', description: 'Auto extraction of decisions' },
+      { name: 'Text to Speech', description: 'Accessible materials' },
+      { name: 'Smart Search', description: 'Find anything instantly' },
+    ],
+    image: '/images/features/ai-capabilities.jpg',
+    gradient: 'from-purple-600 to-pink-600',
+    stats: { value: '95%', label: 'Time saved' },
   },
   {
     id: 'document-features',
     category: 'documents',
     icon: FileText,
-    title: 'Document Management Suite',
+    title: 'Document Suite',
     tagline: 'Complete document solution',
-    description:
-      'Manage all board documents with e-signatures, surveys, voting, and resolution tracking in one unified platform.',
+    description: 'Manage all board documents with e-signatures, surveys, and voting.',
     longDescription:
-      'Stop juggling multiple tools for document management. Our all-in-one suite handles everything from secure storage to legally binding signatures and board voting.',
+      'Stop juggling multiple tools. Our all-in-one suite handles everything from secure storage to legally binding signatures.',
     benefits: [
-      'Support for all file types (PDF, Word, Excel, PowerPoint, images)',
-      'Legally binding e-signatures compliant with ESIGN and eIDAS',
-      'Secure voting and resolution tracking with audit trails',
-      'Automated document retention and archiving',
-      'Version control with complete history',
+      'Support for 50+ file types',
+      'Legally binding e-signatures',
+      'Secure voting',
+      'Version control',
     ],
     features: [
-      { name: 'All File Types', description: 'Support for 50+ file formats' },
-      { name: 'E-Signatures', description: 'Legally binding digital signatures' },
-      { name: 'Votes & Resolutions', description: 'Secure voting with audit trails' },
-      { name: 'Version Control', description: 'Complete document history and restore' },
+      { name: 'All File Types', description: '50+ formats' },
+      { name: 'E-Signatures', description: 'Legally binding' },
+      { name: 'Votes & Resolutions', description: 'With audit trails' },
+      { name: 'Version Control', description: 'Complete history' },
     ],
     image: '/images/features/document-features.jpg',
     gradient: 'from-orange-600 to-red-600',
-    link: ROUTES.MARKETING.DOCUMENT_MANAGEMENT,
-    stats: { value: '50+', label: 'File types supported', icon: FileText },
+    stats: { value: '50+', label: 'File types' },
   },
   {
     id: 'security',
@@ -174,65 +142,69 @@ const features = [
     icon: Shield,
     title: 'Enterprise Security',
     tagline: 'Military-grade protection',
-    description:
-      'Protect your board materials with AES-256 encryption, two-factor authentication, and complete audit trails.',
+    description: 'Protect your board materials with AES-256 encryption and complete audit trails.',
     longDescription:
-      'Built on the Microsoft Enterprise Framework, our security infrastructure meets the highest standards of government and enterprise clients. Your data is protected at every layer.',
+      'Built on the Microsoft Enterprise Framework, our security infrastructure meets the highest standards.',
     benefits: [
-      'AES-256 encryption for data at rest and in transit',
-      'Two-factor authentication and SSO support',
-      'Complete audit trails with 7-year retention',
-      'Role-based access control at document level',
-      'SOC 2 Type II and ISO 27001 certified',
+      'AES-256 encryption',
+      'Two-factor authentication',
+      'Complete audit trails',
+      'SOC 2 & ISO 27001 certified',
     ],
     features: [
-      { name: 'Encryption', description: 'AES-256 military-grade encryption' },
-      { name: '2FA & SSO', description: 'Multi-factor authentication and single sign-on' },
-      { name: 'Audit Logs', description: 'Tamper-proof audit trails' },
-      { name: 'Role-based Access', description: 'Granular document-level permissions' },
+      { name: 'Encryption', description: 'AES-256 military-grade' },
+      { name: '2FA & SSO', description: 'Multi-factor auth' },
+      { name: 'Audit Logs', description: 'Tamper-proof trails' },
+      { name: 'Role-based Access', description: 'Granular permissions' },
     ],
     image: '/images/features/security.jpg',
     gradient: 'from-slate-600 to-gray-600',
-    link: ROUTES.PLATFORM.SECURITY,
-    stats: { value: '99.99%', label: 'Uptime SLA', icon: Server },
+    stats: { value: '99.99%', label: 'Uptime' },
   },
   {
     id: 'integrations',
     category: 'integrations',
     icon: Settings,
-    title: 'Integrations & Support',
-    tagline: 'Connect with your favorite tools',
-    description:
-      'Seamlessly integrate with your existing tools and get unlimited training and support with every plan.',
+    title: 'Integrations',
+    tagline: 'Connect with your tools',
+    description: 'Seamlessly integrate with your existing tools and get unlimited support.',
     longDescription:
-      'We work with your existing technology stack. From SharePoint to Slack, our integrations ensure a smooth transition. Plus, every plan includes unlimited training and 24/7 support.',
-    benefits: [
-      'SharePoint, email, calendar, and task management integrations',
-      'Unlimited training and support included in every plan',
-      'Flexible hosting: self-hosted or cloud-hosted options',
-      'REST API for custom integrations',
-      '24/7 priority support for enterprise clients',
-    ],
+      'We work with your existing technology stack. Every plan includes unlimited training and 24/7 support.',
+    benefits: ['SharePoint integration', 'Email & calendar sync', 'REST API', '24/7 support'],
     features: [
-      { name: 'SharePoint Integration', description: 'Seamless document sync' },
-      { name: 'Email & Calendar Sync', description: 'Outlook and Gmail integration' },
-      { name: 'Task Management', description: 'Integration with Asana, Trello, Jira' },
-      { name: 'Unlimited Training', description: 'Onboarding and ongoing training' },
-      { name: 'Flexible Hosting', description: 'Cloud, on-premise, or hybrid' },
+      { name: 'SharePoint', description: 'Document sync' },
+      { name: 'Email & Calendar', description: 'Outlook and Gmail' },
+      { name: 'Task Management', description: 'Asana, Trello, Jira' },
+      { name: 'Unlimited Training', description: 'Onboarding included' },
     ],
     image: '/images/features/integrations.jpg',
     gradient: 'from-cyan-600 to-blue-600',
-    link: ROUTES.PLATFORM.INTEGRATIONS,
-    stats: { value: '24/7', label: 'Support available', icon: Headphones },
+    stats: { value: '24/7', label: 'Support' },
   },
 ];
 
 export const FeaturesPage: React.FC = () => {
   const [selectedFeature, setSelectedFeature] = useState(features[0]);
   const [activeCategory, setActiveCategory] = useState('all');
+  const featureRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const filteredFeatures =
     activeCategory === 'all' ? features : features.filter((f) => f.category === activeCategory);
+
+  const scrollToFeature = (featureId: string) => {
+    const element = featureRefs.current[featureId];
+    if (element) {
+      const offset = 80; // Account for sticky navbar height
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: elementPosition - offset, behavior: 'smooth' });
+    }
+    // Also update selected feature for detail view
+    const feature = features.find(f => f.id === featureId);
+    if (feature) setSelectedFeature(feature);
+  };
+
+  // List of core features for the navbar (excluding Integrations from quick nav, but still in filters)
+  const coreFeatures = features.filter(f => f.id !== 'integrations');
 
   return (
     <>
@@ -242,87 +214,94 @@ export const FeaturesPage: React.FC = () => {
           name="description"
           content="Explore EBoard's comprehensive governance features: AI capabilities, meeting management, committee management, document suite, enterprise security, and integrations."
         />
-        <meta
-          property="og:title"
-          content="Features - EBoard Solutions | Modern Governance Platform"
-        />
-        <meta
-          property="og:description"
-          content="Everything you need for modern board governance in one platform."
-        />
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+      <section className="relative min-h-[70vh] flex items-center pt-24 pb-12 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100/30" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-100/50 to-transparent" />
 
-        <div className="container-custom relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Everything for{' '}
-              <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
-                modern governance
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              AI-powered tools, enterprise security, and seamless integrations—all in one platform.
-            </p>
+        <div className="container-custom relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Badge variant="primary" className="mb-6 px-4 py-1.5 text-sm">
+                Platform Features
+              </Badge>
 
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link to={ROUTES.DEMO.INDEX}>
-                <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                  Book Demo
-                </Button>
-              </Link>
-            </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Everything you need for{' '}
+                <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
+                  modern governance
+                </span>
+              </h1>
 
-            <div className="flex items-center justify-center gap-6 mt-8 pt-6 border-t border-gray-200">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Brain className="w-4 h-4 text-purple-600" />
-                AI-Powered
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                AI-powered tools, enterprise security, and seamless integrations—all in one platform
+                designed for boards.
+              </p>
+
+              <div className="flex flex-wrap gap-4 justify-center mb-10">
+                <Link to={ROUTES.DEMO.INDEX}>
+                  <Button size="lg" className="px-8">
+                    Book Demo
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+                <Link to={ROUTES.COMPANY.CONTACT}>
+                  <Button size="lg" variant="outline" className="px-8">
+                    Contact Sales
+                  </Button>
+                </Link>
               </div>
-              <div className="h-4 w-px bg-gray-200" />
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Shield className="w-4 h-4 text-green-600" />
-                Enterprise Security
+
+              <div className="flex items-center justify-center gap-8 pt-6 border-t border-gray-200 mx-auto max-w-xl">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary-600">6</div>
+                  <div className="text-xs text-gray-500">Core Modules</div>
+                </div>
+                <div className="h-8 w-px bg-gray-200" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">50+</div>
+                  <div className="text-xs text-gray-500">Integrations</div>
+                </div>
+                <div className="h-8 w-px bg-gray-200" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-600">99.9%</div>
+                  <div className="text-xs text-gray-500">Uptime</div>
+                </div>
               </div>
-              <div className="h-4 w-px bg-gray-200" />
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Plug className="w-4 h-4 text-blue-600" />
-                50+ Integrations
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Trust indicators */}
-      <div className="mt-10 flex flex-wrap justify-center gap-8 text-sm text-gray-500">
-        <div className="flex items-center gap-2">
-          <Award className="w-5 h-5 text-primary-500" />
-          <span>Trusted by 500+ organizations</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Shield className="w-5 h-5 text-primary-500" />
-          <span>ISO 27001 Certified</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Users className="w-5 h-5 text-primary-500" />
-          <span>2M+ users worldwide</span>
-        </div>
-      </div>
-
-      {/* Category Navigation */}
+      {/* Feature Navigation Bar (Links to each core feature) */}
       <section className="sticky top-20 bg-white border-b border-gray-200 z-30 py-3 shadow-sm">
         <div className="container-custom">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {coreFeatures.map((feature) => (
+              <button
+                key={feature.id}
+                onClick={() => scrollToFeature(feature.id)}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-all duration-200 text-sm font-medium"
+              >
+                <feature.icon className="w-4 h-4" />
+                {feature.title}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Category Filter (Optional, keeps original filtering) */}
+      <section className="bg-white border-b border-gray-100 py-3">
+        <div className="container-custom">
           <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="text-xs text-gray-400 mr-2">Filter:</span>
             {featureCategories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.id;
@@ -330,13 +309,13 @@ export const FeaturesPage: React.FC = () => {
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center px-4 py-2 rounded-lg transition-all duration-200 ${
+                  className={`flex items-center px-3 py-1.5 rounded-full text-xs transition-all duration-200 ${
                     isActive
                       ? 'bg-primary-600 text-white shadow-md'
                       : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 mr-2 ${isActive ? 'text-white' : 'text-gray-500'}`} />
+                  <Icon className={`w-3.5 h-3.5 mr-1 ${isActive ? 'text-white' : 'text-gray-500'}`} />
                   {category.label}
                 </button>
               );
@@ -346,7 +325,7 @@ export const FeaturesPage: React.FC = () => {
       </section>
 
       {/* Feature Cards Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredFeatures.map((feature, index) => {
@@ -356,10 +335,12 @@ export const FeaturesPage: React.FC = () => {
               return (
                 <motion.div
                   key={feature.id}
+                  id={feature.id}
+                  ref={(el) => (featureRefs.current[feature.id] = el)}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "-50px" }}
                 >
                   <Card
                     variant="elevated"
@@ -368,54 +349,39 @@ export const FeaturesPage: React.FC = () => {
                     }`}
                     onClick={() => setSelectedFeature(feature)}
                   >
-                    {/* Header with icon and badge */}
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-start justify-between mb-3">
                       <div
-                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white shadow-md`}
+                        className={`w-10 h-10 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white shadow-md`}
                       >
-                        <Icon className="w-6 h-6" />
+                        <Icon className="w-5 h-5" />
                       </div>
-                      {feature.badge && (
-                        <Badge
-                          variant="primary"
-                          size="sm"
-                          className="bg-purple-100 text-purple-700"
-                        >
-                          {feature.badge}
-                        </Badge>
-                      )}
                     </div>
 
-                    {/* Title and description */}
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">{feature.title}</h3>
-                    <p className="text-sm text-gray-500 mb-2">{feature.tagline}</p>
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">{feature.description}</p>
+                    <h3 className="text-base font-bold text-gray-900 mb-1">{feature.title}</h3>
+                    <p className="text-xs text-gray-500 mb-2">{feature.tagline}</p>
+                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{feature.description}</p>
 
-                    {/* Key benefits preview */}
-                    <ul className="space-y-1.5 mb-4">
+                    <ul className="space-y-1 mb-3">
                       {feature.benefits.slice(0, 2).map((benefit, idx) => (
                         <li key={idx} className="text-xs text-gray-500 flex items-start">
-                          <CheckCircle className="w-3.5 h-3.5 text-primary-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-3 h-3 text-primary-500 mr-2 flex-shrink-0 mt-0.5" />
                           <span className="line-clamp-1">{benefit}</span>
                         </li>
                       ))}
                     </ul>
 
-                    {/* Stats and CTA */}
                     <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                       {feature.stats && (
-                        <div className="flex items-center gap-2">
-                          <feature.stats.icon className="w-4 h-4 text-primary-500" />
+                        <div className="flex items-center gap-1">
                           <span className="text-sm font-semibold text-gray-900">
                             {feature.stats.value}
                           </span>
                           <span className="text-xs text-gray-500">{feature.stats.label}</span>
                         </div>
                       )}
-                      <div className="text-primary-600 text-sm font-medium hover:text-primary-700 transition flex items-center gap-1">
-                        Learn more
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </div>
+                      <span className="text-primary-600 text-xs font-medium flex items-center gap-1">
+                        Details <ArrowRight className="w-3 h-3" />
+                      </span>
                     </div>
                   </Card>
                 </motion.div>
@@ -425,7 +391,7 @@ export const FeaturesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Selected Feature Detail Section */}
+      {/* Selected Feature Detail */}
       <AnimatePresence mode="wait">
         <motion.section
           key={selectedFeature.id}
@@ -433,128 +399,85 @@ export const FeaturesPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -30 }}
           transition={{ duration: 0.5 }}
-          className="py-20 bg-gray-50"
+          className="py-16 bg-gray-50"
         >
           <div className="container-custom">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              {/* Left Content - Detailed Information */}
+            <div className="grid lg:grid-cols-2 gap-10 items-start">
               <div className="order-2 lg:order-1">
-                {/* Category badge */}
                 <div className="flex items-center gap-2 mb-4">
                   <div
                     className={`w-10 h-10 rounded-lg bg-gradient-to-br ${selectedFeature.gradient} flex items-center justify-center text-white`}
                   >
                     <selectedFeature.icon className="w-5 h-5" />
                   </div>
-                  <Badge variant="primary" className="bg-primary-100 text-primary-700">
+                  <Badge variant="primary" className="bg-primary-100 text-primary-700 text-xs">
                     {featureCategories.find((c) => c.id === selectedFeature.category)?.label ||
                       'Feature'}
                   </Badge>
-                  {selectedFeature.enterprise && (
-                    <Badge variant="secondary" className="bg-slate-100 text-slate-700">
-                      Enterprise
-                    </Badge>
-                  )}
                 </div>
 
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">{selectedFeature.title}</h2>
-                <p className="text-lg text-primary-600 font-medium mb-3">
+                <h2 className="text-2xl font-bold text-gray-900 mb-1">{selectedFeature.title}</h2>
+                <p className="text-sm text-primary-600 font-medium mb-3">
                   {selectedFeature.tagline}
                 </p>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-5 text-sm leading-relaxed">
                   {selectedFeature.longDescription}
                 </p>
 
-                {/* Stats row */}
                 {selectedFeature.stats && (
-                  <div className="flex items-center gap-6 bg-white rounded-xl p-4 mb-6 shadow-sm">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
-                        <selectedFeature.stats.icon className="w-5 h-5 text-primary-600" />
+                  <div className="flex items-center gap-4 bg-white rounded-xl p-4 mb-5 shadow-sm">
+                    <div className="flex items-center gap-2">
+                      <div
+                        className={`w-10 h-10 rounded-full bg-gradient-to-br ${selectedFeature.gradient} flex items-center justify-center text-white text-sm font-bold`}
+                      >
+                        {selectedFeature.stats.value}
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-primary-600">
+                        <div className="text-lg font-bold text-gray-900">
                           {selectedFeature.stats.value}
                         </div>
                         <div className="text-xs text-gray-500">{selectedFeature.stats.label}</div>
                       </div>
                     </div>
-                    <div className="w-px h-10 bg-gray-200" />
-                    <div className="flex items-center gap-2">
-                      <Award className="w-5 h-5 text-gray-400" />
-                      <div>
-                        <div className="text-sm font-semibold text-gray-900">
-                          Included in all plans
-                        </div>
-                        <div className="text-xs text-gray-500">No hidden costs</div>
-                      </div>
-                    </div>
                   </div>
                 )}
 
-                {/* Key Capabilities */}
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-primary-500" />
-                  Key capabilities
+                <h3 className="text-base font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-primary-500" /> Key capabilities
                 </h3>
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
+                <div className="grid md:grid-cols-2 gap-3 mb-5">
                   {selectedFeature.features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                    <div key={index} className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="font-medium text-gray-900">{feature.name}</h4>
-                        <p className="text-sm text-gray-500">{feature.description}</p>
+                        <h4 className="text-sm font-medium text-gray-900">{feature.name}</h4>
+                        <p className="text-xs text-gray-500">{feature.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Full benefits list */}
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-primary-500" />
-                  What you'll achieve
-                </h3>
-                <ul className="space-y-2 mb-8">
-                  {selectedFeature.benefits.map((benefit, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <CheckCircle className="w-3.5 h-3.5 text-green-600" />
-                      </div>
-                      <span className="text-gray-700">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-4">
-                  <Link to={selectedFeature.link}>
-                    <Button
-                      size="lg"
-                      className={`bg-gradient-to-r ${selectedFeature.gradient} text-white border-0 hover:opacity-90`}
-                    >
-                      Learn more about {selectedFeature.title}
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </Link>
+                <div className="flex flex-wrap gap-3">
                   <Link to={ROUTES.DEMO.INDEX}>
-                    <Button size="lg" variant="outline">
-                      See it in action
+                    <Button
+                      size="md"
+                      className={`bg-gradient-to-r ${selectedFeature.gradient} text-white border-0`}
+                    >
+                      Learn More <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
                 </div>
               </div>
 
-              {/* Right Column - Image/Visual */}
               <div className="order-1 lg:order-2">
                 <div className="relative">
-                  {/* Main image */}
-                  <div className="relative rounded-2xl shadow-2xl overflow-hidden bg-white">
+                  <div className="relative rounded-xl shadow-xl overflow-hidden bg-white">
                     <img
                       src={selectedFeature.image}
                       alt={selectedFeature.title}
                       className="w-full h-auto"
                       onError={(e) => {
-                        e.currentTarget.src = `https://placehold.co/600x450/1e293b/3b82f6?text=${selectedFeature.title.replace(/ /g, '+')}`;
+                        e.currentTarget.src = `https://placehold.co/600x400/1e293b/3b82f6?text=${selectedFeature.title.replace(/ /g, '+')}`;
                       }}
                     />
                     <div
@@ -562,36 +485,10 @@ export const FeaturesPage: React.FC = () => {
                     />
                   </div>
 
-                  {/* Floating stats cards */}
                   <motion.div
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-                    className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100"
-                  >
-                    <div className="flex items-center gap-2">
-                      <div
-                        className={`w-8 h-8 rounded-lg bg-gradient-to-br ${selectedFeature.gradient} flex items-center justify-center text-white`}
-                      >
-                        <selectedFeature.icon className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-gray-500">Customer rating</p>
-                        <div className="flex items-center gap-1">
-                          <div className="flex gap-0.5">
-                            {[1, 2, 3, 4, 5].map((i) => (
-                              <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                            ))}
-                          </div>
-                          <span className="text-xs font-semibold">4.9/5</span>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut', delay: 1 }}
-                    className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl p-3 border border-gray-100"
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ repeat: Infinity, duration: 3 }}
+                    className="absolute -bottom-3 -left-3 bg-white rounded-lg shadow-lg p-3 border border-gray-100"
                   >
                     <div className="flex items-center gap-2">
                       <Users className="w-4 h-4 text-primary-500" />
@@ -608,140 +505,90 @@ export const FeaturesPage: React.FC = () => {
         </motion.section>
       </AnimatePresence>
 
-      {/* Comparison Table */}
+      {/* Why EBoard Section */}
       <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <Badge variant="primary" className="mb-4 bg-primary-100 text-primary-700">
-              Feature Comparison
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <Badge variant="primary" className="mb-3">
+              Why EBoard
             </Badge>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Compare features across plans</h2>
-            <p className="text-lg text-gray-600">
-              Choose the plan that's right for your organization.
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+              Built for modern boards
+            </h2>
+            <p className="text-gray-600">
+              Everything you need to run effective board meetings and governance.
             </p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="bg-gray-50 border-b-2 border-gray-200">
-                  <th className="text-left p-4 font-semibold text-gray-900">Feature</th>
-                  <th className="text-center p-4 font-semibold text-gray-900">Essential</th>
-                  <th className="text-center p-4 font-semibold text-primary-600 bg-primary-50">
-                    Professional
-                  </th>
-                  <th className="text-center p-4 font-semibold text-gray-900">Enterprise</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { feature: 'Meeting Management', essential: true, pro: true, enterprise: true },
-                  {
-                    feature: 'Document Storage (GB)',
-                    essential: '25',
-                    pro: '100',
-                    enterprise: 'Unlimited',
-                  },
-                  {
-                    feature: 'AI Minutes & Transcription',
-                    essential: false,
-                    pro: true,
-                    enterprise: true,
-                  },
-                  { feature: 'E-Signatures', essential: true, pro: true, enterprise: true },
-                  {
-                    feature: 'Committee Management',
-                    essential: '5',
-                    pro: 'Unlimited',
-                    enterprise: 'Unlimited',
-                  },
-                  {
-                    feature: 'Security & Compliance',
-                    essential: 'Standard',
-                    pro: 'Advanced',
-                    enterprise: 'Enterprise',
-                  },
-                  { feature: 'API Access', essential: false, pro: true, enterprise: true },
-                  { feature: '24/7 Support', essential: false, pro: true, enterprise: true },
-                  {
-                    feature: 'Dedicated Account Manager',
-                    essential: false,
-                    pro: false,
-                    enterprise: true,
-                  },
-                  {
-                    feature: 'Custom Integrations',
-                    essential: false,
-                    pro: false,
-                    enterprise: true,
-                  },
-                ].map((row, index) => (
-                  <tr key={index} className="border-b border-gray-100 hover:bg-gray-50 transition">
-                    <td className="p-4 font-medium text-gray-900">{row.feature}</td>
-                    <td className="p-4 text-center">
-                      {typeof row.essential === 'boolean' ? (
-                        row.essential ? (
-                          <CheckCircle className="w-5 h-5 text-green-500 mx-auto" />
-                        ) : (
-                          <div className="text-gray-300">—</div>
-                        )
-                      ) : (
-                        <span className="text-gray-600">{row.essential}</span>
-                      )}
-                    </td>
-                    <td className="p-4 text-center bg-primary-50/30">
-                      {typeof row.pro === 'boolean' ? (
-                        row.pro ? (
-                          <CheckCircle className="w-5 h-5 text-primary-500 mx-auto" />
-                        ) : (
-                          <div className="text-gray-300">—</div>
-                        )
-                      ) : (
-                        <span className="font-medium text-primary-600">{row.pro}</span>
-                      )}
-                    </td>
-                    <td className="p-4 text-center">
-                      {typeof row.enterprise === 'boolean' ? (
-                        row.enterprise ? (
-                          <CheckCircle className="w-5 h-5 text-green-500 mx-auto" />
-                        ) : (
-                          <div className="text-gray-300">—</div>
-                        )
-                      ) : (
-                        <span className="text-gray-600">{row.enterprise}</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Brain,
+                title: 'AI-Powered',
+                description: 'Save 95% of time on meeting minutes with Google Gemini AI',
+                color: 'purple',
+              },
+              {
+                icon: Shield,
+                title: 'Enterprise Security',
+                description: 'AES-256 encryption, SSO, and ISO 27001 certified',
+                color: 'green',
+              },
+              {
+                icon: Globe,
+                title: 'Accessible Anywhere',
+                description: 'Cloud-based platform accessible from any device',
+                color: 'blue',
+              },
+              {
+                icon: Headphones,
+                title: '24/7 Support',
+                description: 'Dedicated support team available around the clock',
+                color: 'orange',
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-5 h-full text-center hover:shadow-lg transition-shadow">
+                  <div
+                    className={`w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-${item.color}-500 to-${item.color}-600 flex items-center justify-center text-white mb-3`}
+                  >
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-base font-bold text-gray-900 mb-1">{item.title}</h3>
+                  <p className="text-sm text-gray-500">{item.description}</p>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Integrations Showcase */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <Badge variant="primary" className="mb-4 bg-primary-100 text-primary-700">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <Badge variant="primary" className="mb-3">
               Integrations
             </Badge>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Works with your favorite tools
-            </h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Works with your tools</h2>
+            <p className="text-gray-600 text-sm">
               Seamlessly integrate with your existing technology stack.
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 items-center">
+          <div className="flex flex-wrap justify-center gap-6">
             {[
               { name: 'Microsoft Teams', icon: Video },
               { name: 'Zoom', icon: Video },
               { name: 'SharePoint', icon: HardDrive },
               { name: 'Google Workspace', icon: Mail },
               { name: 'Slack', icon: MessageSquare },
-              { name: 'Salesforce', icon: BarChart3 },
               { name: 'Okta', icon: Shield },
               { name: 'Azure AD', icon: Key },
             ].map((integration, index) => {
@@ -755,84 +602,48 @@ export const FeaturesPage: React.FC = () => {
                   viewport={{ once: true }}
                   className="flex flex-col items-center"
                 >
-                  <div className="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center mb-2 hover:shadow-lg transition">
-                    <Icon className="w-8 h-8 text-gray-600" />
+                  <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-1 hover:shadow-md transition">
+                    <Icon className="w-7 h-7 text-gray-600" />
                   </div>
                   <span className="text-xs text-gray-500">{integration.name}</span>
                 </motion.div>
               );
             })}
           </div>
-
-          <div className="text-center mt-8">
-            <Link to={ROUTES.PLATFORM.INTEGRATIONS}>
-              <Button variant="link">
-                View all integrations
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+      <section className="py-14 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
         <div className="container-custom text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to transform your board meetings?
-            </h2>
-            <p className="text-xl text-primary-100 mb-8">
-              Join 500+ organizations already using EBoard to streamline governance and drive
-              impact.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link to={ROUTES.DEMO.INDEX}>
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="bg-white text-primary-600 hover:bg-gray-100 shadow-lg"
-                >
-                  Book a Demo
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-              <Link to={ROUTES.COMPANY.CONTACT}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10"
-                >
-                  Contact Sales
-                </Button>
-              </Link>
-            </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-primary-200">
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4" />
-                No credit card required
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4" />
-                14-day free trial
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4" />
-                Cancel anytime
-              </span>
-            </div>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Ready to transform your board?</h2>
+          <p className="text-primary-100 mb-6 max-w-xl mx-auto text-sm">
+            Join 500+ organizations using EBoard to streamline governance.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link to={ROUTES.DEMO.INDEX}>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="bg-white text-primary-600 hover:bg-gray-100"
+              >
+                Book a Demo <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+            <Link to={ROUTES.COMPANY.CONTACT}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
+                Contact Sales
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
     </>
   );
 };
-
-// Helper Star component for ratings
-const Star: React.FC<{ className?: string }> = ({ className }) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 20 20">
-    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-  </svg>
-);
 
 export default FeaturesPage;

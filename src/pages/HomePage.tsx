@@ -14,8 +14,6 @@ import {
   Settings,
   Users,
   Scale,
-  Download,
-  ChevronRight,
   PenTool,
   Star,
   Mic,
@@ -470,7 +468,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {siteContent.userRoles.map((role, index) => {
+            {siteContent.userRoles.map((role) => {
               const Icon = iconMap[role.icon];
               return (
                 <Card key={role.role} variant="elevated" className="h-full">

@@ -11,8 +11,6 @@ import {
   Lock,
   Database,
   Clock,
-  Mail,
-  Phone,
   TrendingUp,
   LineChart,
   Network,
@@ -23,11 +21,9 @@ import {
   Calendar,
   Brain,
   GitMerge,
-  MessageSquare,
   Code,
   HardDrive,
   RefreshCw,
-  Star,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';

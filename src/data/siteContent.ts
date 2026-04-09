@@ -66,10 +66,10 @@ export const siteContent = {
     subheadline:
       'Automate agendas, minutes, and summaries with smart AI. Powered by Google Gemini. Secure, scalable, and built for modern boards.',
     ctas: {
-      sales: { text: 'Talk to Sales', href: '/contact' },
-      trial: { text: 'Try Now', href: '/demo' },
+      sales: { text: 'Talk to Us', href: '/contact' },
+      trial: { text: 'Book Demo', href: '/demo' },
     },
-    image: '/images/hero/db.jpg',
+    image: '/images/hero/Board1.png',
     video: '/videos/hero-preview.mp4',
   },
 
