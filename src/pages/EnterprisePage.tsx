@@ -52,9 +52,9 @@ export const EnterprisePage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-8 pb-20 bg-gradient-to-b from-slate-900 to-slate-800 text-white overflow-hidden relative">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
+      <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+        {/* Animated Background */}
+        <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0"
             style={{
@@ -63,6 +63,8 @@ export const EnterprisePage: React.FC = () => {
             }}
           />
         </div>
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
 
         <div className="container-custom relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -71,20 +73,16 @@ export const EnterprisePage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge
-                variant="primary"
-                className="mb-4 bg-primary-500/20 text-primary-300 border-primary-500/30"
-              >
-                For Enterprise
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Enterprise-grade governance for{' '}
                 <span className="text-primary-400">global organizations</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8">
-                Scale your corporate governance with enterprise-level security, advanced
-                integrations, and strategic analytics. Trusted by Fortune 500 companies worldwide.
+              <p className="text-xl text-gray-300 mb-8 max-w-xl">
+                Scale your corporate governance with enterprise-level security, advanced integrations, and strategic analytics.
               </p>
+              
               <div className="flex flex-wrap gap-4 mb-8">
                 <Link to={ROUTES.DEMO.INDEX}>
                   <Button size="lg" className="bg-primary-600 hover:bg-primary-700">
@@ -102,29 +100,21 @@ export const EnterprisePage: React.FC = () => {
                 </Link>
               </div>
 
-              {/* Enterprise Trust Indicators */}
-              <div className="flex items-center gap-6">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 border-2 border-slate-800"
-                    />
-                  ))}
+              {/* Quick Stats */}
+              <div className="flex items-center gap-6 pt-4 border-t border-slate-700">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary-400">100+</div>
+                  <div className="text-xs text-gray-400">Enterprises</div>
                 </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-5 h-5 text-primary-400" />
-                    <span className="text-sm font-medium">Trusted by 100+ enterprises</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                    <span className="text-sm text-gray-300 ml-2">
-                      4.9/5 from enterprise clients
-                    </span>
-                  </div>
+                <div className="h-8 w-px bg-slate-700" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-400">99.99%</div>
+                  <div className="text-xs text-gray-400">Uptime SLA</div>
+                </div>
+                <div className="h-8 w-px bg-slate-700" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-400">50+</div>
+                  <div className="text-xs text-gray-400">Integrations</div>
                 </div>
               </div>
             </motion.div>
@@ -141,19 +131,21 @@ export const EnterprisePage: React.FC = () => {
                   alt="Enterprise Dashboard"
                   className="w-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/20 to-transparent" />
               </div>
 
               {/* Floating Security Badge */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
-                className="absolute -bottom-6 -left-6 bg-slate-800 rounded-xl shadow-xl p-4 border border-slate-700"
+                className="absolute -bottom-4 -left-4 bg-slate-800 rounded-xl shadow-2xl p-4 border border-slate-700"
               >
-                <div className="flex items-center">
-                  <Shield className="w-8 h-8 text-primary-400 mr-3" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary-500/20 rounded-lg flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-primary-400" />
+                  </div>
                   <div>
-                    <p className="text-sm text-gray-400">Security</p>
+                    <p className="text-xs text-gray-400">Security</p>
                     <p className="text-lg font-bold text-white">ISO 27001</p>
                   </div>
                 </div>
@@ -163,12 +155,14 @@ export const EnterprisePage: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 4 }}
-                className="absolute -top-6 -right-6 bg-slate-800 rounded-xl shadow-xl p-4 border border-slate-700"
+                className="absolute -top-4 -right-4 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl shadow-2xl p-4"
               >
-                <div className="flex items-center">
-                  <Clock className="w-8 h-8 text-primary-400 mr-3" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-white" />
+                  </div>
                   <div>
-                    <p className="text-sm text-gray-400">SLA</p>
+                    <p className="text-xs text-primary-200">SLA Uptime</p>
                     <p className="text-lg font-bold text-white">99.99%</p>
                   </div>
                 </div>
@@ -206,21 +200,18 @@ export const EnterprisePage: React.FC = () => {
       </section> */}
 
       {/* Enterprise Challenges */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="primary" className="mb-4 bg-primary-100 text-primary-700">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <Badge variant="primary" className="mb-3 bg-primary-100 text-primary-700">
               Challenges
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Enterprise governance challenges
             </h2>
-            <p className="text-xl text-gray-600">
-              We understand the unique complexities of managing governance at scale.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 icon: Globe,
@@ -276,49 +267,42 @@ export const EnterprisePage: React.FC = () => {
       </section>
 
       {/* Enterprise Solution */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge variant="primary" className="mb-4 bg-primary-100 text-primary-700">
+              <Badge variant="primary" className="mb-3 bg-primary-100 text-primary-700">
                 Solution
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                 Built for enterprise scale
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                EBoard Enterprise provides the security, flexibility, and insights that global
-                organizations demand. From Fortune 500 companies to multinational nonprofits, our
-                platform scales with you.
-              </p>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {[
                   {
                     icon: Lock,
                     title: 'Enterprise Security',
-                    description:
-                      'Advanced security features including SSO, MFA, and encryption key management',
+                    description: 'SSO, MFA, and encryption key management',
                   },
                   {
                     icon: GitMerge,
                     title: 'Custom Integrations',
-                    description:
-                      'API-first architecture for seamless integration with your tech stack',
+                    description: 'API-first architecture for seamless integration',
                   },
                   {
                     icon: LineChart,
                     title: 'Advanced Analytics',
-                    description: 'Executive dashboards with AI-powered insights and trends',
+                    description: 'Executive dashboards with AI-powered insights',
                   },
                   {
                     icon: Users,
                     title: 'Multi-entity Management',
-                    description: 'Centralized governance for complex organizational structures',
+                    description: 'Centralized governance for complex structures',
                   },
                 ].map((item, index) => {
                   const Icon = item.icon;
@@ -330,12 +314,12 @@ export const EnterprisePage: React.FC = () => {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start"
                     >
-                      <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mr-4 flex-shrink-0">
-                        <Icon className="w-5 h-5" />
+                      <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mr-3 flex-shrink-0">
+                        <Icon className="w-4 h-4" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                        <p className="text-gray-600">{item.description}</p>
+                        <h3 className="font-semibold text-gray-900 text-sm">{item.title}</h3>
+                        <p className="text-gray-600 text-sm">{item.description}</p>
                       </div>
                     </motion.div>
                   );
@@ -362,22 +346,19 @@ export const EnterprisePage: React.FC = () => {
       </section>
 
       {/* Enterprise Features Tabs */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="primary" className="mb-4 bg-primary-100 text-primary-700">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <Badge variant="primary" className="mb-3 bg-primary-100 text-primary-700">
               Features
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Enterprise-grade capabilities
             </h2>
-            <p className="text-xl text-gray-600">
-              Everything you need for sophisticated corporate governance.
-            </p>
           </div>
 
           <Tabs defaultValue="security" className="w-full">
-            <TabsList className="grid w-full max-w-3xl mx-auto grid-cols-4 mb-8">
+            <TabsList className="grid w-full max-w-3xl mx-auto grid-cols-4 mb-6">
               <TabsTrigger value="security">Security</TabsTrigger>
               <TabsTrigger value="integrations">Integrations</TabsTrigger>
               <TabsTrigger value="analytics">Analytics</TabsTrigger>
@@ -676,46 +657,39 @@ export const EnterprisePage: React.FC = () => {
       </section>
 
       {/* Case Study */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <Badge variant="primary" className="mb-4 bg-primary-100 text-primary-700">
+              <Badge variant="primary" className="mb-3 bg-primary-100 text-primary-700">
                 Customer Story
               </Badge>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 How Torres Industries scaled governance globally
               </h2>
-              <blockquote className="text-xl text-gray-600 mb-6">
+              <blockquote className="text-gray-600 mb-4 text-sm">
                 "EBoard integrated perfectly with our existing tools and scaled across 50+
-                subsidiaries worldwide. We've reduced meeting prep time by 70% and achieved complete
-                compliance across all jurisdictions."
+                subsidiaries worldwide. We've reduced meeting prep time by 70%."
               </blockquote>
-              <div className="flex items-center mb-8">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 mr-4" />
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 mr-3" />
                 <div>
-                  <p className="font-semibold text-gray-900">Michael Torres</p>
-                  <p className="text-gray-500">Corporate Secretary, Torres Industries</p>
+                  <p className="font-semibold text-gray-900 text-sm">Michael Torres</p>
+                  <p className="text-gray-500 text-xs">Corporate Secretary, Torres Industries</p>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="grid grid-cols-3 gap-4">
                 {[
                   { value: '50+', label: 'Subsidiaries' },
                   { value: '70%', label: 'Time saved' },
                   { value: '100%', label: 'Compliance' },
                 ].map((stat, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-primary-600">{stat.value}</div>
+                    <div className="text-xl font-bold text-primary-600">{stat.value}</div>
                     <div className="text-xs text-gray-500">{stat.label}</div>
                   </div>
                 ))}
               </div>
-              <Link
-                to="/case-studies/torres-industries"
-                className="text-primary-600 font-medium hover:underline"
-              >
-                Read full case study →
-              </Link>
             </div>
 
             <div className="relative">
@@ -731,119 +705,19 @@ export const EnterprisePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Enterprise Support */}
-      <section className="py-24 bg-gray-50">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-1">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Enterprise-grade support</h2>
-              <p className="text-gray-600 mb-6">
-                When you need us, we're there. Enterprise clients get dedicated support and
-                guaranteed response times.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <Headphones className="w-5 h-5 text-primary-600 mr-3" />
-                  <span className="text-gray-700">24/7 priority support</span>
-                </div>
-                <div className="flex items-center">
-                  <Clock className="w-5 h-5 text-primary-600 mr-3" />
-                  <span className="text-gray-700">30-minute response time</span>
-                </div>
-                <div className="flex items-center">
-                  <Users className="w-5 h-5 text-primary-600 mr-3" />
-                  <span className="text-gray-700">Dedicated account manager</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-2">
-              <div className="grid md:grid-cols-2 gap-6">
-                {[
-                  {
-                    icon: Phone,
-                    title: 'Phone Support',
-                    description: '24/7 access to senior support engineers',
-                    contact: '(+254) 721 779 429',
-                  },
-                  {
-                    icon: Mail,
-                    title: 'Email Support',
-                    description: 'Guaranteed 30-minute response',
-                    contact: 'info@matrixsystems.co.ke',
-                  },
-                  {
-                    icon: MessageSquare,
-                    title: 'Live Chat',
-                    description: 'Instant access to support team',
-                    contact: 'Available 24/7',
-                  },
-                  {
-                    icon: Calendar,
-                    title: 'Strategic Reviews',
-                    description: 'Quarterly business reviews',
-                    contact: 'Schedule with your CSM',
-                  },
-                ].map((item, index) => {
-                  const Icon = item.icon;
-                  return (
-                    <Card key={index} className="hover:border-primary-200">
-                      <div className="flex items-center mb-3">
-                        <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mr-2">
-                          <Icon className="w-4 h-4" />
-                        </div>
-                        <h3 className="font-bold text-gray-900">{item.title}</h3>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-2">{item.description}</p>
-                      <p className="text-sm font-medium text-primary-600">{item.contact}</p>
-                    </Card>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Enterprise Clients */}
-      <section className="py-16 bg-white border-y border-gray-200">
-        <div className="container-custom">
-          <p className="text-center text-gray-500 text-sm font-medium uppercase tracking-wider mb-8">
-            Trusted by leading enterprises worldwide
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center">
-            {['Fortune 500', 'Global Bank', 'Tech Giant', 'Manufacturing Co', 'Healthcare'].map(
-              (company, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex justify-center"
-                >
-                  <div className="h-12 w-32 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400">
-                    {company}
-                  </div>
-                </motion.div>
-              )
-            )}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <section className="py-12 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
             Ready to scale your governance?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-300 mb-6 max-w-xl mx-auto">
             Join 100+ enterprises that trust EBoard for their most important meetings.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             <Link to={ROUTES.DEMO.INDEX}>
               <Button
-                size="lg"
+                size="md"
                 variant="secondary"
                 className="bg-white text-slate-900 hover:bg-gray-100"
               >
@@ -852,18 +726,18 @@ export const EnterprisePage: React.FC = () => {
             </Link>
             <Link to={ROUTES.COMPANY.CONTACT}>
               <Button
-                size="lg"
+                size="md"
                 variant="outline"
                 className="border-white text-white hover:bg-white/10"
               >
-                Contact Enterprise Sales
+                Contact Sales
               </Button>
             </Link>
           </div>
-          <div className="mt-8 flex flex-wrap gap-4 justify-center text-sm text-gray-400">
+          <div className="mt-6 flex flex-wrap gap-4 justify-center text-sm text-gray-400">
             <span className="flex items-center">
               <Shield className="w-4 h-4 mr-2 text-primary-400" />
-              ISO 27001 Certified
+              ISO 27001
             </span>
             <span className="flex items-center">
               <Lock className="w-4 h-4 mr-2 text-primary-400" />

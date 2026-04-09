@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import CountUp from 'react-countup';
 import {
   ArrowRight,
   Play,
@@ -93,7 +92,6 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export const HomePage: React.FC = () => {
-  const [statsRef, statsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [featuresRef, featuresInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [testimonialsRef, testimonialsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -110,58 +108,60 @@ export const HomePage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-8 pb-20 md:pt-10 md:pb-28 overflow-hidden bg-gradient-to-b from-primary-50 to-white">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-secondary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+      <section className="relative min-h-screen flex items-center pt-6 pb-3 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-secondary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
 
         <div className="container-custom relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-center max-w-4xl mx-auto"
             >
-              <Badge variant="primary" className="mb-4 inline-flex">
-                ✨ AI-Powered Governance Platform
-              </Badge>
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 {siteContent.hero.headline}
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl">{siteContent.hero.subheadline}</p>
 
-              <div className="flex flex-wrap gap-4 mb-12">
-                <Link to={siteContent.hero.ctas.sales.href}>
-                  <Button size="lg" variant="outline" rightIcon={<Play className="w-5 h-5" />}>
-                    {siteContent.hero.ctas.sales.text}
-                  </Button>
-                </Link>
+              <div className="flex flex-wrap gap-4 mb-8">
                 <Link to={siteContent.hero.ctas.trial.href}>
                   <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
                     {siteContent.hero.ctas.trial.text}
                   </Button>
                 </Link>
+                <Link to={siteContent.hero.ctas.sales.href}>
+                  <Button size="lg" variant="outline" leftIcon={<Play className="w-5 h-5" />}>
+                    {siteContent.hero.ctas.sales.text}
+                  </Button>
+                </Link>
               </div>
 
-              {/* Trust indicators */}
-              <div className="flex items-center gap-6 text-sm text-gray-500">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 border-2 border-white"
-                    />
-                  ))}
+              {/* Quick Stats */}
+              <div className="flex items-center gap-6 pt-4 border-t border-gray-200">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary-600">2M+</div>
+                  <div className="text-xs text-gray-500">Users</div>
                 </div>
-                <div>
-                  <div className="flex items-center gap-1">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                    <span className="ml-2 font-medium text-gray-700">4.9/5</span>
-                  </div>
-                  <span>Trusted by 2M+ users</span>
+                <div className="h-8 w-px bg-gray-200" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">500+</div>
+                  <div className="text-xs text-gray-500">Organizations</div>
+                </div>
+                <div className="h-8 w-px bg-gray-200" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600">50K+</div>
+                  <div className="text-xs text-gray-500">Meetings</div>
+                </div>
+                <div className="h-8 w-px bg-gray-200" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-600">99.9%</div>
+                  <div className="text-xs text-gray-500">Uptime</div>
                 </div>
               </div>
             </motion.div>
@@ -180,81 +180,90 @@ export const HomePage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-transparent" />
               </div>
+
+              {/* Floating Stats */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 3 }}
+                className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-2xl p-4 border border-gray-100"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500">Meeting prep time</div>
+                    <div className="text-xl font-bold text-green-600">-70%</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 4 }}
+                className="absolute -top-4 -right-4 bg-white rounded-xl shadow-2xl p-4 border border-gray-100"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                    <Users className="w-5 h-5 text-primary-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500">Board engagement</div>
+                    <div className="text-xl font-bold text-primary-600">+45%</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Trust Badge */}
+              <div className="absolute -bottom-8 right-8 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-lg px-4 py-2 shadow-lg">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4" />
+                  <span className="text-sm font-medium">ISO 27001 Certified</span>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Social Proof Stats */}
-      <section ref={statsRef} className="py-16 bg-white border-y border-gray-200">
+      {/* Core Features */}
+      <section ref={featuresRef} className="py-6 bg-gray-50">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {siteContent.stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={statsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">
-                  {statsInView && (
-                    <>
-                      <CountUp
-                        end={typeof stat.value === 'number' ? stat.value : parseInt(stat.value)}
-                        duration={2.5}
-                      />
-                      {stat.suffix && <span>{stat.suffix}</span>}
-                    </>
-                  )}
-                </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Core Features - Updated with new feature set */}
-      <section ref={featuresRef} className="py-24 bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="primary" className="mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-2">
+            <Badge variant="primary" className="mb-2">
               Platform Features
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Everything you need for modern governance
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+              Built for modern governance
             </h2>
-            <p className="text-xl text-gray-600">
-              From AI-powered tools to enterprise-grade security, EBoard has you covered.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Meeting & Agenda Management */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={featuresInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
               <Card variant="elevated" className="h-full">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white mb-4">
-                  <Calendar className="w-6 h-6" />
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white mb-3">
+                  <Calendar className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   Meeting & Agenda Management
                 </h3>
-                <p className="text-gray-600 mb-4">Streamline your entire meeting workflow</p>
                 <ul className="space-y-2">
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Layout className="w-4 h-4 text-blue-500 mr-2" />
-                    Agenda Builder – Drag-and-drop tool
+                    Drag-and-drop agenda builder
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <PenTool className="w-4 h-4 text-blue-500 mr-2" />
-                    Minute Builder – Track decisions
+                    Track decisions in minutes
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Video className="w-4 h-4 text-blue-500 mr-2" />
                     Zoom & Teams integration
                   </li>
@@ -266,26 +275,25 @@ export const HomePage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={featuresInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
               <Card variant="elevated" className="h-full">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-teal-600 rounded-xl flex items-center justify-center text-white mb-4">
-                  <Users className="w-6 h-6" />
+                <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-teal-600 rounded-lg flex items-center justify-center text-white mb-3">
+                  <Users className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Committee Management</h3>
-                <p className="text-gray-600 mb-4">Organize all your committees efficiently</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Committee Management</h3>
                 <ul className="space-y-2">
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Users className="w-4 h-4 text-green-500 mr-2" />
                     Unlimited committees
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Database className="w-4 h-4 text-green-500 mr-2" />
-                    Dedicated committee libraries
+                    Dedicated libraries
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <FileText className="w-4 h-4 text-green-500 mr-2" />
-                    Membership register & history
+                    Membership register
                   </li>
                 </ul>
               </Card>
@@ -295,26 +303,25 @@ export const HomePage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={featuresInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
               <Card variant="elevated" className="h-full">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center text-white mb-4">
-                  <Brain className="w-6 h-6" />
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center text-white mb-3">
+                  <Brain className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">AI Capabilities</h3>
-                <p className="text-gray-600 mb-4">Powered by Google Gemini and Google Cloud</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">AI Capabilities</h3>
                 <ul className="space-y-2">
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Mic className="w-4 h-4 text-purple-500 mr-2" />
-                    Speech to Text – Transcribe meetings
+                    Speech to text transcription
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Volume2 className="w-4 h-4 text-purple-500 mr-2" />
-                    Text to Speech – Listen on the go
+                    Text to speech for accessibility
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Brain className="w-4 h-4 text-purple-500 mr-2" />
-                    AI Summarisation – 100+ page reports
+                    AI summarisation
                   </li>
                 </ul>
               </Card>
@@ -327,21 +334,20 @@ export const HomePage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <Card variant="elevated" className="h-full">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-600 to-red-600 rounded-xl flex items-center justify-center text-white mb-4">
-                  <FileText className="w-6 h-6" />
+                <div className="w-10 h-10 bg-gradient-to-br from-orange-600 to-red-600 rounded-lg flex items-center justify-center text-white mb-3">
+                  <FileText className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Document & Pack Features</h3>
-                <p className="text-gray-600 mb-4">Complete document management solution</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Document Management</h3>
                 <ul className="space-y-2">
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <FileCheck className="w-4 h-4 text-orange-500 mr-2" />
                     All file types supported
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <PenTool className="w-4 h-4 text-orange-500 mr-2" />
-                    Document signing
+                    E-signatures
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Copy className="w-4 h-4 text-orange-500 mr-2" />
                     Clone any agenda
                   </li>
@@ -356,23 +362,22 @@ export const HomePage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <Card variant="elevated" className="h-full">
-                <div className="w-12 h-12 bg-gradient-to-br from-slate-600 to-gray-600 rounded-xl flex items-center justify-center text-white mb-4">
-                  <Shield className="w-6 h-6" />
+                <div className="w-10 h-10 bg-gradient-to-br from-slate-600 to-gray-600 rounded-lg flex items-center justify-center text-white mb-3">
+                  <Shield className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Security</h3>
-                <p className="text-gray-600 mb-4">Military-grade protection for your data</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Enterprise Security</h3>
                 <ul className="space-y-2">
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Lock className="w-4 h-4 text-slate-500 mr-2" />
-                    Military-grade encryption
+                    AES-256 encryption
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Fingerprint className="w-4 h-4 text-slate-500 mr-2" />
-                    Two-factor authentication (2FA)
+                    Two-factor authentication
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Activity className="w-4 h-4 text-slate-500 mr-2" />
-                    Activity tracking & audit logs
+                    Complete audit trails
                   </li>
                 </ul>
               </Card>
@@ -385,84 +390,68 @@ export const HomePage: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.6 }}
             >
               <Card variant="elevated" className="h-full">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-xl flex items-center justify-center text-white mb-4">
-                  <Settings className="w-6 h-6" />
+                <div className="w-10 h-10 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-lg flex items-center justify-center text-white mb-3">
+                  <Settings className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Integrations & Support</h3>
-                <p className="text-gray-600 mb-4">Connect with your favorite tools</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Integrations</h3>
                 <ul className="space-y-2">
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Plug className="w-4 h-4 text-cyan-500 mr-2" />
-                    SharePoint, email, calendar sync
+                    SharePoint, email, calendar
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Headphones className="w-4 h-4 text-cyan-500 mr-2" />
-                    Unlimited training & support
+                    Unlimited training
                   </li>
-                  <li className="text-sm text-gray-500 flex items-center">
+                  <li className="text-sm text-gray-600 flex items-center">
                     <Cloud className="w-4 h-4 text-cyan-500 mr-2" />
-                    Self-hosted or cloud-hosted
+                    Cloud or self-hosted
                   </li>
                 </ul>
               </Card>
             </motion.div>
           </div>
-
-          <div className="text-center">
-            <Link to={siteContent.coreFeatures.cta.href}>
-              <Button size="lg" variant="outline" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Explore All Features
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Feature Deep Dives (Alternating) - Updated with new features */}
+      {/* Feature Deep Dives */}
       {siteContent.featureDeepDives.map((feature, index) => (
         <section
           key={feature.id}
-          className={`py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+          className={`py-10 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
         >
           <div className="container-custom">
             <div
-              className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+              className={`grid lg:grid-cols-2 gap-10 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
             >
               <div className={index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}>
                 <div className="max-w-xl">
-                  <Badge variant="primary" className="mb-4">
+                  <Badge variant="primary" className="mb-3">
                     {feature.id.replace('-', ' ')}
                   </Badge>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Pain Point</h3>
-                  <p className="text-xl text-gray-600 mb-6">{feature.painPoint}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.solution}</h3>
+                  <p className="text-gray-600 mb-4">{feature.outcome}</p>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Solution</h3>
-                  <p className="text-xl text-primary-600 font-semibold mb-6">{feature.solution}</p>
-
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Outcome</h3>
-                  <p className="text-xl text-gray-600 mb-6">{feature.outcome}</p>
-
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-2 mb-4">
                     {feature.capabilities.map((capability, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mt-0.5 mr-3">
-                          <span className="text-sm font-bold">✓</span>
+                      <li key={i} className="flex items-center text-sm text-gray-700">
+                        <span className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mr-3">
+                          <CheckCircle className="w-3 h-3" />
                         </span>
-                        <span className="text-gray-700">{capability}</span>
+                        {capability}
                       </li>
                     ))}
                   </ul>
 
-                  <Link to={feature.cta.href}>
-                    <Button variant="outline" rightIcon={<ChevronRight className="w-4 h-4" />}>
-                      {feature.cta.text}
-                    </Button>
+                  <Link to={feature.cta.href} className="text-primary-600 font-medium hover:text-primary-700 inline-flex items-center">
+                    {feature.cta.text}
+                    <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
                 </div>
               </div>
 
               <div className={index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}>
-                <div className="relative rounded-2xl shadow-2xl overflow-hidden">
+                <div className="relative rounded-xl shadow-xl overflow-hidden">
                   <img src={feature.image} alt={feature.id} className="w-full h-auto" />
                 </div>
               </div>
@@ -472,28 +461,25 @@ export const HomePage: React.FC = () => {
       ))}
 
       {/* User Role Segmentation */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Designed for every role
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              Built for every role
             </h2>
-            <p className="text-xl text-gray-600">
-              Tailored experiences for everyone involved in governance
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {siteContent.userRoles.map((role, index) => {
               const Icon = iconMap[role.icon];
               return (
                 <Card key={role.role} variant="elevated" className="h-full">
-                  <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 mb-4">
-                    {Icon && <Icon className="w-6 h-6" />}
+                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mb-3">
+                    {Icon && <Icon className="w-5 h-5" />}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{role.role}</h3>
-                  <p className="text-primary-600 font-medium mb-4">{role.valueProp}</p>
-                  <ul className="space-y-2 mb-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{role.role}</h3>
+                  <p className="text-primary-600 font-medium text-sm mb-3">{role.valueProp}</p>
+                  <ul className="space-y-1">
                     {role.benefits.map((benefit, i) => (
                       <li key={i} className="text-sm text-gray-600 flex items-center">
                         <span className="w-1.5 h-1.5 bg-primary-400 rounded-full mr-2" />
@@ -501,13 +487,6 @@ export const HomePage: React.FC = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    to="#"
-                    className="text-primary-600 font-medium hover:text-primary-700 inline-flex items-center"
-                  >
-                    {role.cta}
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </Link>
                 </Card>
               );
             })}
@@ -516,16 +495,15 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* Testimonials */}
-      <section ref={testimonialsRef} className="py-24 bg-gray-50">
+      <section ref={testimonialsRef} className="py-16 bg-gray-50">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Trusted by organizations like yours
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              What our clients say
             </h2>
-            <p className="text-xl text-gray-600">See how EBoard helps boards govern better</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {siteContent.testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -534,34 +512,26 @@ export const HomePage: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card variant="elevated" className="h-full">
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-5 h-5 ${
+                        className={`w-4 h-4 ${
                           i < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
                         }`}
                       />
                     ))}
                   </div>
 
-                  <blockquote className="text-gray-700 text-lg mb-6">
+                  <blockquote className="text-gray-700 mb-4">
                     "{testimonial.quote}"
                   </blockquote>
 
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-500">
-                        {testimonial.title}, {testimonial.organization}
-                      </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                    <div className="text-sm text-gray-500">
+                      {testimonial.title}, {testimonial.organization}
                     </div>
-                    <Link
-                      to={testimonial.link}
-                      className="text-primary-600 text-sm font-medium hover:text-primary-700"
-                    >
-                      Read Review →
-                    </Link>
                   </div>
                 </Card>
               </motion.div>
@@ -571,68 +541,47 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* Results/Metrics */}
-      <section className="py-24 bg-primary-600 text-white">
+      {/*
+      <section className="py-16 bg-primary-600 text-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-12">
-                Real results from real organizations
-              </h2>
-
-              <div className="grid grid-cols-2 gap-8">
-                {siteContent.results.metrics.map((metric, index) => (
-                  <div key={index}>
-                    <div className="text-3xl md:text-4xl font-bold mb-2">{metric.value}</div>
-                    <div className="text-primary-100">{metric.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
-                <img
-                  src={siteContent.results.videoCaseStudy.thumbnail}
-                  alt={siteContent.results.videoCaseStudy.title}
-                  className="w-full h-auto"
-                />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-                    <Play className="w-8 h-8 text-primary-600 ml-1" />
-                  </div>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8">
+              Proven results
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+              {siteContent.results.metrics.map((metric, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold mb-1">{metric.value}</div>
+                  <div className="text-primary-100 text-sm">{metric.label}</div>
                 </div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <div className="font-semibold">{siteContent.results.videoCaseStudy.title}</div>
-                  <div className="text-sm opacity-90">
-                    {siteContent.results.videoCaseStudy.duration}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
+      */}
 
       {/* Resource Library */}
-      <section className="py-24 bg-white">
+      {/*
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Resources to help you govern better
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Free guides, tools, and insights for modern governance
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {siteContent.resources.map((resource, index) => (
               <Card key={index} variant="elevated" className="h-full">
-                <div className="mb-4">
+                <div className="mb-3">
                   <img
                     src={resource.image}
                     alt={resource.title}
-                    className="w-full h-40 object-cover rounded-lg"
+                    className="w-full h-32 object-cover rounded-lg"
                   />
                 </div>
 
@@ -642,8 +591,8 @@ export const HomePage: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{resource.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{resource.description}</p>
+                <h3 className="text-base font-bold text-gray-900 mb-1">{resource.title}</h3>
+                <p className="text-gray-600 text-sm mb-3">{resource.description}</p>
 
                 {resource.downloadUrl && (
                   <a
@@ -669,18 +618,19 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* Final CTA */}
-      <section className="py-24 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+      <section className="py-16 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             {siteContent.finalCTA.headline}
           </h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-primary-100 mb-6 max-w-2xl mx-auto">
             {siteContent.finalCTA.subheadline}
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center mb-8">
+          <div className="flex flex-wrap gap-3 justify-center">
             {siteContent.finalCTA.ctas.map((cta, index) => (
               <Link key={index} to={cta.href}>
                 <Button
@@ -695,15 +645,6 @@ export const HomePage: React.FC = () => {
                   {cta.text}
                 </Button>
               </Link>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap gap-4 justify-center text-sm text-primary-200">
-            {siteContent.finalCTA.trustIndicators.map((indicator, index) => (
-              <span key={index} className="flex items-center">
-                <span className="w-1.5 h-1.5 bg-primary-300 rounded-full mr-2" />
-                {indicator}
-              </span>
             ))}
           </div>
         </div>

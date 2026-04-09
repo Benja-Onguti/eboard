@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, Calendar, MessageSquare } from "lucide-react";
-import { Button } from "../../components/ui/Button";
-import { ROUTES } from "@/config/routes";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowRight, Calendar, MessageSquare } from 'lucide-react';
+import { Button } from '../../components/ui/Button';
+import { ROUTES } from '@/config/routes';
 
 export const CTASection: React.FC = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 bg-white">
       <div className="container-custom">
         <div className="relative bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl overflow-hidden">
           {/* Background Pattern */}
@@ -21,7 +21,7 @@ export const CTASection: React.FC = () => {
             />
           </div>
 
-          <div className="relative py-16 px-8 md:py-20 md:px-16 text-center text-white">
+          <div className="relative py-12 px-6 md:py-16 md:px-12 text-center text-white">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -33,9 +33,8 @@ export const CTASection: React.FC = () => {
               </h2>
 
               <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-                Join thousands of organizations that have streamlined their
-                governance with EBoard. Get started with a personalized demo
-                today.
+                Join thousands of organizations that have streamlined their governance with EBoard.
+                Get started with a personalized demo today.
               </p>
 
               <div className="flex flex-wrap gap-4 justify-center">

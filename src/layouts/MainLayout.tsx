@@ -97,13 +97,12 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
           initial="initial"
           animate="animate"
           exit="exit"
-          className={`
-            flex-grow
-            w-full
-            ${showNavbar && !isAuthPage ? 'pt-10 md:pt-20' : 'pt-0'}  
-            ${isLandingPage ? '' : 'py-8 md:py-12'}
-            ${className}
-          `}
+        className={`
+          flex-grow
+          w-full
+          ${showNavbar && !isAuthPage ? 'pt-16' : 'pt-0'}
+          ${className}
+        `}
         >
           <Outlet />
         </motion.main>

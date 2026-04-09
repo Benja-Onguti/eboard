@@ -849,7 +849,7 @@ export const FeatureDetailPage: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-12 pb-16 bg-gradient-to-b from-primary-50 to-white">
+      <section className="pb-12 bg-gradient-to-b from-primary-50 to-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -1216,7 +1216,7 @@ export const FeatureDetailPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+      <section className="py-12 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to transform your board meetings?

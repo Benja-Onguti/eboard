@@ -1,17 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import {
-  GraduationCap,
-  Building2,
-  Heart,
-  Building,
-  ArrowRight,
-} from "lucide-react";
-import { solutions } from "@/data/solutions";
-import { Card } from "../../components/ui/Card";
-import { ROUTES } from "@/config/routes";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { GraduationCap, Building2, Heart, Building, ArrowRight } from 'lucide-react';
+import { solutions } from '@/data/solutions';
+import { Card } from '../../components/ui/Card';
+import { ROUTES } from '@/config/routes';
 
 const iconMap: Record<string, React.ElementType> = {
   GraduationCap,
@@ -27,7 +21,7 @@ export const AudienceSegments: React.FC = () => {
   });
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 bg-white">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -38,8 +32,8 @@ export const AudienceSegments: React.FC = () => {
             Built for accountability in every sector
           </h2>
           <p className="text-xl text-gray-600">
-            From school boards to corporate enterprises, EBoard adapts to your
-            unique governance needs [citation:2].
+            From school boards to corporate enterprises, EBoard adapts to your unique governance
+            needs [citation:2].
           </p>
         </div>
 
@@ -66,20 +60,13 @@ export const AudienceSegments: React.FC = () => {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {solution.name}
-                    </h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{solution.name}</h3>
 
-                    <p className="text-gray-600 text-sm mb-4">
-                      {solution.description}
-                    </p>
+                    <p className="text-gray-600 text-sm mb-4">{solution.description}</p>
 
                     <div className="space-y-2 mb-4">
                       {solution.benefits.slice(0, 2).map((benefit, i) => (
-                        <div
-                          key={i}
-                          className="text-sm text-gray-500 flex items-start"
-                        >
+                        <div key={i} className="text-sm text-gray-500 flex items-start">
                           <span className="text-primary-600 mr-2">✓</span>
                           {benefit}
                         </div>
@@ -109,8 +96,8 @@ const Badge: React.FC<{
 }> = ({ children, className }) => (
   <span
     className={cn(
-      "inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 text-primary-800",
-      className,
+      'inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary-100 text-primary-800',
+      className
     )}
   >
     {children}

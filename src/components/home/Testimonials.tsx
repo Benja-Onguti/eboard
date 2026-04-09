@@ -1,9 +1,9 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { Star } from "lucide-react";
-import { testimonials } from "@/data/testimonials";
-import { Card } from "../../components/ui/Card";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { Star } from 'lucide-react';
+import { testimonials } from '@/data/testimonials';
+import { Card } from '../../components/ui/Card';
 
 export const Testimonials: React.FC = () => {
   const [ref, inView] = useInView({
@@ -12,16 +12,16 @@ export const Testimonials: React.FC = () => {
   });
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 bg-gray-50">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Trusted by leaders like you
           </h2>
           <p className="text-xl text-gray-600">
-            Join hundreds of organizations that have modernized their board
-            meetings with EBoard [citation:8].
+            Join hundreds of organizations that have modernized their board meetings with EBoard
+            [citation:8].
           </p>
         </div>
 
@@ -41,18 +41,14 @@ export const Testimonials: React.FC = () => {
                     <Star
                       key={i}
                       className={`w-5 h-5 ${
-                        i < testimonial.rating
-                          ? "text-yellow-400 fill-current"
-                          : "text-gray-300"
+                        i < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
                       }`}
                     />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-gray-700 mb-6">
-                  "{testimonial.quote}"
-                </blockquote>
+                <blockquote className="text-gray-700 mb-6">"{testimonial.quote}"</blockquote>
 
                 {/* Author */}
                 <div className="flex items-center">
@@ -68,9 +64,7 @@ export const Testimonials: React.FC = () => {
                     </div>
                   )}
                   <div>
-                    <div className="font-semibold text-gray-900">
-                      {testimonial.name}
-                    </div>
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
                     <div className="text-sm text-gray-500">
                       {testimonial.role}, {testimonial.organization}
                     </div>

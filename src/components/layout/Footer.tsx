@@ -1,29 +1,73 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Twitter, Linkedin, Facebook, Youtube, Mail, Phone, MapPin } from 'lucide-react';
-import { siteContent } from '@/data/siteContent';
+import { Linkedin, Twitter, Mail } from 'lucide-react';
 import { siteConfig } from '@/config/siteConfig';
 
-const iconMap: Record<string, React.ElementType> = {
-  Twitter,
-  LinkedIn: Linkedin,
-  Facebook,
-  YouTube: Youtube,
-};
-
 export const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    product: [
+      { label: 'Features', href: '/features' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Security', href: '/security' },
+      { label: 'Integrations', href: '/features/integrations' },
+    ],
+    solutions: [
+      { label: 'Education', href: '/solutions/education' },
+      { label: 'Government', href: '/solutions/government' },
+      { label: 'NGOs', href: '/solutions/ngo' },
+      { label: 'Enterprise', href: '/solutions/enterprise' },
+    ],
+    resources: [
+      { label: 'Case Studies', href: '/resources/case-studies' },
+      { label: 'Guides', href: '/resources/guides' },
+      { label: 'Help Center', href: '/resources/help' },
+      { label: 'Blog', href: '/blog' },
+    ],
+    company: [
+      { label: 'About', href: '/about' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Partners', href: '/partners' },
+    ],
+  };
+
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="container-custom py-16">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
+    <footer className="bg-gray-900 text-gray-400">
+      <div className="container-custom py-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-8">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-4 lg:col-span-1">
+            <Link to="/" className="flex items-center space-x-2 mb-3">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center text-white font-bold">
+                E
+              </div>
+              <span className="text-xl font-bold text-white">Board</span>
+            </Link>
+            <p className="text-sm mb-3">
+              Modern governance platform for boards and committees.
+            </p>
+            <div className="flex space-x-2">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition">
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
           {/* Product */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{siteContent.footer.product.title}</h3>
+            <h3 className="text-white font-semibold mb-3">Product</h3>
             <ul className="space-y-2">
-              {siteContent.footer.product.links.map((link) => (
+              {footerLinks.product.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="hover:text-white transition">
+                  <Link to={link.href} className="hover:text-white transition text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -31,27 +75,13 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Industries */}
+          {/* Solutions */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{siteContent.footer.industries.title}</h3>
+            <h3 className="text-white font-semibold mb-3">Solutions</h3>
             <ul className="space-y-2">
-              {siteContent.footer.industries.links.map((link) => (
+              {footerLinks.solutions.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="hover:text-white transition">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Roles */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">{siteContent.footer.roles.title}</h3>
-            <ul className="space-y-2">
-              {siteContent.footer.roles.links.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.href} className="hover:text-white transition">
+                  <Link to={link.href} className="hover:text-white transition text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -61,11 +91,11 @@ export const Footer: React.FC = () => {
 
           {/* Resources */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{siteContent.footer.resources.title}</h3>
+            <h3 className="text-white font-semibold mb-3">Resources</h3>
             <ul className="space-y-2">
-              {siteContent.footer.resources.links.map((link) => (
+              {footerLinks.resources.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="hover:text-white transition">
+                  <Link to={link.href} className="hover:text-white transition text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -75,93 +105,28 @@ export const Footer: React.FC = () => {
 
           {/* Company */}
           <div>
-            <h3 className="text-white font-semibold mb-4">{siteContent.footer.company.title}</h3>
+            <h3 className="text-white font-semibold mb-3">Company</h3>
             <ul className="space-y-2">
-              {siteContent.footer.company.links.map((link) => (
+              {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.href} className="hover:text-white transition">
+                  <Link to={link.href} className="hover:text-white transition text-sm">
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">{siteContent.footer.legal.title}</h3>
-            <ul className="space-y-2">
-              {siteContent.footer.legal.links.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.href} className="hover:text-white transition">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Contact Info */}
-        <div className="grid md:grid-cols-3 gap-6 py-8 border-t border-gray-800">
-          <div className="flex items-center space-x-3">
-            <Mail className="w-5 h-5 text-gray-400" />
-            <div>
-              <div className="text-sm text-gray-400">Email</div>
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                className="hover:text-white transition"
-              >
-                {siteConfig.contact.email}
-              </a>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-3">
-            <Phone className="w-5 h-5 text-gray-400" />
-            <div>
-              <div className="text-sm text-gray-400">Phone</div>
-              <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-white transition">
-                {siteConfig.contact.phone}
-              </a>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-3">
-            <MapPin className="w-5 h-5 text-gray-400" />
-            <div>
-              <div className="text-sm text-gray-400">Address</div>
-              <p className="text-sm">
-                {siteConfig.contact.address.street}
-                <br />
-                {siteConfig.contact.address.city}, {siteConfig.contact.address.state}{' '}
-                {siteConfig.contact.address.zip}
-              </p>
-            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800">
-          <div className="text-sm text-gray-400 mb-4 md:mb-0">{siteContent.footer.copyright}</div>
-
-          {/* Social Links */}
-          <div className="flex space-x-4">
-            {siteContent.footer.social.map((social) => {
-              const Icon = iconMap[social.icon] || Twitter;
-              return (
-                <a
-                  key={social.platform}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition"
-                  aria-label={social.platform}
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              );
-            })}
+        <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-gray-800">
+          <p className="text-sm mb-3 md:mb-0">
+            © {currentYear} EBoard Solutions. All rights reserved.
+          </p>
+          <div className="flex space-x-4 text-sm">
+            <Link to="/privacy" className="hover:text-white transition">Privacy</Link>
+            <Link to="/terms" className="hover:text-white transition">Terms</Link>
+            <Link to="/cookies" className="hover:text-white transition">Cookies</Link>
           </div>
         </div>
       </div>

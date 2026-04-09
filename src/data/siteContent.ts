@@ -44,10 +44,11 @@ export const siteContent = {
           },
         ],
       },
+    },
+
       resources: {
         label: 'Resources',
         items: [
-          { label: 'Blog', href: '/blog', description: 'Governance insights' },
           { label: 'Guides', href: '/resources/guides', description: 'Best practices' },
           {
             label: 'Case Studies',
@@ -57,12 +58,6 @@ export const siteContent = {
           { label: 'Help Center', href: '/help', description: 'Support & FAQs' },
         ],
       },
-      pricing: { label: 'Pricing', href: '/pricing' },
-    },
-    ctas: {
-      trial: 'Free Trial',
-      login: 'Log In',
-    },
   },
 
   // Hero Section
@@ -334,22 +329,7 @@ export const siteContent = {
       downloadUrl: '/downloads/governance-guide.pdf',
       pages: 45,
     },
-    {
-      type: 'whitepaper',
-      title: 'AI in Governance: Transforming Board Meetings',
-      description: 'How AI is revolutionizing board governance',
-      image: '/images/whitepaper-ai.jpg',
-      downloadUrl: '/downloads/ai-governance-whitepaper.pdf',
-      pages: 28,
-    },
-    {
-      type: 'whitepaper',
-      title: 'Board Portal Security: ISO 27001 and Beyond',
-      description: 'Understanding security certifications',
-      image: '/images/whitepaper-cover.jpg',
-      downloadUrl: '/downloads/security-whitepaper.pdf',
-      pages: 32,
-    },
+    
     {
       type: 'tool',
       title: 'ROI Calculator',
@@ -399,7 +379,6 @@ export const siteContent = {
         { label: 'Document Features', href: '/features/document-features' },
         { label: 'Security', href: '/security' },
         { label: 'Integrations', href: '/integrations' },
-        { label: 'Pricing', href: '/pricing' },
       ],
     },
     industries: {
@@ -409,16 +388,12 @@ export const siteContent = {
         { label: 'Government', href: '/solutions/government' },
         { label: 'NGOs', href: '/solutions/ngos' },
         { label: 'Enterprise', href: '/solutions/enterprise' },
-        { label: 'Healthcare', href: '/solutions/healthcare' },
-        { label: 'Financial Services', href: '/solutions/financial' },
       ],
     },
     roles: {
       title: 'Roles',
       links: [
         { label: 'Executives', href: '/roles/executives' },
-        { label: 'Administrators', href: '/roles/administrators' },
-        { label: 'Directors', href: '/roles/directors' },
         { label: 'Legal', href: '/roles/legal' },
         { label: 'IT', href: '/roles/it' },
       ],
@@ -426,12 +401,10 @@ export const siteContent = {
     resources: {
       title: 'Resources',
       links: [
-        { label: 'Blog', href: '/blog' },
         { label: 'Guides', href: '/resources/guides' },
         { label: 'Case Studies', href: '/resources/case-studies' },
-        { label: 'Whitepapers', href: '/resources/whitepapers' },
         { label: 'Help Center', href: '/help' },
-        { label: 'ROI Calculator', href: '/resources/roi-calculator' },
+
       ],
     },
     company: {
@@ -441,8 +414,7 @@ export const siteContent = {
         { label: 'Contact', href: '/contact' },
         { label: 'Careers', href: '/careers' },
         { label: 'Partners', href: '/partners' },
-        { label: 'News', href: '/news' },
-        { label: 'Press', href: '/press' },
+
       ],
     },
     legal: {
@@ -452,7 +424,6 @@ export const siteContent = {
         { label: 'Terms of Service', href: '/terms' },
         { label: 'Compliance', href: '/compliance' },
         { label: 'Cookie Policy', href: '/cookies' },
-        { label: 'GDPR', href: '/gdpr' },
         { label: 'Security', href: '/security' },
       ],
     },

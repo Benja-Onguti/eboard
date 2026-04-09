@@ -1,8 +1,11 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
-import { InlineWidget } from "react-calendly";
-import { Calendar, Clock, Users, Shield } from "lucide-react";
-import { Card } from "../components/ui/Card";
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import { InlineWidget } from 'react-calendly';
+import { Calendar, Users, Clock, Shield, ArrowRight } from 'lucide-react';
+import { Card } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { Link } from 'react-router-dom';
 
 export const DemoPage: React.FC = () => {
   return (
@@ -11,113 +14,93 @@ export const DemoPage: React.FC = () => {
         <title>Book a Demo - EBoard Solutions</title>
         <meta
           name="description"
-          content="Schedule a personalized demo of EBoard's governance platform. See how we can transform your board meetings."
+          content="Schedule a personalized demo of EBoard's governance platform."
         />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-b from-primary-50 to-white">
-        <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            See EBoard in <span className="text-primary-600">action</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Schedule a personalized demo to see how EBoard can transform your
-            board meetings and streamline governance.
-          </p>
+      <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+
+        <div className="container-custom relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              See EBoard in <span className="text-primary-600">action</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Get a personalized walkthrough of the platform tailored to your organization's needs.
+            </p>
+
+            <div className="flex items-center justify-center gap-6 pt-6 border-t border-gray-200">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Clock className="w-4 h-4 text-primary-600" />
+                30 Minutes
+              </div>
+              <div className="h-4 w-px bg-gray-200" />
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Users className="w-4 h-4 text-green-600" />
+                Personalized
+              </div>
+              <div className="h-4 w-px bg-gray-200" />
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Shield className="w-4 h-4 text-purple-600" />
+                No Obligation
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Demo Section */}
-      <section className="py-16 bg-white">
+      <section className="py-10 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Info Sidebar */}
+          <div className="grid lg:grid-cols-4 gap-6">
             <div className="lg:col-span-1">
-              <Card variant="elevated" className="p-6 sticky top-24">
-                <h3 className="text-lg font-semibold mb-4">What to expect:</h3>
-
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0 mr-3">
-                      <Calendar className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">30-minute session</h4>
-                      <p className="text-sm text-gray-500">
-                        Perfect for a comprehensive overview
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0 mr-3">
-                      <Users className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Tailored to your needs</h4>
-                      <p className="text-sm text-gray-500">
-                        We'll focus on your specific use case
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0 mr-3">
-                      <Clock className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Live Q&A</h4>
-                      <p className="text-sm text-gray-500">
-                        Get all your questions answered
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0 mr-3">
-                      <Shield className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">No pressure</h4>
-                      <p className="text-sm text-gray-500">
-                        Learn at your own pace, no sales pitch
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <hr className="my-6" />
-
-                <div className="text-sm text-gray-500">
-                  <p className="mb-2">Already have questions?</p>
+              <Card variant="elevated" className="p-5 sticky top-24">
+                <h3 className="font-semibold mb-3">What to expect:</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <Calendar className="w-4 h-4 mr-2 text-primary-600" />
+                    30-minute session
+                  </li>
+                  <li className="flex items-center">
+                    <Users className="w-4 h-4 mr-2 text-primary-600" />
+                    Tailored to your needs
+                  </li>
+                  <li className="flex items-center">
+                    <Clock className="w-4 h-4 mr-2 text-primary-600" />
+                    Live Q&A
+                  </li>
+                  <li className="flex items-center">
+                    <Shield className="w-4 h-4 mr-2 text-primary-600" />
+                    No obligation
+                  </li>
+                </ul>
+                <hr className="my-4" />
+                <p className="text-xs text-gray-500">
+                  Questions?{' '}
                   <a
-                    href="mailto:sales@eboard-solutions.com"
+                    href="mailto:info@matrixsystems.co.ke"
                     className="text-primary-600 hover:underline"
                   >
-                    sales@eboard-solutions.com
+                    Email us
                   </a>
-                </div>
+                </p>
               </Card>
             </div>
 
-            {/* Calendly Widget */}
-            <div className="lg:col-span-2">
-              <Card variant="elevated" className="p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  Select a time that works for you
-                </h2>
-
-                <div className="h-[700px] rounded-lg overflow-hidden">
-                  <InlineWidget
-                    url="https://calendly.com/eboard-solutions/demo"
-                    styles={{
-                      height: "700px",
-                      width: "100%",
-                    }}
-                  />
-                </div>
-              </Card>
+            <div className="lg:col-span-3">
+              <div className="h-[600px] rounded-lg overflow-hidden">
+                <InlineWidget
+                  url="https://calendly.com/eboard-solutions/demo"
+                  styles={{ height: '600px', width: '100%' }}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -125,3 +108,5 @@ export const DemoPage: React.FC = () => {
     </>
   );
 };
+
+export default DemoPage;

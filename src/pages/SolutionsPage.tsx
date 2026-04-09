@@ -207,21 +207,45 @@ export const SolutionsPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-primary-50 to-white">
-        <div className="container-custom text-center">
-          <Badge variant="primary" className="mb-4">
-            By Industry
-          </Badge>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Solutions for every{' '}
-            <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
-              organization
-            </span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            EBoard adapts to the unique governance needs of your sector. From school boards to
-            corporate enterprises, we provide tailored solutions that drive impact.
-          </p>
+      <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+
+        <div className="container-custom relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Solutions for every{' '}
+              <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
+                organization
+              </span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Tailored governance solutions for education, government, nonprofits, and enterprise.
+            </p>
+
+            <div className="flex items-center justify-center gap-6 pt-6 border-t border-gray-200">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <GraduationCap className="w-4 h-4 text-blue-600" />
+                Education
+              </div>
+              <div className="h-4 w-px bg-gray-200" />
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Building2 className="w-4 h-4 text-purple-600" />
+                Government
+              </div>
+              <div className="h-4 w-px bg-gray-200" />
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Heart className="w-4 h-4 text-red-600" />
+                Nonprofits
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -233,13 +257,13 @@ export const SolutionsPage: React.FC = () => {
               <button
                 key={solution.id}
                 onClick={() => setSelectedSolution(solution)}
-                className={`flex items-center px-6 py-3 rounded-lg transition-all ${
+                className={`flex items-center px-4 py-2 rounded-lg transition-all text-sm ${
                   selectedSolution.id === solution.id
                     ? `bg-gradient-to-r ${solution.gradient} text-white shadow-lg`
                     : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
-                <solution.icon className="w-5 h-5 mr-2" />
+                <solution.icon className="w-4 h-4 mr-2" />
                 {solution.title}
               </button>
             ))}
@@ -248,7 +272,7 @@ export const SolutionsPage: React.FC = () => {
       </section>
 
       {/* Selected Solution Detail */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
           <motion.div
             key={selectedSolution.id}
@@ -258,49 +282,49 @@ export const SolutionsPage: React.FC = () => {
           >
             {/* Hero Section */}
             <div
-              className={`bg-gradient-to-r ${selectedSolution.gradient} rounded-3xl text-white p-12 mb-16`}
+              className={`bg-gradient-to-r ${selectedSolution.gradient} rounded-xl text-white p-8 mb-10`}
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="flex items-center mb-4">
-                    <selectedSolution.icon className="w-12 h-12 mr-4" />
-                    <h2 className="text-3xl font-bold">{selectedSolution.title}</h2>
+                  <div className="flex items-center mb-3">
+                    <selectedSolution.icon className="w-10 h-10 mr-3" />
+                    <h2 className="text-2xl font-bold">{selectedSolution.title}</h2>
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4">{selectedSolution.headline}</h3>
-                  <p className="text-lg text-white/90 max-w-2xl">{selectedSolution.description}</p>
+                  <h3 className="text-lg font-semibold mb-3">{selectedSolution.headline}</h3>
+                  <p className="text-base text-white/90 max-w-2xl">{selectedSolution.description}</p>
                 </div>
                 <div className="hidden lg:block">
-                  <div className="grid grid-cols-3 gap-8">
+                  <div className="grid grid-cols-3 gap-6">
                     <div className="text-center">
-                      <div className="text-3xl font-bold">
+                      <div className="text-2xl font-bold">
                         {selectedSolution.stats.organizations}
                       </div>
-                      <div className="text-sm text-white/80">Organizations</div>
+                      <div className="text-xs text-white/80">Organizations</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-bold">{selectedSolution.stats.users}</div>
-                      <div className="text-sm text-white/80">Users</div>
+                      <div className="text-2xl font-bold">{selectedSolution.stats.users}</div>
+                      <div className="text-xs text-white/80">Users</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-bold">
+                      <div className="text-2xl font-bold">
                         {selectedSolution.stats.satisfaction}
                       </div>
-                      <div className="text-sm text-white/80">Satisfaction</div>
+                      <div className="text-xs text-white/80">Satisfaction</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-8">
               {/* Left Column - Pain Points & Benefits */}
               <div>
                 {/* Pain Points */}
-                <div className="mb-12">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                <div className="mb-8">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
                     Common challenges we solve
                   </h3>
-                  <ul className="space-y-4">
+                  <ul className="space-y-3">
                     {selectedSolution.painPoints.map((point, index) => (
                       <motion.li
                         key={index}
@@ -309,10 +333,10 @@ export const SolutionsPage: React.FC = () => {
                         transition={{ delay: index * 0.1 }}
                         className="flex items-start"
                       >
-                        <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-3 flex-shrink-0">
-                          <span className="text-sm font-bold">!</span>
+                        <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-2 flex-shrink-0">
+                          <span className="text-xs font-bold">!</span>
                         </div>
-                        <span className="text-gray-700">{point}</span>
+                        <span className="text-gray-700 text-sm">{point}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -320,8 +344,8 @@ export const SolutionsPage: React.FC = () => {
 
                 {/* Benefits */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">How EBoard helps</h3>
-                  <ul className="space-y-4">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">How EBoard helps</h3>
+                  <ul className="space-y-3">
                     {selectedSolution.benefits.map((benefit, index) => (
                       <motion.li
                         key={index}
@@ -330,8 +354,8 @@ export const SolutionsPage: React.FC = () => {
                         transition={{ delay: index * 0.1 }}
                         className="flex items-start"
                       >
-                        <CheckCircle className="w-6 h-6 text-green-500 mr-3 flex-shrink-0" />
-                        <span className="text-gray-700">{benefit}</span>
+                        <CheckCircle className="w-5 h-5 text-green-500 mr-2 flex-shrink-0" />
+                        <span className="text-gray-700 text-sm">{benefit}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -341,21 +365,21 @@ export const SolutionsPage: React.FC = () => {
               {/* Right Column - Features & Case Study */}
               <div>
                 {/* Features */}
-                <div className="mb-12">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Key features</h3>
-                  <div className="grid grid-cols-2 gap-4">
+                <div className="mb-8">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">Key features</h3>
+                  <div className="grid grid-cols-2 gap-3">
                     {selectedSolution.features.map((feature, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="bg-gray-50 rounded-lg p-4"
+                        className="bg-gray-50 rounded-lg p-3"
                       >
                         <div
-                          className={`w-8 h-8 rounded-lg bg-gradient-to-r ${selectedSolution.gradient} mb-2`}
+                          className={`w-6 h-6 rounded bg-gradient-to-r ${selectedSolution.gradient} mb-1`}
                         />
-                        <span className="text-sm font-medium text-gray-900">{feature}</span>
+                        <span className="text-xs font-medium text-gray-900">{feature}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -363,56 +387,56 @@ export const SolutionsPage: React.FC = () => {
 
                 {/* Case Study */}
                 <Card variant="elevated" className="bg-primary-50 border-primary-100">
-                  <div className="flex items-center mb-4">
-                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
+                  <div className="flex items-center mb-3">
+                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
                   </div>
-                  <blockquote className="text-lg text-gray-700 mb-4">
+                  <blockquote className="text-base text-gray-700 mb-3">
                     "{selectedSolution.caseStudy.quote}"
                   </blockquote>
                   <div className="flex items-center">
                     <div
-                      className={`w-12 h-12 rounded-full bg-gradient-to-r ${selectedSolution.gradient} mr-4`}
+                      className={`w-10 h-10 rounded-full bg-gradient-to-r ${selectedSolution.gradient} mr-3`}
                     />
                     <div>
-                      <p className="font-semibold text-gray-900">
+                      <p className="font-semibold text-gray-900 text-sm">
                         {selectedSolution.caseStudy.author}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-xs text-gray-500">
                         {selectedSolution.caseStudy.role}, {selectedSolution.caseStudy.title}
                       </p>
                     </div>
                   </div>
                   <Link
                     to={`/case-studies/${selectedSolution.id}`}
-                    className="inline-flex items-center text-primary-600 font-medium mt-4 hover:text-primary-700"
+                    className="inline-flex items-center text-primary-600 font-medium mt-3 hover:text-primary-700"
                   >
                     Read full case study
-                    <ArrowRight className="w-4 h-4 ml-1" />
+                    <ArrowRight className="w-3 h-3 ml-1" />
                   </Link>
                 </Card>
               </div>
             </div>
 
             {/* CTA */}
-            <div className="mt-16 text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <div className="mt-10 text-center">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">
                 Ready to transform your {selectedSolution.title.toLowerCase()} governance?
               </h3>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-wrap gap-3 justify-center">
                 <Link to={ROUTES.DEMO.INDEX}>
                   <Button
-                    size="lg"
+                    size="md"
                     className={`bg-gradient-to-r ${selectedSolution.gradient} text-white border-0`}
                   >
                     Schedule a demo
                   </Button>
                 </Link>
                 <Link to={selectedSolution.link}>
-                  <Button size="lg" variant="outline">
+                  <Button size="md" variant="outline">
                     Learn more about {selectedSolution.title}
                   </Button>
                 </Link>
@@ -423,12 +447,12 @@ export const SolutionsPage: React.FC = () => {
       </section>
 
       {/* Other Solutions */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">
             Explore other solutions
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-5">
             {solutions
               .filter((s) => s.id !== selectedSolution.id)
               .map((solution) => (
@@ -440,15 +464,15 @@ export const SolutionsPage: React.FC = () => {
                   <Link to={solution.link}>
                     <Card variant="elevated" className="h-full text-center group">
                       <div
-                        className={`w-16 h-16 mx-auto rounded-xl bg-gradient-to-r ${solution.gradient} flex items-center justify-center text-white mb-4`}
+                        className={`w-12 h-12 mx-auto rounded-lg bg-gradient-to-r ${solution.gradient} flex items-center justify-center text-white mb-3`}
                       >
-                        <solution.icon className="w-8 h-8" />
+                        <solution.icon className="w-6 h-6" />
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition">
+                      <h3 className="text-base font-bold text-gray-900 mb-1 group-hover:text-primary-600 transition">
                         {solution.title}
                       </h3>
                       <p className="text-gray-600 text-sm line-clamp-2">{solution.headline}</p>
-                      <ArrowRight className="w-5 h-5 mx-auto mt-4 text-primary-600 opacity-0 group-hover:opacity-100 transition" />
+                      <ArrowRight className="w-4 h-4 mx-auto mt-3 text-primary-600 opacity-0 group-hover:opacity-100 transition" />
                     </Card>
                   </Link>
                 </motion.div>
@@ -458,18 +482,18 @@ export const SolutionsPage: React.FC = () => {
       </section>
 
       {/* Resources */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
               Resources for {selectedSolution.title} governance
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Explore guides, case studies, and best practices tailored to your sector.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-5">
             {[
               {
                 icon: BookOpen,
@@ -494,17 +518,17 @@ export const SolutionsPage: React.FC = () => {
               return (
                 <Link key={index} to={resource.link}>
                   <Card variant="elevated" className="h-full group">
-                    <div className="flex items-center mb-4">
+                    <div className="flex items-center mb-3">
                       <div
-                        className={`w-10 h-10 rounded-lg bg-gradient-to-r ${selectedSolution.gradient} flex items-center justify-center text-white mr-3`}
+                        className={`w-9 h-9 rounded-lg bg-gradient-to-r ${selectedSolution.gradient} flex items-center justify-center text-white mr-2`}
                       >
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-4 h-4" />
                       </div>
-                      <h3 className="font-semibold text-gray-900 group-hover:text-primary-600 transition">
+                      <h3 className="text-sm font-semibold text-gray-900 group-hover:text-primary-600 transition">
                         {resource.title}
                       </h3>
                     </div>
-                    <p className="text-gray-600 text-sm">{resource.description}</p>
+                    <p className="text-gray-600 text-xs">{resource.description}</p>
                   </Card>
                 </Link>
               );

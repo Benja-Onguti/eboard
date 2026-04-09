@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  Building2,
   Shield,
   FileText,
   Users,
@@ -11,17 +10,13 @@ import {
   Scale,
   Clock,
   CheckCircle,
-  ArrowRight,
   Star,
   Award,
   Lock,
   Eye,
   FileCheck,
+  ArrowRight,
   Landmark,
-  Mail,
-  Phone,
-  MapPin,
-  Download,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -45,25 +40,29 @@ export const GovernmentPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-8 pb-20s bg-gradient-to-b from-purple-50 to-white overflow-hidden">
-        <div className="container-custom">
+      <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+
+        <div className="container-custom relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge variant="primary" className="mb-4 bg-purple-100 text-purple-700">
-                For Government & Public Sector
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Secure, transparent governance for{' '}
                 <span className="text-purple-600">public sector</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                Meet compliance requirements while improving efficiency and transparency. Achieve
-                100% FOI compliance with half the administrative workload.
+              <p className="text-xl text-gray-600 mb-8 max-w-xl">
+                Meet compliance requirements while improving efficiency. Achieve 100% FOI compliance with half the administrative workload.
               </p>
+              
               <div className="flex flex-wrap gap-4 mb-8">
                 <Link to={ROUTES.DEMO.INDEX}>
                   <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
@@ -72,29 +71,26 @@ export const GovernmentPage: React.FC = () => {
                 </Link>
                 <Link to={ROUTES.COMPANY.CONTACT}>
                   <Button size="lg" variant="outline">
-                    Contact Government Team
+                    Contact Sales
                   </Button>
                 </Link>
               </div>
-              <div className="flex items-center gap-6">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full bg-purple-400 border-2 border-white"
-                    />
-                  ))}
+
+              {/* Quick Stats */}
+              <div className="flex items-center gap-6 pt-4 border-t border-gray-200">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-600">150+</div>
+                  <div className="text-xs text-gray-500">Agencies</div>
                 </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-5 h-5 text-purple-600" />
-                    <span className="text-sm font-medium text-gray-900">FedRAMP Certified</span>
-                  </div>
-                  <div className="flex items-center">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
+                <div className="h-8 w-px bg-gray-200" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">100%</div>
+                  <div className="text-xs text-gray-500">FOI Compliance</div>
+                </div>
+                <div className="h-8 w-px bg-gray-200" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-600">50%</div>
+                  <div className="text-xs text-gray-500">Cost Reduction</div>
                 </div>
               </div>
             </motion.div>
@@ -111,21 +107,35 @@ export const GovernmentPage: React.FC = () => {
                   alt="Government Board Meeting"
                   className="w-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-transparent" />
               </div>
 
               {/* Floating Compliance Badge */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
-                className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4"
+                className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-2xl p-4 border border-gray-100"
               >
-                <div className="flex items-center">
-                  <Award className="w-8 h-8 text-purple-600 mr-3" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <Award className="w-5 h-5 text-purple-600" />
+                  </div>
                   <div>
-                    <p className="text-sm text-gray-500">Compliance</p>
+                    <p className="text-xs text-gray-500">Compliance</p>
                     <p className="text-lg font-bold text-purple-600">ISO 27001</p>
                   </div>
+                </div>
+              </motion.div>
+
+              {/* FedRAMP Badge */}
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 4 }}
+                className="absolute -top-4 -right-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg px-4 py-2 shadow-lg"
+              >
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4" />
+                  <span className="text-sm font-medium">FedRAMP Certified</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -160,21 +170,21 @@ export const GovernmentPage: React.FC = () => {
       */}
 
       {/* Compliance Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="primary" className="mb-4 bg-purple-100 text-purple-700">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <Badge variant="primary" className="mb-3 bg-purple-100 text-purple-700">
               Compliance
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Built for government compliance
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Meet the strictest regulatory requirements with confidence.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
             {[
               {
                 icon: FileCheck,
@@ -210,15 +220,15 @@ export const GovernmentPage: React.FC = () => {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Card className="h-full">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
-                        <Icon className="w-6 h-6" />
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600">
+                        <Icon className="w-5 h-5" />
                       </div>
                       <Badge variant="primary" size="sm">
                         {item.badge}
                       </Badge>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                    <h3 className="text-base font-bold text-gray-900 mb-1">{item.title}</h3>
                     <p className="text-gray-600 text-sm">{item.description}</p>
                   </Card>
                 </motion.div>
@@ -227,7 +237,7 @@ export const GovernmentPage: React.FC = () => {
           </div>
 
           {/* Compliance Logos */}
-          <div className="flex flex-wrap justify-center items-center gap-8 py-8 border-t border-gray-200">
+          <div className="flex flex-wrap justify-center items-center gap-6 py-6 border-t border-gray-200">
             {['ISO 27001', 'SOC 2', 'GDPR', 'FedRAMP', 'CCPA'].map((cert) => (
               <div key={cert} className="flex items-center">
                 <Shield className="w-4 h-4 text-purple-600 mr-2" />
@@ -239,22 +249,22 @@ export const GovernmentPage: React.FC = () => {
       </section>
 
       {/* FOI Compliance Deep Dive */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <Badge variant="primary" className="mb-4 bg-purple-100 text-purple-700">
+              <Badge variant="primary" className="mb-3 bg-purple-100 text-purple-700">
                 FOI Compliance
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                 Automate FOI compliance with confidence
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-base text-gray-600 mb-6">
                 Never worry about FOI requests again. Our platform automatically manages public
                 records while protecting sensitive information.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {[
                   {
                     title: 'Automated Record Keeping',
@@ -283,27 +293,29 @@ export const GovernmentPage: React.FC = () => {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start"
                   >
-                    <CheckCircle className="w-6 h-6 text-purple-600 mr-4 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-purple-600 mr-3 flex-shrink-0" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
+                      <h3 className="font-medium text-gray-900 text-sm">{item.title}</h3>
+                      <p className="text-gray-600 text-sm">{item.description}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="mt-8 bg-white rounded-xl p-6 border border-purple-100">
-                <div className="flex items-center mb-4">
-                  <Clock className="w-5 h-5 text-purple-600 mr-2" />
-                  <span className="font-semibold text-gray-900">Average FOI response time</span>
+              <div className="mt-6 bg-white rounded-lg p-4 border border-purple-100">
+                <div className="flex items-center mb-2">
+                  <Clock className="w-4 h-4 text-purple-600 mr-2" />
+                  <span className="font-medium text-gray-900 text-sm">
+                    Average FOI response time
+                  </span>
                 </div>
-                <div className="text-3xl font-bold text-purple-600 mb-2">2.5 days</div>
-                <p className="text-sm text-gray-500">Industry average: 15-30 days</p>
+                <div className="text-2xl font-bold text-purple-600 mb-1">2.5 days</div>
+                <p className="text-xs text-gray-500">Industry average: 15-30 days</p>
               </div>
             </div>
 
             <div className="relative">
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden">
+              <div className="relative rounded-xl shadow-xl overflow-hidden">
                 <img
                   src="/images/solutions/foi-dashboard.jpg"
                   alt="FOI Compliance Dashboard"
@@ -316,21 +328,21 @@ export const GovernmentPage: React.FC = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="primary" className="mb-4 bg-purple-100 text-purple-700">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <Badge variant="primary" className="mb-3 bg-purple-100 text-purple-700">
               Features
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Government-grade governance tools
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Everything you need to manage public sector boards efficiently and transparently.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
                 icon: Shield,
@@ -375,11 +387,11 @@ export const GovernmentPage: React.FC = () => {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Card variant="elevated" className="h-full group hover:border-purple-200">
-                    <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-4 group-hover:bg-purple-600 group-hover:text-white transition">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-3 group-hover:bg-purple-600 group-hover:text-white transition">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <h3 className="text-base font-bold text-gray-900 mb-1">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm">{feature.description}</p>
                   </Card>
                 </motion.div>
               );
@@ -389,23 +401,23 @@ export const GovernmentPage: React.FC = () => {
       </section>
 
       {/* Testimonial */}
-      <section className="py-24 bg-purple-600 text-white">
+      <section className="py-12 bg-purple-600 text-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-4">
               {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <blockquote className="text-2xl md:text-3xl font-medium mb-8">
+            <blockquote className="text-xl md:text-2xl font-medium mb-6">
               "EBoard helped us achieve 100% FOI compliance while reducing administrative workload
               by 50%. The public meeting sites have transformed how we engage with our community."
             </blockquote>
             <div>
-              <p className="text-xl font-semibold">James Rodriguez</p>
+              <p className="text-lg font-semibold">James Rodriguez</p>
               <p className="text-purple-200">City Clerk, City of Riverside</p>
             </div>
-            <div className="mt-8">
+            <div className="mt-6">
               <Link
                 to="/case-studies/city-of-riverside"
                 className="inline-flex items-center text-white hover:underline"
@@ -419,12 +431,12 @@ export const GovernmentPage: React.FC = () => {
       </section>
 
       {/* Security Certifications */}
-      <section className="py-16 bg-white border-y border-gray-200">
+      <section className="py-10 bg-white border-y border-gray-200">
         <div className="container-custom">
-          <p className="text-center text-gray-500 text-sm font-medium uppercase tracking-wider mb-8">
+          <p className="text-center text-gray-500 text-xs font-medium uppercase tracking-wider mb-4">
             Certified and compliant with global standards
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-12">
+          <div className="flex flex-wrap justify-center items-center gap-8">
             {['ISO 27001', 'SOC 2 Type II', 'GDPR', 'FedRAMP', 'CCPA', 'HIPAA'].map((cert) => (
               <div key={cert} className="flex flex-col items-center">
                 <Shield className="w-8 h-8 text-purple-600 mb-2" />
@@ -436,86 +448,26 @@ export const GovernmentPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
             Ready to transform your public sector governance?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join 150+ government agencies already using EBoard to streamline operations and ensure
+          <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+            Join 150+ government agencies using EBoard to streamline operations and ensure
             compliance.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             <Link to={ROUTES.DEMO.INDEX}>
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+              <Button size="md" className="bg-purple-600 hover:bg-purple-700">
                 Schedule Demo
               </Button>
             </Link>
             <Link to={ROUTES.COMPANY.CONTACT}>
-              <Button size="lg" variant="outline">
-                Contact Government Team
+              <Button size="md" variant="outline">
+                Contact Sales
               </Button>
             </Link>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-4 justify-center text-sm text-gray-500">
-            <span className="flex items-center">
-              <CheckCircle className="w-4 h-4 text-purple-600 mr-2" />
-              FedRAMP certified
-            </span>
-            <span className="flex items-center">
-              <CheckCircle className="w-4 h-4 text-purple-600 mr-2" />
-              Government pricing available
-            </span>
-            <span className="flex items-center">
-              <CheckCircle className="w-4 h-4 text-purple-600 mr-2" />
-              Dedicated support team
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Resources Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container-custom">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Resources for government governance
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Download,
-                title: 'FOI Compliance Guide',
-                description: 'Best practices for public records management',
-                link: '/resources/guides/foi-compliance',
-              },
-              {
-                icon: Shield,
-                title: 'Security Whitepaper',
-                description: 'Government-grade security and compliance',
-                link: '/resources/whitepapers/security',
-              },
-              {
-                icon: Users,
-                title: 'Public Meeting Best Practices',
-                description: 'Engaging citizens in digital governance',
-                link: '/resources/guides/public-meetings',
-              },
-            ].map((resource, index) => {
-              const Icon = resource.icon;
-              return (
-                <Link key={index} to={resource.link}>
-                  <Card className="h-full hover:border-purple-200">
-                    <div className="flex items-center mb-3">
-                      <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mr-3">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <h3 className="font-semibold text-gray-900">{resource.title}</h3>
-                    </div>
-                    <p className="text-sm text-gray-600">{resource.description}</p>
-                  </Card>
-                </Link>
-              );
-            })}
           </div>
         </div>
       </section>

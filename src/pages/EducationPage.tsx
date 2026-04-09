@@ -12,6 +12,7 @@ import {
   Star,
   Clock,
   Award,
+  GraduationCap,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -30,25 +31,29 @@ export const EducationPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="pt-8 pb-20 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
-        <div className="container-custom">
+      <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+
+        <div className="container-custom relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge variant="primary" className="mb-4 bg-blue-100 text-blue-700">
-                For Education
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+             
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Streamlined governance for{' '}
                 <span className="text-blue-600">educational institutions</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                Empower school boards, university trustees, and academic committees with modern
-                governance tools designed specifically for education.
+              <p className="text-xl text-gray-600 mb-8 max-w-xl">
+                Empower school boards, university trustees, and academic committees with modern governance tools designed specifically for education.
               </p>
+              
               <div className="flex flex-wrap gap-4 mb-8">
                 <Link to={ROUTES.DEMO.INDEX}>
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
@@ -61,22 +66,22 @@ export const EducationPage: React.FC = () => {
                   </Button>
                 </Link>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full bg-blue-400 border-2 border-white"
-                    />
-                  ))}
+
+              {/* Quick Stats */}
+              <div className="flex items-center gap-6 pt-4 border-t border-gray-200">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600">200+</div>
+                  <div className="text-xs text-gray-500">Institutions</div>
                 </div>
-                <div>
-                  <p className="text-sm font-medium text-gray-900">Trusted by 200+ institutions</p>
-                  <div className="flex items-center">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
+                <div className="h-8 w-px bg-gray-200" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">70%</div>
+                  <div className="text-xs text-gray-500">Time Saved</div>
+                </div>
+                <div className="h-8 w-px bg-gray-200" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600">98%</div>
+                  <div className="text-xs text-gray-500">Satisfaction</div>
                 </div>
               </div>
             </motion.div>
@@ -93,28 +98,58 @@ export const EducationPage: React.FC = () => {
                   alt="Education Board Meeting"
                   className="w-full"
                 />
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent" />
               </div>
+
+              {/* FERPA Badge */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 3 }}
+                className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-2xl p-4 border border-gray-100"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500">Compliance</p>
+                    <p className="text-lg font-bold text-blue-600">FERPA</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Trust Badge */}
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 4 }}
+                className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg px-4 py-2 shadow-lg"
+              >
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4" />
+                  <span className="text-sm font-medium">50K+ Users</span>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Challenges Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="primary" className="mb-4 bg-blue-100 text-blue-700">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <Badge variant="primary" className="mb-3 bg-blue-100 text-blue-700">
               Challenges
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Common challenges in education governance
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               We understand the unique complexities of managing educational boards.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
                 icon: Calendar,
@@ -157,11 +192,11 @@ export const EducationPage: React.FC = () => {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Card className="h-full">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-4">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-3">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{challenge.title}</h3>
-                    <p className="text-gray-600">{challenge.description}</p>
+                    <h3 className="text-base font-bold text-gray-900 mb-1">{challenge.title}</h3>
+                    <p className="text-gray-600 text-sm">{challenge.description}</p>
                   </Card>
                 </motion.div>
               );
@@ -171,22 +206,22 @@ export const EducationPage: React.FC = () => {
       </section>
 
       {/* Solution Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <Badge variant="primary" className="mb-4 bg-blue-100 text-blue-700">
+              <Badge variant="primary" className="mb-3 bg-blue-100 text-blue-700">
                 Solution
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                 How EBoard transforms education governance
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-base text-gray-600 mb-5">
                 Our platform addresses the unique needs of educational boards with features designed
                 for academic environments.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {[
                   {
                     title: 'Multi-campus coordination',
@@ -216,10 +251,10 @@ export const EducationPage: React.FC = () => {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start"
                   >
-                    <CheckCircle className="w-6 h-6 text-blue-600 mr-4 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
                     <div>
-                      <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
+                      <h3 className="font-medium text-gray-900 text-sm">{item.title}</h3>
+                      <p className="text-gray-600 text-sm">{item.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -227,7 +262,7 @@ export const EducationPage: React.FC = () => {
             </div>
 
             <div className="relative">
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden">
+              <div className="relative rounded-xl shadow-xl overflow-hidden">
                 <img
                   src="/images/solutions/education-solution.jpg"
                   alt="EBoard Education Solution"
@@ -240,21 +275,21 @@ export const EducationPage: React.FC = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="primary" className="mb-4 bg-blue-100 text-blue-700">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <Badge variant="primary" className="mb-3 bg-blue-100 text-blue-700">
               Features
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Everything you need for education governance
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Comprehensive tools designed for educational institutions.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
                 icon: Calendar,
@@ -297,11 +332,11 @@ export const EducationPage: React.FC = () => {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Card variant="elevated" className="h-full group hover:border-blue-200">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-3 group-hover:bg-blue-600 group-hover:text-white transition">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <h3 className="text-base font-bold text-gray-900 mb-1">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm">{feature.description}</p>
                   </Card>
                 </motion.div>
               );
@@ -311,21 +346,21 @@ export const EducationPage: React.FC = () => {
       </section>
 
       {/* Testimonial */}
-      <section className="py-24 bg-blue-600 text-white">
+      <section className="py-12 bg-blue-600 text-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-4">
               {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <blockquote className="text-2xl md:text-3xl font-medium mb-8">
+            <blockquote className="text-xl md:text-2xl font-medium mb-6">
               "EBoard has transformed how our school board operates. What used to take weeks of
               preparation now happens in days. The AI minutes feature alone saves us hours after
               every meeting."
             </blockquote>
             <div>
-              <p className="text-xl font-semibold">Dr. Sarah Chen</p>
+              <p className="text-lg font-semibold">Dr. Sarah Chen</p>
               <p className="text-blue-200">Board Chair, Lincoln School District</p>
             </div>
           </div>
@@ -333,22 +368,22 @@ export const EducationPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
             Ready to transform your education board?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
             Join 200+ educational institutions already using EBoard to streamline governance.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             <Link to={ROUTES.DEMO.INDEX}>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button size="md" className="bg-blue-600 hover:bg-blue-700">
                 Schedule Demo
               </Button>
             </Link>
             <Link to={ROUTES.COMPANY.CONTACT}>
-              <Button size="lg" variant="outline">
+              <Button size="md" variant="outline">
                 Contact Us
               </Button>
             </Link>

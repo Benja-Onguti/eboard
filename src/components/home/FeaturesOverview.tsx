@@ -205,14 +205,14 @@ export const FeatureOverview: React.FC = () => {
   const [activeFeature, setActiveFeature] = React.useState<string>(features[0].id);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section className="py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
           <Badge variant="primary" className="mb-4">
             Platform Features

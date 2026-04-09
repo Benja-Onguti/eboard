@@ -54,7 +54,7 @@ export const SecurityPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <section className="relative pb-16 md:pb-24 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-grid-pattern" />
@@ -236,7 +236,7 @@ export const SecurityPage: React.FC = () => {
       </section>
 
       {/* Security Features Tabs */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <Badge
@@ -577,7 +577,7 @@ export const SecurityPage: React.FC = () => {
       </section>
 
       {/* Infrastructure Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -667,7 +667,7 @@ export const SecurityPage: React.FC = () => {
       </section>
 
       {/* Customer Testimonial */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <Card className="bg-primary-50 border-primary-100 p-8 text-center">
@@ -705,7 +705,7 @@ export const SecurityPage: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <Badge
@@ -824,7 +824,7 @@ export const SecurityPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+      <section className="py-12 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container-custom text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
