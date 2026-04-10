@@ -13,7 +13,6 @@ import {
   Clock,
   CheckCircle,
   ArrowRight,
-  ChevronRight,
   Zap,
   Lock,
   Eye,
@@ -784,7 +783,11 @@ const featureDetails: Record<string, FeatureDetail> = {
   },
 };
 
-export const FeatureDetailPage: React.FC = () => {
+interface FeatureDetailPageProps {
+  featureIdOverride?: string;
+}
+
+export const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ featureIdOverride }) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview');
@@ -794,7 +797,9 @@ export const FeatureDetailPage: React.FC = () => {
   const getFeatureId = (paramId: string): string => {
     const mapping: Record<string, string> = {
       'meeting-management': 'meeting-management',
+      'committee-management': 'committee-management',
       'ai-minutes': 'ai-capabilities',
+      'document-management': 'document-features',
       'document-security': 'security',
       'document-hub': 'document-features',
       'e-signatures': 'document-features',
@@ -806,7 +811,7 @@ export const FeatureDetailPage: React.FC = () => {
     return mapping[paramId] || paramId;
   };
 
-  const actualId = id ? getFeatureId(id) : null;
+  const actualId = featureIdOverride ?? (id ? getFeatureId(id) : null);
   const feature = actualId ? featureDetails[actualId] : null;
 
   useEffect(() => {
@@ -832,6 +837,7 @@ export const FeatureDetailPage: React.FC = () => {
       </Helmet>
 
       {/* Breadcrumb Navigation */}
+      {/*
       <nav className="bg-gray-50 border-b border-gray-200 py-3">
         <div className="container-custom">
           <div className="flex items-center text-sm">
@@ -847,6 +853,7 @@ export const FeatureDetailPage: React.FC = () => {
           </div>
         </div>
       </nav>
+      */}
 
       {/* Hero Section */}
       <section className="pb-12 bg-gradient-to-b from-primary-50 to-white">
@@ -857,35 +864,24 @@ export const FeatureDetailPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="flex items-center mb-6">
+              <div className="flex items-center pt-5 mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl flex items-center justify-center text-white mr-4 shadow-lg">
                   <Icon className="w-8 h-8" />
                 </div>
                 <div>
-                  <Badge variant="primary" className="mb-2">
-                    Feature
-                  </Badge>
-                  <h1 className="text-4xl font-bold text-gray-900">{feature.name}</h1>
+                  <h1 className="text-4xl  font-bold text-gray-900">{feature.name}</h1>
                 </div>
               </div>
 
-              <p className="text-xl text-primary-600 font-medium mb-4">{feature.tagline}</p>
+              <p className="text-2xl text-primary-600 font-medium mb-4">{feature.tagline}</p>
               <p className="text-lg text-gray-600 mb-8">{feature.longDescription}</p>
 
               <div className="flex flex-wrap gap-4 mb-8">
                 <Link to={ROUTES.DEMO.INDEX}>
                   <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                    See it in action
+                    Book Demo
                   </Button>
                 </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  leftIcon={<Play className="w-5 h-5" />}
-                  onClick={() => setShowVideo(true)}
-                >
-                  Watch demo
-                </Button>
               </div>
 
               {/* Quick Stats */}
@@ -1231,7 +1227,7 @@ export const FeatureDetailPage: React.FC = () => {
                 variant="secondary"
                 className="bg-white text-primary-600 hover:bg-gray-100"
               >
-                Schedule a Demo
+                Book Demo
               </Button>
             </Link>
             <Link to={ROUTES.COMPANY.CONTACT}>
@@ -1240,7 +1236,7 @@ export const FeatureDetailPage: React.FC = () => {
                 variant="outline"
                 className="border-white text-white hover:bg-white/10"
               >
-                Contact Sales
+                Contact Us
               </Button>
             </Link>
           </div>

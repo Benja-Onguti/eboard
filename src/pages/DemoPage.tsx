@@ -2,10 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { InlineWidget } from 'react-calendly';
-import { Calendar, Users, Clock, Shield, ArrowRight } from 'lucide-react';
+import { Calendar, Users, Clock, Shield } from 'lucide-react';
 import { Card } from '../components/ui/Card';
-import { Button } from '../components/ui/Button';
-import { Link } from 'react-router-dom';
 
 export const DemoPage: React.FC = () => {
   return (

@@ -96,11 +96,13 @@ export const ROUTES = {
   MARKETING: {
     FEATURES_OVERVIEW: '/features',
     MEETING_MANAGEMENT: '/features/meeting-management',
+    COMMITTEE_MANAGEMENT: '/features/committee-management',
     DOCUMENT_MANAGEMENT: '/features/document-management',
     AI_MINUTES: '/features/ai-minutes',
     E_SIGNATURES: '/features/e-signatures',
     SURVEYS: '/features/surveys',
     PUBLIC_SITES: '/features/public-sites',
+    INTEGRATIONS: '/features/integrations',
     SECURITY: '/security',
     INTEGRATIONS_OVERVIEW: '/integrations',
     INTEGRATION: (name: string) => `/integrations/${name}`,
@@ -238,6 +240,22 @@ export const BREADCRUMBS: Record<string, { label: string; parent?: string }> = {
   // Platform
   [ROUTES.PLATFORM.INDEX]: { label: 'Platform', parent: ROUTES.HOME },
   [ROUTES.PLATFORM.FEATURES]: { label: 'Features', parent: ROUTES.PLATFORM.INDEX },
+  [ROUTES.MARKETING.MEETING_MANAGEMENT]: {
+    label: 'Meeting Management',
+    parent: ROUTES.PLATFORM.FEATURES,
+  },
+  [ROUTES.MARKETING.COMMITTEE_MANAGEMENT]: {
+    label: 'Committee Management',
+    parent: ROUTES.PLATFORM.FEATURES,
+  },
+  [ROUTES.MARKETING.DOCUMENT_MANAGEMENT]: {
+    label: 'Document Management',
+    parent: ROUTES.PLATFORM.FEATURES,
+  },
+  [ROUTES.MARKETING.INTEGRATIONS]: {
+    label: 'Integrations',
+    parent: ROUTES.PLATFORM.FEATURES,
+  },
   [ROUTES.PLATFORM.SECURITY]: { label: 'Security', parent: ROUTES.PLATFORM.INDEX },
   [ROUTES.PLATFORM.INTEGRATIONS]: { label: 'Integrations', parent: ROUTES.PLATFORM.INDEX },
 

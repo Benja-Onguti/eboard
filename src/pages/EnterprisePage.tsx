@@ -7,7 +7,6 @@ import {
   Users,
   Globe,
   BarChart,
-  Award,
   Lock,
   Database,
   Clock,
@@ -717,7 +716,7 @@ export const EnterprisePage: React.FC = () => {
                 variant="secondary"
                 className="bg-white text-slate-900 hover:bg-gray-100"
               >
-                Schedule Enterprise Demo
+                Book Demo
               </Button>
             </Link>
             <Link to={ROUTES.COMPANY.CONTACT}>
@@ -726,23 +725,9 @@ export const EnterprisePage: React.FC = () => {
                 variant="outline"
                 className="border-white text-white hover:bg-white/10"
               >
-                Contact Sales
+                Contact Us
               </Button>
             </Link>
-          </div>
-          <div className="mt-6 flex flex-wrap gap-4 justify-center text-sm text-gray-400">
-            <span className="flex items-center">
-              <Shield className="w-4 h-4 mr-2 text-primary-400" />
-              ISO 27001
-            </span>
-            <span className="flex items-center">
-              <Lock className="w-4 h-4 mr-2 text-primary-400" />
-              SOC 2 Type II
-            </span>
-            <span className="flex items-center">
-              <Award className="w-4 h-4 mr-2 text-primary-400" />
-              FedRAMP Ready
-            </span>
           </div>
         </div>
       </section>

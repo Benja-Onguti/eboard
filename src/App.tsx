@@ -12,8 +12,23 @@ import { SecurityPage } from './pages/SecurityPage';
 const HomePage = lazy(() =>
   import('./pages/HomePage').then((module) => ({ default: module.HomePage }))
 );
-const FeaturesPage = lazy(() =>
-  import('./pages/FeaturesPage').then((module) => ({ default: module.FeaturesPage }))
+const MeetingManagementPage = lazy(() =>
+  import('./pages/MeetingManagementPage').then((module) => ({
+    default: module.MeetingManagementPage,
+  }))
+);
+const CommitteeManagementPage = lazy(() =>
+  import('./pages/CommitteeManagementPage').then((module) => ({
+    default: module.CommitteeManagementPage,
+  }))
+);
+const DocumentManagementPage = lazy(() =>
+  import('./pages/DocumentManagementPage').then((module) => ({
+    default: module.DocumentManagementPage,
+  }))
+);
+const IntegrationsPage = lazy(() =>
+  import('./pages/IntegrationsPage').then((module) => ({ default: module.IntegrationsPage }))
 );
 const FeatureDetailPage = lazy(() =>
   import('./pages/FeatureDetailPage').then((module) => ({ default: module.FeatureDetailPage }))
@@ -41,6 +56,15 @@ const DemoPage = lazy(() =>
 );
 const ResourcesPage = lazy(() =>
   import('./pages/ResourcesPage').then((module) => ({ default: module.ResourcesPage }))
+);
+const GuidesPage = lazy(() =>
+  import('./pages/GuidesPage').then((module) => ({ default: module.GuidesPage }))
+);
+const CaseStudiesPage = lazy(() =>
+  import('./pages/CaseStudiesPage').then((module) => ({ default: module.CaseStudiesPage }))
+);
+const HelpCenterPage = lazy(() =>
+  import('./pages/HelpCenterPage').then((module) => ({ default: module.default }))
 );
 
 const AboutPage = lazy(() =>
@@ -90,7 +114,20 @@ function App() {
               <Route index element={<HomePage />} />
 
               {/* Features */}
-              <Route path={ROUTES.PLATFORM.FEATURES} element={<FeaturesPage />} />
+             
+              <Route
+                path={ROUTES.MARKETING.MEETING_MANAGEMENT}
+                element={<MeetingManagementPage />}
+              />
+              <Route
+                path={ROUTES.MARKETING.COMMITTEE_MANAGEMENT}
+                element={<CommitteeManagementPage />}
+              />
+              <Route
+                path={ROUTES.MARKETING.DOCUMENT_MANAGEMENT}
+                element={<DocumentManagementPage />}
+              />
+              <Route path={ROUTES.MARKETING.INTEGRATIONS} element={<IntegrationsPage />} />
               <Route path="/features/:id" element={<FeatureDetailPage />} />
 
               {/* Solutions / Use Cases */}
@@ -106,10 +143,9 @@ function App() {
 
               {/* Resources */}
               <Route path={ROUTES.RESOURCES.INDEX} element={<ResourcesPage />} />
-              {/*}  <Route path={ROUTES.RESOURCES.BLOG} element={<BlogPage />} />
-              <Route path="/blog/:slug" element={<BlogPostPage />} />
+              <Route path={ROUTES.RESOURCES.GUIDES} element={<GuidesPage />} />
               <Route path={ROUTES.RESOURCES.CASE_STUDIES} element={<CaseStudiesPage />} />
-              <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
+              <Route path={ROUTES.RESOURCES.HELP_CENTER} element={<HelpCenterPage />} />
 
               {/* Company */}
               <Route path={ROUTES.COMPANY.ABOUT} element={<AboutPage />} />
@@ -120,8 +156,8 @@ function App() {
 
               {/* Redirects */}
               <Route
-                path="/features/meeting-management"
-                element={<Navigate to="/features/meeting-management" replace />}
+                path={ROUTES.PLATFORM.INTEGRATIONS}
+                element={<Navigate to={ROUTES.MARKETING.INTEGRATIONS} replace />}
               />
               <Route
                 path="/solutions/nonprofits"

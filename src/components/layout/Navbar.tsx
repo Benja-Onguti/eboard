@@ -28,11 +28,11 @@ const navigation = [
     label: 'Features',
     children: [
       { label: 'Meeting Management', href: ROUTES.MARKETING.MEETING_MANAGEMENT, icon: Calendar },
-      { label: 'Committee Management', href: ROUTES.PLATFORM.FEATURES, icon: Users },
+      { label: 'Committee Management', href: ROUTES.MARKETING.COMMITTEE_MANAGEMENT, icon: Users },
       { label: 'AI Capabilities', href: ROUTES.MARKETING.AI_MINUTES, icon: Brain, badge: 'New' },
       { label: 'Document Management', href: ROUTES.MARKETING.DOCUMENT_MANAGEMENT, icon: FileText },
       { label: 'Security', href: ROUTES.PLATFORM.SECURITY, icon: Shield },
-      { label: 'Integrations', href: ROUTES.PLATFORM.FEATURES, icon: Settings },
+      { label: 'Integrations', href: ROUTES.MARKETING.INTEGRATIONS, icon: Settings },
     ],
   },
   {
