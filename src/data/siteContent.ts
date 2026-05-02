@@ -50,18 +50,18 @@ export const siteContent = {
       },
     },
 
-      resources: {
-        label: 'Resources',
-        items: [
-          { label: 'Guides', href: '/resources/guides', description: 'Best practices' },
-          {
-            label: 'Case Studies',
-            href: '/resources/case-studies',
-            description: 'Customer success',
-          },
-          { label: 'Help Center', href: '/help', description: 'Support & FAQs' },
-        ],
-      },
+    resources: {
+      label: 'Resources',
+      items: [
+        { label: 'Guides', href: '/resources/guides', description: 'Best practices' },
+        {
+          label: 'Case Studies',
+          href: '/resources/case-studies',
+          description: 'Customer success',
+        },
+        { label: 'Help Center', href: '/help', description: 'Support & FAQs' },
+      ],
+    },
   },
 
   // Hero Section
@@ -155,7 +155,7 @@ export const siteContent = {
         'AI Summarisation – Concise summaries of board packs (100+ page reports)',
         'Powered by Google Gemini and Google Cloud',
       ],
-      image: '/images/features/ai-capabilities.jpg',
+      image: '/images/features/ai1.jpg',
       cta: { text: 'Explore AI Capabilities', href: '/features/ai-capabilities' },
     },
     {
@@ -170,7 +170,7 @@ export const siteContent = {
         'Meeting Scheduling & Governance tools',
         'Pre-meeting preparation metrics',
       ],
-      image: '/images/features/meeting-management.jpg',
+      image: '/images/features/meeting-management1.jpeg',
       cta: { text: 'Learn about Meeting Management', href: '/features/meeting-management' },
     },
     {
@@ -184,7 +184,7 @@ export const siteContent = {
         'Membership register & history tracking',
         'Cover page per committee for branding',
       ],
-      image: '/images/features/committee-management.jpg',
+      image: '/images/features/committee-management1.jpeg',
       cta: { text: 'Explore Committee Management', href: '/features/committee-management' },
     },
     {
@@ -333,7 +333,7 @@ export const siteContent = {
       downloadUrl: '/downloads/governance-guide.pdf',
       pages: 45,
     },
-    
+
     {
       type: 'tool',
       title: 'ROI Calculator',
@@ -408,7 +408,6 @@ export const siteContent = {
         { label: 'Guides', href: '/resources/guides' },
         { label: 'Case Studies', href: '/resources/case-studies' },
         { label: 'Help Center', href: '/help' },
-
       ],
     },
     company: {
@@ -418,7 +417,6 @@ export const siteContent = {
         { label: 'Contact', href: '/contact' },
         { label: 'Careers', href: '/careers' },
         { label: 'Partners', href: '/partners' },
-
       ],
     },
     legal: {

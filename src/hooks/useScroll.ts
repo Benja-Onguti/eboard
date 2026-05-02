@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 
 interface ScrollOptions {
   threshold?: number;
-  throttle?: number;
 }
 
 export const useScroll = (options: ScrollOptions = {}) => {
-  const { threshold = 10, throttle = 100 } = options;
+  const { threshold = 10 } = options;
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [direction, setDirection] = useState<'up' | 'down' | null>(null);

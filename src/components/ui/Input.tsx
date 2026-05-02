@@ -70,7 +70,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     const [showPassword, setShowPassword] = useState(false);
-    const [isFocused, setIsFocused] = useState(false);
     const [inputValue, setInputValue] = useState(value || defaultValue || '');
 
     // Generate unique ID if not provided
@@ -183,8 +182,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             value={value}
             defaultValue={defaultValue}
             onChange={handleChange}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
             disabled={disabled || isLoading}
             required={required}
             placeholder={placeholder}

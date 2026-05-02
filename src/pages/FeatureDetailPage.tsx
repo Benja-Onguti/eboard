@@ -116,8 +116,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       "EBoard's AI capabilities are powered by Google Gemini and Google Cloud, bringing enterprise-grade artificial intelligence to your board governance. From real-time speech transcription to intelligent document summarization, our AI tools help you work smarter, not harder.",
     icon: Brain,
-    image: '/images/features/ai-capabilities-detail.jpg',
-    video: '/videos/ai-capabilities-demo.mp4',
+    image: '/images/features/ai.jpg',
     benefits: [
       {
         title: 'Speech to Text',

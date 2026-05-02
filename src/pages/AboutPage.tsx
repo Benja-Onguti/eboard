@@ -2,27 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import {
-  Heart,
-  Target,
-  Eye,
-  Users,
-  Award,
-  Globe,
-  Clock,
-  Mail,
-  MapPin,
-  Phone,
-  ArrowRight,
-  CheckCircle,
-  Star,
-  BookOpen,
-  Briefcase,
-  Coffee,
-  Rocket,
-  Shield,
-  Zap,
-} from 'lucide-react';
+import { Heart, Target, Users, CheckCircle, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
@@ -186,10 +166,15 @@ export const AboutPage: React.FC = () => {
               </h2>
               <p className="text-gray-600 mb-4">
                 We believe that effective governance is the foundation of successful organizations.
-                Our mission is to provide boards with the tools they need to make better decisions, faster.
+                Our mission is to provide boards with the tools they need to make better decisions,
+                faster.
               </p>
               <ul className="space-y-2">
-                {['Reduce administrative burden', 'Enhance security and compliance', 'Foster transparency'].map((item, index) => (
+                {[
+                  'Reduce administrative burden',
+                  'Enhance security and compliance',
+                  'Foster transparency',
+                ].map((item, index) => (
                   <li key={index} className="flex items-center text-gray-700">
                     <CheckCircle className="w-4 h-4 text-primary-600 mr-2" />
                     {item}
@@ -207,9 +192,7 @@ export const AboutPage: React.FC = () => {
               <Badge variant="primary" className="mb-3">
                 Our Values
               </Badge>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                What drives us
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">What drives us</h2>
               <div className="grid grid-cols-2 gap-4">
                 {values.map((value, index) => {
                   const Icon = value.icon;
@@ -221,7 +204,9 @@ export const AboutPage: React.FC = () => {
                   };
                   return (
                     <Card key={index} className="p-4">
-                      <div className={`w-10 h-10 rounded-lg ${colors[value.color]} flex items-center justify-center mb-2`}>
+                      <div
+                        className={`w-10 h-10 rounded-lg ${colors[value.color]} flex items-center justify-center mb-2`}
+                      >
                         <Icon className="w-5 h-5" />
                       </div>
                       <h3 className="font-bold text-gray-900">{value.title}</h3>
@@ -242,9 +227,7 @@ export const AboutPage: React.FC = () => {
             <Badge variant="primary" className="mb-3">
               Our Team
             </Badge>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Meet the leadership
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Meet the leadership</h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

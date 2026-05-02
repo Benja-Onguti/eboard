@@ -3,7 +3,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { ScrollToTop } from '@/components/layout/ScrollToTop';
 import { CookieConsent } from '@/components/common/CookieConsent';
 import { BackToTop } from '@/components/common/BackToTop';
 import { useApp } from '@/context/AppContext';
@@ -68,12 +67,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     location.pathname.startsWith('/login') ||
     location.pathname.startsWith('/signup') ||
     location.pathname.startsWith('/reset-password');
-
-  // Check if current route is a landing page (full width)
-  const isLandingPage =
-    location.pathname === '/' ||
-    location.pathname.startsWith('/demo') ||
-    location.pathname.startsWith('/features');
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
