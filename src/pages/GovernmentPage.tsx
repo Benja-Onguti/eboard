@@ -53,25 +53,24 @@ export const GovernmentPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-            
-
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Secure, transparent governance for{' '}
                 <span className="text-purple-600">public sector</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-xl">
-                Meet compliance requirements while improving efficiency. Achieve 100% FOI compliance with half the administrative workload.
+                Meet compliance requirements while improving efficiency. Achieve 100% FOI compliance
+                with half the administrative workload.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mb-8">
                 <Link to={ROUTES.DEMO.INDEX}>
                   <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                    Schedule Demo
+                    Book Demo
                   </Button>
                 </Link>
                 <Link to={ROUTES.COMPANY.CONTACT}>
                   <Button size="lg" variant="outline">
-                    Contact Sales
+                    Contact Us
                   </Button>
                 </Link>
               </div>
@@ -101,11 +100,11 @@ export const GovernmentPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden">
+              <div className="relative rounded-2xl shadow-2xl overflow-hidden h-[450px]">
                 <img
-                  src="/images/solutions/government-hero.jpg"
+                  src="/images/features/ngo-meeting.jpg"
                   alt="Government Board Meeting"
-                  className="w-full"
+                  className="w-full h-auto object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-transparent" />
               </div>

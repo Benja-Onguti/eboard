@@ -74,6 +74,12 @@ interface FeatureDetail {
     icon?: React.ElementType;
   }[];
   integrations: string[];
+  integrationCards?: {
+    title: string;
+    description: string;
+    icon: string;
+    technical: string;
+  }[];
   security: {
     encryption: string;
     compliance: string[];
@@ -239,8 +245,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       'Meeting Management transforms how boards prepare for, conduct, and follow up on meetings. With powerful agenda building, minute tracking, and video conferencing integration, you can reduce meeting preparation time while improving engagement.',
     icon: Calendar,
-    image: '/images/features/meeting-management-detail.jpg',
-    video: '/videos/meeting-management-demo.mp4',
+    image: '/images/features/meeting1.jpg',
     benefits: [
       {
         title: 'Agenda Builder',
@@ -363,7 +368,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       'Committee Management provides dedicated workspaces for every committee, sub-committee, and working group. With unlimited committees, dedicated libraries, and membership tracking, you can organize governance at scale.',
     icon: Users,
-    image: '/images/features/committee-management-detail.jpg',
+    image: '/images/features/committee.png',
     benefits: [
       {
         title: 'Unlimited Committees',
@@ -468,7 +473,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       'Document & Pack Features provide comprehensive document management for your board. From supporting all file types to document signing and survey creation, you have everything you need to manage board materials efficiently.',
     icon: FileText,
-    image: '/images/features/document-features-detail.jpg',
+    image: '/images/features/docs.png',
     benefits: [
       {
         title: 'All File Types',
@@ -566,7 +571,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       'EBoard Security provides military-grade protection for all your board materials. Built on the Microsoft Enterprise Framework, our security infrastructure includes AES-256 encryption, two-factor authentication, activity tracking, and role-based access controls.',
     icon: Shield,
-    image: '/images/features/security-detail.jpg',
+    image: '/images/features/security.png',
     benefits: [
       {
         title: 'Military-grade Encryption',
@@ -677,9 +682,57 @@ const featureDetails: Record<string, FeatureDetail> = {
     description:
       'Seamlessly integrate with your existing tools and get unlimited training and support.',
     longDescription:
-      'EBoard integrates seamlessly with your existing technology stack, including SharePoint, email, calendar, and task management tools. Plus, every plan includes unlimited training and support to ensure your success.',
+      'EBoard integrates seamlessly with your existing technology stack, including SharePoint, Teams and Zoom,. Plus, every plan includes unlimited training and support to ensure your success.',
     icon: Plug,
-    image: '/images/features/integrations-detail.jpg',
+    image: '/images/features/integration1.png',
+
+    // --- New: Integration categories for a card-style layout ---
+    integrationCards: [
+      {
+        title: 'Microsoft 365 & SharePoint',
+        description:
+          'Collaborate on documents, manage libraries, and sync calendars across your board. Access, edit, and share files from Microsoft Teams, SharePoint, and Outlook without leaving EBoard.',
+        icon: 'Sharepoint',
+        technical: 'Native API integration with full OAuth 2.0 support',
+      },
+      {
+        title: 'Virtual Meetings',
+        description:
+          'Launch and join secure virtual meetings directly from your EBoard agenda—no links to manage, no apps to toggle. Integrated with Zoom and Microsoft Teams.',
+        icon: 'Video',
+        technical: 'Embedded video meeting widgets with auto-join capabilities',
+      },
+      {
+        title: 'Docusign',
+        description:
+          'Manage contracts, disclosures, and other legal documents from creation to final signature—all in one place. Streamline approval workflows with legally binding e-signatures.',
+        icon: 'DocuSign',
+        technical: 'Bi-directional document sync with signature status tracking',
+      },
+      {
+        title: 'Single Sign‑On (SSO)',
+        description:
+          'Connect EBoard to identity providers like Okta and OneLogin. Streamline logins and centralize access control while keeping board access secure and fully in sync with your organization’s existing authentication systems.',
+        icon: 'Shield',
+        technical: 'SAML 2.0 / OIDC support, SCIM provisioning',
+      },
+      {
+        title: 'Task Management',
+        description:
+          'Integrate with Asana, Trello, Jira, and more. Sync action items from board meetings directly into your team’s project management workflows.',
+        icon: 'CheckCircle',
+        technical: 'Two-way webhook syncing',
+      },
+      {
+        title: 'Unlimited Training & Support',
+        description:
+          'Every plan includes unlimited training for all board members and administrators. Our dedicated support team is available 24/7 to ensure your success.',
+        icon: 'Headphones',
+        technical: 'Onboarding, live webinars, and priority ticket routing',
+      },
+    ],
+
+    // --- Legacy fields retained for backward compatibility ---
     benefits: [
       { title: 'SharePoint Integration', description: 'Seamless document sync.', icon: Plug },
       {

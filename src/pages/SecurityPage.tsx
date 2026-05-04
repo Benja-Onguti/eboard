@@ -9,7 +9,6 @@ import {
   CheckCircle,
   ArrowRight,
   Award,
-  Download,
   Globe,
   UserCheck,
   Database,
@@ -41,7 +40,7 @@ export const SecurityPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-grid-pattern" />
         </div>
@@ -52,16 +51,11 @@ export const SecurityPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium mb-6 border border-primary-500/30">
-                <Shield className="w-4 h-4" />
-                <span>Zero-Trust Security</span>
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Enterprise security for <span className="text-primary-400">board documents</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900">
+                Enterprise security for <span className="text-primary-600">board documents</span>
               </h1>
 
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 AES-256 encryption, zero-trust architecture, and comprehensive compliance
                 certifications protect your most sensitive board materials.
               </p>
@@ -72,49 +66,52 @@ export const SecurityPage: React.FC = () => {
                     size="lg"
                     className="bg-primary-600 hover:bg-primary-700 shadow-lg hover:shadow-xl transition-all duration-300 group"
                   >
-                    Request Demo
+                    Book Demo
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-gray-600 text-white hover:bg-white/10"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Security Whitepaper
-                </Button>
+
+                <Link to={ROUTES.COMPANY.CONTACT}>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                  >
+                    Contact Us
+                    <ArrowRight className="w-4 h-4 mr-2" />
+                  </Button>
+                </Link>
               </div>
 
               {/* Key Certifications */}
               <div className="flex flex-wrap items-center gap-4 mb-8">
-                <BadgeCheck className="w-5 h-5 text-primary-400" />
-                <span className="text-sm font-medium">ISO 27001</span>
-                <BadgeCheck className="w-5 h-5 text-primary-400" />
-                <span className="text-sm font-medium">SOC 2 Type II</span>
-                <BadgeCheck className="w-5 h-5 text-primary-400" />
-                <span className="text-sm font-medium">GDPR</span>
-                <BadgeCheck className="w-5 h-5 text-primary-400" />
-                <span className="text-sm font-medium">HIPAA</span>
+                <BadgeCheck className="w-5 h-5 text-primary-600" />
+                <span className="text-sm font-medium text-gray-700">ISO 27001</span>
+                <BadgeCheck className="w-5 h-5 text-primary-600" />
+                <span className="text-sm font-medium text-gray-700">SOC 2 Type II</span>
+                <BadgeCheck className="w-5 h-5 text-primary-600" />
+                <span className="text-sm font-medium text-gray-700">GDPR</span>
+                <BadgeCheck className="w-5 h-5 text-primary-600" />
+                <span className="text-sm font-medium text-gray-700">HIPAA</span>
               </div>
 
               {/* Trust Stats */}
-              <div className="grid grid-cols-4 gap-4 pt-6 border-t border-gray-700">
+              <div className="grid grid-cols-4 gap-4 pt-6 border-t border-gray-200">
                 <div>
-                  <p className="text-2xl font-bold text-primary-400">0</p>
-                  <p className="text-xs text-gray-400">Breaches</p>
+                  <p className="text-2xl font-bold text-primary-600">0</p>
+                  <p className="text-xs text-gray-600">Breaches</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-primary-400">AES-256</p>
-                  <p className="text-xs text-gray-400">Encryption</p>
+                  <p className="text-2xl font-bold text-primary-600">AES-256</p>
+                  <p className="text-xs text-gray-600">Encryption</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-primary-400">7 Years</p>
-                  <p className="text-xs text-gray-400">Audit Logs</p>
+                  <p className="text-2xl font-bold text-primary-600">7 Years</p>
+                  <p className="text-xs text-gray-600">Audit Logs</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-primary-400">99.99%</p>
-                  <p className="text-xs text-gray-400">Uptime</p>
+                  <p className="text-2xl font-bold text-primary-600">99.99%</p>
+                  <p className="text-xs text-gray-600">Uptime</p>
                 </div>
               </div>
             </motion.div>
@@ -127,7 +124,7 @@ export const SecurityPage: React.FC = () => {
             >
               <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-gray-700 bg-slate-800">
                 <img
-                  src="/images/security-dashboard.jpg"
+                  src="/images/features/security.png"
                   alt="Security Dashboard"
                   className="w-full h-auto"
                   onError={(e) => {
@@ -142,7 +139,7 @@ export const SecurityPage: React.FC = () => {
       </section>
 
       {/* Security Features */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-primary-50">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <Badge
@@ -469,7 +466,7 @@ export const SecurityPage: React.FC = () => {
                 variant="secondary"
                 className="bg-white text-primary-600 hover:bg-gray-100"
               >
-                Request Demo
+                Book Demo
               </Button>
             </Link>
             <Link to={ROUTES.COMPANY.CONTACT}>
@@ -478,7 +475,7 @@ export const SecurityPage: React.FC = () => {
                 variant="outline"
                 className="border-white text-white hover:bg-white/10"
               >
-                Contact Sales
+                Contact Us
               </Button>
             </Link>
           </div>

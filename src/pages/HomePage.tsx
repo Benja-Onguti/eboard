@@ -48,7 +48,6 @@ import { Badge } from '@/components/ui/Badge';
 
 // Icon mapping - expanded for new features
 const iconMap: Record<string, React.ElementType> = {
-  // Original icons
   Calendar,
   Shield,
   Brain,
@@ -57,30 +56,24 @@ const iconMap: Record<string, React.ElementType> = {
   Settings,
   Users,
   Scale,
-  // New AI icons
   Mic,
   Volume2,
   Layout,
   Video,
-  // New Security icons
   Lock,
   Fingerprint,
   Activity,
   Key,
-  // New Integration icons
   Plug,
   Headphones,
   Cloud,
-  // New Document icons
   FileCheck,
   Copy,
   Vote,
-  // Industry icons
   Building2,
   GraduationCap,
   Heart,
   Building,
-  // Utility icons
   Zap,
   Database,
   Globe,
@@ -106,7 +99,7 @@ export const HomePage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-6 pb-3 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+      <section className="relative min-h-screen flex items-center pt-4 pb-2 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-grid-pattern opacity-20" />
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
@@ -121,7 +114,6 @@ export const HomePage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-center max-w-4xl mx-auto"
             >
-
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 {siteContent.hero.headline}
               </h1>
@@ -174,7 +166,7 @@ export const HomePage: React.FC = () => {
                 <img
                   src={siteContent.hero.image}
                   alt="EBoard Dashboard"
-                  className="w-full h-auto"
+                  className="w-full h-[450px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-transparent" />
               </div>
@@ -187,8 +179,18 @@ export const HomePage: React.FC = () => {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    <svg
+                      className="w-5 h-5 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                      />
                     </svg>
                   </div>
                   <div>
@@ -213,14 +215,6 @@ export const HomePage: React.FC = () => {
                   </div>
                 </div>
               </motion.div>
-
-              {/* Trust Badge */}
-              <div className="absolute -bottom-8 right-8 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-lg px-4 py-2 shadow-lg">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4" />
-                  <span className="text-sm font-medium">ISO 27001 Certified</span>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -441,7 +435,10 @@ export const HomePage: React.FC = () => {
                     ))}
                   </ul>
 
-                  <Link to={feature.cta.href} className="text-primary-600 font-medium hover:text-primary-700 inline-flex items-center">
+                  <Link
+                    to={feature.cta.href}
+                    className="text-primary-600 font-medium hover:text-primary-700 inline-flex items-center"
+                  >
                     {feature.cta.text}
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
@@ -450,7 +447,7 @@ export const HomePage: React.FC = () => {
 
               <div className={index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}>
                 <div className="relative rounded-xl shadow-xl overflow-hidden">
-                  <img src={feature.image} alt={feature.id} className="w-full h-auto" />
+                  <img src={feature.image} alt={feature.id} className="w-full h-auto " />
                 </div>
               </div>
             </div>
@@ -462,9 +459,7 @@ export const HomePage: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Built for every role
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Built for every role</h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -496,9 +491,7 @@ export const HomePage: React.FC = () => {
       <section ref={testimonialsRef} className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              What our clients say
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">What our clients say</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -521,9 +514,7 @@ export const HomePage: React.FC = () => {
                     ))}
                   </div>
 
-                  <blockquote className="text-gray-700 mb-4">
-                    "{testimonial.quote}"
-                  </blockquote>
+                  <blockquote className="text-gray-700 mb-4">"{testimonial.quote}"</blockquote>
 
                   <div>
                     <div className="font-semibold text-gray-900">{testimonial.name}</div>
@@ -621,9 +612,7 @@ export const HomePage: React.FC = () => {
       {/* Final CTA */}
       <section className="py-16 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            {siteContent.finalCTA.headline}
-          </h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">{siteContent.finalCTA.headline}</h2>
           <p className="text-lg text-primary-100 mb-6 max-w-2xl mx-auto">
             {siteContent.finalCTA.subheadline}
           </p>

@@ -74,7 +74,6 @@ export const siteContent = {
       trial: { text: 'Book Demo', href: '/demo' },
     },
     image: '/images/hero/Board1.png',
-    video: '/videos/hero-preview.mp4',
   },
 
   // Social Proof Stats
@@ -144,7 +143,7 @@ export const siteContent = {
   // Feature Deep Dives - Updated with new features
   featureDeepDives: [
     {
-      id: 'ai-capabilities',
+      id: 'AI-capabilities',
       painPoint: 'Hours spent transcribing meetings and reviewing lengthy board packs',
       solution:
         'AI-powered tools that automate transcription, summarization, and document playback',
@@ -155,11 +154,11 @@ export const siteContent = {
         'AI Summarisation – Concise summaries of board packs (100+ page reports)',
         'Powered by Google Gemini and Google Cloud',
       ],
-      image: '/images/features/ai1.jpg',
+      image: '/images/features/aii.jpg',
       cta: { text: 'Explore AI Capabilities', href: '/features/ai-capabilities' },
     },
     {
-      id: 'meeting-management',
+      id: 'Meeting-Management',
       painPoint: 'Disorganized agendas, messy minutes, and disconnected virtual meetings',
       solution:
         'Complete meeting management with agenda builder, minute tracker, and video conferencing',
@@ -170,11 +169,11 @@ export const siteContent = {
         'Meeting Scheduling & Governance tools',
         'Pre-meeting preparation metrics',
       ],
-      image: '/images/features/meeting-management1.jpeg',
+      image: '/images/features/meeting1.jpg',
       cta: { text: 'Learn about Meeting Management', href: '/features/meeting-management' },
     },
     {
-      id: 'committee-management',
+      id: 'Committee-Management',
       painPoint: 'Multiple committees with scattered documents and unclear membership',
       solution: 'Centralized committee management with dedicated spaces for each group',
       outcome: '100% visibility across all committees with organized document libraries',
@@ -184,11 +183,11 @@ export const siteContent = {
         'Membership register & history tracking',
         'Cover page per committee for branding',
       ],
-      image: '/images/features/committee-management1.jpeg',
+      image: '/images/features/committee.png',
       cta: { text: 'Explore Committee Management', href: '/features/committee-management' },
     },
     {
-      id: 'document-features',
+      id: 'Document-Features',
       painPoint: 'File format limitations, missing signatures, and manual agenda cloning',
       solution: 'Comprehensive document management with e-signatures and form builders',
       outcome: '50+ file types supported with legally binding signatures',
@@ -199,11 +198,11 @@ export const siteContent = {
         'Clone any agenda – Save time with templates',
         'Votes & resolutions – Track decisions',
       ],
-      image: '/images/features/document-features.jpg',
+      image: '/images/features/docs.png',
       cta: { text: 'View Document Features', href: '/features/document-management' },
     },
     {
-      id: 'security',
+      id: 'Security',
       painPoint: 'Sensitive board materials vulnerable to breaches and unauthorized access',
       solution: 'Military-grade encryption built on the Microsoft Enterprise Framework',
       outcome: 'Zero security breaches with complete audit trails and compliance',
@@ -217,16 +216,16 @@ export const siteContent = {
       cta: { text: 'Explore Security Features', href: '/security' },
     },
     {
-      id: 'integrations',
+      id: 'Integrations',
       painPoint: 'Disconnected tools and workflows across your organization',
       solution: 'Seamless integrations with your existing tech stack',
       outcome: 'Unified platform with unlimited training and support',
       capabilities: [
-        'SharePoint, email, calendar, and task management integrations',
+        'SharePoint, Teams and  Zoom. ',
         'Unlimited training and support included in every plan',
         'Self-hosted or cloud-hosted options – Your choice',
       ],
-      image: '/images/features/integrations.jpg',
+      image: '/images/features/integration1.png',
       cta: { text: 'View Integrations', href: '/features/integrations' },
     },
   ],
@@ -278,7 +277,7 @@ export const siteContent = {
     {
       quote:
         '100% FOI compliance with half the staff time. The public meeting sites are a game-changer for transparency.',
-      name: 'James KImtai',
+      name: 'James Kimtai',
       title: 'Director  Legal Department',
       organization: 'KRA',
       type: 'government',
@@ -365,8 +364,8 @@ export const siteContent = {
     headline: 'Start governing better today',
     subheadline: 'Join 500+ organizations already using EBoard',
     ctas: [
-      { text: 'Request Demo', href: '/demo', primary: true },
-      { text: 'Free Trial', href: '/signup', primary: false },
+      { text: 'Book Demo', href: '/demo', primary: true },
+      { text: 'Contact Us', href: '/contact', primary: true },
     ],
     trustIndicators: ['No credit card required', '14-day free trial', 'Cancel anytime'],
   },

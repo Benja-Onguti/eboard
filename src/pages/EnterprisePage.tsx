@@ -68,20 +68,19 @@ export const EnterprisePage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              
-
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Enterprise-grade governance for{' '}
                 <span className="text-primary-400">global organizations</span>
               </h1>
               <p className="text-xl text-gray-300 mb-8 max-w-xl">
-                Scale your corporate governance with enterprise-level security, advanced integrations, and strategic analytics.
+                Scale your corporate governance with enterprise-level security, advanced
+                integrations, and strategic analytics.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mb-8">
                 <Link to={ROUTES.DEMO.INDEX}>
                   <Button size="lg" className="bg-primary-600 hover:bg-primary-700">
-                    Schedule Enterprise Demo
+                    Book Enterprise Demo
                   </Button>
                 </Link>
                 <Link to={ROUTES.COMPANY.CONTACT}>
@@ -90,7 +89,7 @@ export const EnterprisePage: React.FC = () => {
                     variant="outline"
                     className="border-white text-white hover:bg-white/10"
                   >
-                    Contact Sales
+                    Contact US
                   </Button>
                 </Link>
               </div>
@@ -122,9 +121,9 @@ export const EnterprisePage: React.FC = () => {
             >
               <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-slate-700">
                 <img
-                  src="/images/enterprise-dashboard.jpg"
-                  alt="Enterprise Dashboard"
-                  className="w-full"
+                  src="/images/features/business meeting.jpg"
+                  alt="Enterprise Meeting"
+                  className="w-full h-[450px]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/20 to-transparent" />
               </div>
@@ -703,9 +702,7 @@ export const EnterprisePage: React.FC = () => {
       {/* CTA */}
       <section className="py-12 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">
-            Ready to scale your governance?
-          </h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Ready to scale your governance?</h2>
           <p className="text-gray-300 mb-6 max-w-xl mx-auto">
             Join 100+ enterprises that trust EBoard for their most important meetings.
           </p>

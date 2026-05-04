@@ -77,7 +77,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
           </>
         )}
 
-        <div className="container-custom relative">
+        <div className="container-custom relative h-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -90,19 +90,11 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                 }`}
               >
                 {hero.headline}{' '}
-                <span
-                  className={
-                    isDark ? 'text-primary-400' : `text-${primaryColor}-600`
-                  }
-                >
+                <span className={isDark ? 'text-primary-400' : `text-${primaryColor}-600`}>
                   {hero.highlight}
                 </span>
               </h1>
-              <p
-                className={`text-xl mb-8 max-w-xl ${
-                  isDark ? 'text-gray-300' : 'text-gray-600'
-                }`}
-              >
+              <p className={`text-xl mb-8 max-w-xl ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                 {hero.subtitle}
               </p>
 
@@ -124,11 +116,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                     <Button
                       size="lg"
                       variant="outline"
-                      className={
-                        isDark
-                          ? 'border-white text-white hover:bg-white/10'
-                          : ''
-                      }
+                      className={isDark ? 'border-white text-white hover:bg-white/10' : ''}
                     >
                       {cta.contactButton}
                     </Button>
@@ -145,19 +133,11 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                 {hero.stats.map((stat, index) => (
                   <React.Fragment key={index}>
                     {index > 0 && (
-                      <div
-                        className={`h-8 w-px ${isDark ? 'bg-slate-700' : 'bg-gray-200'}`}
-                      />
+                      <div className={`h-8 w-px ${isDark ? 'bg-slate-700' : 'bg-gray-200'}`} />
                     )}
                     <div className="text-center">
-                      <div
-                        className={`text-2xl font-bold text-${stat.color}`}
-                      >
-                        {stat.value}
-                      </div>
-                      <div
-                        className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}
-                      >
+                      <div className={`text-2xl font-bold text-${stat.color}`}>{stat.value}</div>
+                      <div className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
                         {stat.label}
                       </div>
                     </div>
@@ -172,37 +152,30 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div
-                className={`relative rounded-2xl shadow-2xl overflow-hidden ${
-                  isDark ? 'border border-slate-700' : ''
-                }`}
-              >
-                <img src={hero.image} alt={`${config.name} Board Meeting`} className="w-full" />
-                <div
-                  className={`absolute inset-0 bg-gradient-to-tr ${
-                    isDark
-                      ? 'from-primary-600/20 to-transparent'
-                      : `from-${primaryColor}-600/20 to-transparent`
-                  }`}
-                />
-              </div>
+               <div
+                 className={`relative rounded-2xl shadow-2xl overflow-hidden ${
+                   isDark ? 'border border-slate-700' : ''
+                 }`}
+               >
+                 <img
+                   src={hero.image}
+                   alt={`${config.name} Board Meeting`}
+                   className="w-full h-[450px] object-cover"
+                 />
+               </div>
 
               {/* Floating Badge */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
                 className={`absolute -bottom-4 -left-4 rounded-xl shadow-2xl p-4 border ${
-                  isDark
-                    ? 'bg-slate-800 border-slate-700'
-                    : 'bg-white border-gray-100'
+                  isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-gray-100'
                 }`}
               >
                 <div className="flex items-center gap-3">
                   <div
                     className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                      isDark
-                        ? 'bg-primary-500/20'
-                        : `bg-${primaryLight}`
+                      isDark ? 'bg-primary-500/20' : `bg-${primaryLight}`
                     }`}
                   >
                     <BadgeIcon
@@ -210,9 +183,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                     />
                   </div>
                   <div>
-                    <p
-                      className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}
-                    >
+                    <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
                       {hero.badge.label}
                     </p>
                     <p
@@ -237,9 +208,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                 <div className="flex items-center gap-2">
                   <TrustIcon className="w-4 h-4" />
                   {hero.trustBadge.label && (
-                    <span className="text-xs text-primary-200">
-                      {hero.trustBadge.label}
-                    </span>
+                    <span className="text-xs text-primary-200">{hero.trustBadge.label}</span>
                   )}
                   <span className="text-sm font-medium">{hero.trustBadge.text}</span>
                 </div>
@@ -250,11 +219,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
       </section>
 
       {/* Challenges Section */}
-      <section
-        className={`py-12 ${
-          config.id === 'enterprise' ? 'bg-white' : 'bg-gray-50'
-        }`}
-      >
+      <section className={`py-12 ${config.id === 'enterprise' ? 'bg-white' : 'bg-gray-50'}`}>
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-8">
             {challenges.badge && (
@@ -268,9 +233,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               {challenges.title}
             </h2>
-            {challenges.subtitle && (
-              <p className="text-lg text-gray-600">{challenges.subtitle}</p>
-            )}
+            {challenges.subtitle && <p className="text-lg text-gray-600">{challenges.subtitle}</p>}
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -289,9 +252,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                     >
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-base font-bold text-gray-900 mb-1">
-                      {challenge.title}
-                    </h3>
+                    <h3 className="text-base font-bold text-gray-900 mb-1">{challenge.title}</h3>
                     <p className="text-gray-600 text-sm">{challenge.description}</p>
                   </Card>
                 </motion.div>
@@ -302,11 +263,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
       </section>
 
       {/* Solution Section */}
-      <section
-        className={`py-12 ${
-          config.id === 'enterprise' ? 'bg-gray-50' : 'bg-white'
-        }`}
-      >
+      <section className={`py-12 ${config.id === 'enterprise' ? 'bg-gray-50' : 'bg-white'}`}>
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <motion.div
@@ -336,9 +293,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start"
                   >
-                    <CheckCircle
-                      className={`w-5 h-5 text-${primaryDark} mr-3 flex-shrink-0`}
-                    />
+                    <CheckCircle className={`w-5 h-5 text-${primaryDark} mr-3 flex-shrink-0`} />
                     <div>
                       <h3 className="font-medium text-gray-900 text-sm">{item.title}</h3>
                       <p className="text-gray-600 text-sm">{item.description}</p>
@@ -364,11 +319,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
 
       {/* Features Grid */}
       {features.items.length > 0 && (
-        <section
-          className={`py-12 ${
-            config.id === 'enterprise' ? 'bg-white' : 'bg-gray-50'
-          }`}
-        >
+        <section className={`py-12 ${config.id === 'enterprise' ? 'bg-white' : 'bg-gray-50'}`}>
           <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-8">
               {features.badge && (
@@ -382,9 +333,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
                 {features.title}
               </h2>
-              {features.subtitle && (
-                <p className="text-lg text-gray-600">{features.subtitle}</p>
-              )}
+              {features.subtitle && <p className="text-lg text-gray-600">{features.subtitle}</p>}
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -406,9 +355,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                       >
                         <Icon className="w-5 h-5" />
                       </div>
-                      <h3 className="text-base font-bold text-gray-900 mb-1">
-                        {feature.title}
-                      </h3>
+                      <h3 className="text-base font-bold text-gray-900 mb-1">{feature.title}</h3>
                       <p className="text-gray-600 text-sm">{feature.description}</p>
                     </Card>
                   </motion.div>
