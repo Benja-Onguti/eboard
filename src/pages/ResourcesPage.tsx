@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FileText, BookOpen, Video, Download, ArrowRight, BookMarked } from 'lucide-react';
+import { FileText, BookOpen, Video, ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 

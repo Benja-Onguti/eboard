@@ -8,21 +8,23 @@ export const Footer: React.FC = () => {
 
   const footerLinks = {
     product: [
-      { label: 'Features', href: '/features' },
+      { label: 'Meeting Management', href: '/features/meeting-management' },
+      { label: 'Documents Management', href: '/features/document-management' },
+      { label: 'AI', href: '/features/ai-minutes' },
       { label: 'Security', href: '/security' },
       { label: 'Integrations', href: '/features/integrations' },
     ],
     solutions: [
       { label: 'Education', href: '/solutions/education' },
       { label: 'Government', href: '/solutions/government' },
-      { label: 'NGOs', href: '/solutions/ngo' },
+      { label: 'NGOs', href: '/solutions/ngos' },
       { label: 'Enterprise', href: '/solutions/enterprise' },
     ],
     resources: [
       { label: 'Case Studies', href: '/resources/case-studies' },
       { label: 'Guides', href: '/resources/guides' },
       { label: 'Help Center', href: '/resources/help' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'Contact', href: '/contact' },
     ],
     company: [
       { label: 'About', href: '/about' },
@@ -33,7 +35,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer className="bg-gray-700 text-gray-400">
       <div className="container-custom py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-8">
           {/* Brand */}
@@ -44,17 +46,28 @@ export const Footer: React.FC = () => {
               </div>
               <span className="text-xl font-bold text-white">Board</span>
             </Link>
-            <p className="text-sm mb-3">
-              Modern governance platform for boards and committees.
-            </p>
+            <p className="text-sm mb-3">Modern governance platform for boards and committees.</p>
             <div className="flex space-x-2">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition"
+              >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+              <a
+                href="https://X.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition"
+              >
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition">
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="hover:text-white transition"
+              >
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -123,9 +136,15 @@ export const Footer: React.FC = () => {
             © {currentYear} EBoard Solutions. All rights reserved.
           </p>
           <div className="flex space-x-4 text-sm">
-            <Link to="/privacy" className="hover:text-white transition">Privacy</Link>
-            <Link to="/terms" className="hover:text-white transition">Terms</Link>
-            <Link to="/cookies" className="hover:text-white transition">Cookies</Link>
+            <Link to="/privacy" className="hover:text-white transition">
+              Privacy
+            </Link>
+            <Link to="/terms" className="hover:text-white transition">
+              Terms
+            </Link>
+            <Link to="/cookies" className="hover:text-white transition">
+              Cookies
+            </Link>
           </div>
         </div>
       </div>

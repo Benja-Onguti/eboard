@@ -20,7 +20,6 @@ import {
   FileSearch,
   Vote,
   BarChart,
-  Play,
   Award,
   Layers,
   Database,
@@ -122,7 +121,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       "EBoard's AI capabilities are powered by Google Gemini and Google Cloud, bringing enterprise-grade artificial intelligence to your board governance. From real-time speech transcription to intelligent document summarization, our AI tools help you work smarter, not harder.",
     icon: Brain,
-    image: '/images/features/ai.jpg',
+    image: '/images/features/aii.jpg',
     benefits: [
       {
         title: 'Speech to Text',
@@ -843,7 +842,6 @@ export const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ featureIdO
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview');
-  const [showVideo, setShowVideo] = useState(false);
 
   // Map URL parameters to feature IDs
   const getFeatureId = (paramId: string): string => {
@@ -957,41 +955,14 @@ export const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ featureIdO
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
             >
-              <div
-                className="relative rounded-2xl shadow-2xl overflow-hidden group cursor-pointer"
-                onClick={() => setShowVideo(true)}
-              >
+              <div className="relative rounded-2xl shadow-2xl overflow-hidden">
                 <img src={feature.image} alt={feature.name} className="w-full" />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-                    <Play className="w-8 h-8 text-primary-600 ml-1" />
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-
-      {/* Video Modal */}
-      {showVideo && feature.video && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={() => setShowVideo(false)}
-        >
-          <div className="relative w-full max-w-4xl">
-            <button
-              onClick={() => setShowVideo(false)}
-              className="absolute -top-12 right-0 text-white hover:text-primary-400"
-            >
-              Close ✕
-            </button>
-            <video src={feature.video} controls autoPlay className="w-full rounded-2xl" />
-          </div>
-        </div>
-      )}
 
       {/* Key Benefits */}
       <section className="py-16 bg-white">

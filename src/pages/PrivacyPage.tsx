@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   Shield,
@@ -13,20 +12,13 @@ import {
   Mail,
   Phone,
   Globe,
-  Clock,
   HardDrive,
   Users,
   Server,
   Key,
   Database,
-  Cloud,
-  Smartphone,
-  Laptop,
   Cookie,
   FileSearch,
-  UserCheck,
-  Trash2,
-  RefreshCw,
   ExternalLink,
   ChevronRight,
   Calendar,
@@ -34,7 +26,7 @@ import {
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 import { ROUTES } from '@/config/routes';
 import { siteConfig } from '@/config/siteConfig';
 
@@ -339,10 +331,10 @@ export const PrivacyPage: React.FC = () => {
                     Our Data Protection Officer is here to help.
                   </p>
                   <a
-                    href={`mailto:privacy@eboard-solutions.com`}
+                    href={`mailto:info@matrixsystems.co.ke`}
                     className="text-primary-600 font-medium hover:underline text-sm block mb-2"
                   >
-                    privacy@eboard-solutions.com
+                    info@matrixsystems.co.ke
                   </a>
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
@@ -356,7 +348,12 @@ export const PrivacyPage: React.FC = () => {
 
             {/* Main Content Area */}
             <div className="lg:col-span-3">
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
+              <Tabs
+                defaultValue="policy"
+                value={activeTab}
+                onValueChange={setActiveTab}
+                className="mb-8"
+              >
                 <TabsList className="grid w-full max-w-md grid-cols-2">
                   <TabsTrigger value="policy">Full Policy</TabsTrigger>
                   <TabsTrigger value="summary">Summary</TabsTrigger>
@@ -618,10 +615,10 @@ export const PrivacyPage: React.FC = () => {
                     <p className="text-gray-600 mb-4">
                       To exercise these rights, please contact our Data Protection Officer at{' '}
                       <a
-                        href="mailto:privacy@eboard-solutions.com"
+                        href="mailto:info@matrixsystems.co.ke"
                         className="text-primary-600 hover:underline"
                       >
-                        privacy@eboard-solutions.com
+                        info@matrixsystems.co.ke
                       </a>
                       .
                     </p>
@@ -825,16 +822,19 @@ export const PrivacyPage: React.FC = () => {
                           <div className="flex items-center">
                             <Mail className="w-4 h-4 text-primary-600 mr-2" />
                             <a
-                              href="mailto:privacy@eboard-solutions.com"
+                              href="mailto:info@matrixsystems.co.ke"
                               className="text-primary-600 hover:underline"
                             >
-                              privacy@eboard-solutions.com
+                              info@matrixsystems.co.ke
                             </a>
                           </div>
                           <div className="flex items-center">
                             <Phone className="w-4 h-4 text-primary-600 mr-2" />
-                            <a href="tel:+18885551234" className="text-primary-600 hover:underline">
-                              +1 (888) 555-1234
+                            <a
+                              href="tel:+254721779429"
+                              className="text-primary-600 hover:underline"
+                            >
+                              +254-721 779 429
                             </a>
                           </div>
                         </div>
@@ -843,15 +843,15 @@ export const PrivacyPage: React.FC = () => {
                       <Card>
                         <h3 className="font-semibold text-gray-900 mb-3">Postal Address</h3>
                         <p className="text-sm text-gray-600">
-                          EBoard Solutions Inc.
+                          IBoard Solutions
                           <br />
                           Attn: Data Protection Officer
                           <br />
-                          123 Innovation Drive
+                          BSK Village Muguga - Westlands
                           <br />
-                          San Francisco, CA 94105
+                          Nairobi
                           <br />
-                          United States
+                          Kenya
                         </p>
                       </Card>
                     </div>
@@ -949,10 +949,10 @@ export const PrivacyPage: React.FC = () => {
                         <h3 className="font-semibold text-gray-900">Contact DPO</h3>
                       </div>
                       <a
-                        href="mailto:privacy@eboard-solutions.com"
+                        href="mailto:info@matrixsystems.co.ke"
                         className="text-primary-600 text-sm hover:underline block mb-1"
                       >
-                        privacy@eboard-solutions.com
+                        info@matrixsystems.co.ke
                       </a>
                       <p className="text-sm text-gray-600">Response within 72 hours</p>
                     </Card>

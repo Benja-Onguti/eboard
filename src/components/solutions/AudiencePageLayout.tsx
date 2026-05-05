@@ -104,8 +104,8 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                     size="lg"
                     className={
                       isDark
-                        ? 'bg-primary-600 hover:bg-primary-700'
-                        : `bg-${primaryColor}-600 hover:bg-${primaryColor}-700`
+                        ? 'bg-primary-600 hover:bg-primary-700 text-white'
+                        : `bg-${primaryColor}-600 hover:bg-${primaryColor}-700 text-white`
                     }
                   >
                     {cta.demoButton}
@@ -116,7 +116,7 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
                     <Button
                       size="lg"
                       variant="outline"
-                      className={isDark ? 'border-white text-white hover:bg-white/10' : ''}
+                      className={isDark ? 'border-white text-white hover:bg-white/10' : `border-${primaryColor}-600 text-${primaryColor}-600 hover:bg-${primaryColor}-50`}
                     >
                       {cta.contactButton}
                     </Button>
@@ -152,17 +152,13 @@ export const AudiencePageLayout: React.FC<AudiencePageLayoutProps> = ({ config, 
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-               <div
-                 className={`relative rounded-2xl shadow-2xl overflow-hidden ${
-                   isDark ? 'border border-slate-700' : ''
-                 }`}
-               >
-                 <img
-                   src={hero.image}
-                   alt={`${config.name} Board Meeting`}
-                   className="w-full h-[450px] object-cover"
-                 />
-               </div>
+              <div
+                className={`relative rounded-2xl shadow-2xl overflow-hidden  h-[450px]${
+                  isDark ? 'border border-slate-700' : ''
+                }`}
+              >
+                <img src={hero.image} alt={`${config.name} Board Meeting`} className="w-full " />
+              </div>
 
               {/* Floating Badge */}
               <motion.div

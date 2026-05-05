@@ -59,7 +59,7 @@ export const EnterprisePage: React.FC = () => {
           />
         </div>
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-primary-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
 
         <div className="container-custom relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -72,7 +72,7 @@ export const EnterprisePage: React.FC = () => {
                 Enterprise-grade governance for{' '}
                 <span className="text-primary-400">global organizations</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 max-w-xl">
+              <p className="text-xl text-gray-500 mb-8 max-w-xl">
                 Scale your corporate governance with enterprise-level security, advanced
                 integrations, and strategic analytics.
               </p>
@@ -87,7 +87,7 @@ export const EnterprisePage: React.FC = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-white text-white hover:bg-white/10"
+                    className="border-primary-500 text-primary-500 hover:bg-white/10"
                   >
                     Contact US
                   </Button>
@@ -107,8 +107,8 @@ export const EnterprisePage: React.FC = () => {
                 </div>
                 <div className="h-8 w-px bg-slate-700" />
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-400">50+</div>
-                  <div className="text-xs text-gray-400">Integrations</div>
+                  <div className="text-2xl font-bold text-primary-400">50+</div>
+                   <div className="text-xs text-gray-400">Integrations</div>
                 </div>
               </div>
             </motion.div>
@@ -328,11 +328,7 @@ export const EnterprisePage: React.FC = () => {
               className="relative"
             >
               <div className="relative rounded-2xl shadow-2xl overflow-hidden">
-                <img
-                  src="/images/enterprise-solution.jpg"
-                  alt="Enterprise Solution"
-                  className="w-full"
-                />
+                <img src="/images/features/b1.jpg" alt="Enterprise Solution" className="w-full" />
               </div>
             </motion.div>
           </div>

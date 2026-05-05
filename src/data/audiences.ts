@@ -90,9 +90,9 @@ export const audiences: Record<string, AudienceConfig> = {
     id: 'education',
     name: 'Education',
     theme: {
-      primary: 'blue',
-      primaryLight: 'blue-100',
-      primaryDark: 'blue-600',
+      primary: 'primary',
+      primaryLight: 'primary-100',
+      primaryDark: 'primary-600',
     },
     hero: {
       headline: 'Streamlined governance for',
@@ -100,9 +100,9 @@ export const audiences: Record<string, AudienceConfig> = {
       subtitle:
         'Empower school boards, university trustees, and academic committees with modern governance tools designed specifically for education.',
       stats: [
-        { value: '200+', label: 'Institutions', color: 'blue-600' },
+        { value: '200+', label: 'Institutions', color: 'primary-600' },
         { value: '70%', label: 'Time Saved', color: 'green-600' },
-        { value: '98%', label: 'Satisfaction', color: 'blue-600' },
+        { value: '98%', label: 'Satisfaction', color: 'primary-600' },
       ],
       badge: {
         label: 'Compliance',
@@ -240,9 +240,9 @@ export const audiences: Record<string, AudienceConfig> = {
     id: 'ngo',
     name: 'NGO',
     theme: {
-      primary: 'red',
-      primaryLight: 'red-100',
-      primaryDark: 'red-600',
+      primary: 'primary',
+      primaryLight: 'primary-100',
+      primaryDark: 'primary-600',
     },
     hero: {
       headline: 'Cost-effective governance for',
@@ -250,7 +250,7 @@ export const audiences: Record<string, AudienceConfig> = {
       subtitle:
         'Maximize your impact with affordable, easy-to-use governance tools. Reduce costs by 50% while improving volunteer engagement.',
       stats: [
-        { value: '300+', label: 'Nonprofits', color: 'red-600' },
+        { value: '300+', label: 'Nonprofits', color: 'primary-600' },
         { value: '50%', label: 'Cost Savings', color: 'green-600' },
         { value: '40K+', label: 'Volunteers', color: 'orange-600' },
       ],

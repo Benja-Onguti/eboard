@@ -43,8 +43,8 @@ export const GovernmentPage: React.FC = () => {
       <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
 
         <div className="container-custom relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -55,7 +55,7 @@ export const GovernmentPage: React.FC = () => {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Secure, transparent governance for{' '}
-                <span className="text-purple-600">public sector</span>
+                <span className="text-primary-600">public sector</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-xl">
                 Meet compliance requirements while improving efficiency. Achieve 100% FOI compliance
@@ -64,7 +64,7 @@ export const GovernmentPage: React.FC = () => {
 
               <div className="flex flex-wrap gap-4 mb-8">
                 <Link to={ROUTES.DEMO.INDEX}>
-                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                  <Button size="lg" className="bg-primary-600 hover:bg-primary-700">
                     Book Demo
                   </Button>
                 </Link>
@@ -78,7 +78,7 @@ export const GovernmentPage: React.FC = () => {
               {/* Quick Stats */}
               <div className="flex items-center gap-6 pt-4 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">150+</div>
+                  <div className="text-2xl font-bold text-primary-600">150+</div>
                   <div className="text-xs text-gray-500">Agencies</div>
                 </div>
                 <div className="h-8 w-px bg-gray-200" />
@@ -88,7 +88,7 @@ export const GovernmentPage: React.FC = () => {
                 </div>
                 <div className="h-8 w-px bg-gray-200" />
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">50%</div>
+                  <div className="text-2xl font-bold text-primary-600">50%</div>
                   <div className="text-xs text-gray-500">Cost Reduction</div>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export const GovernmentPage: React.FC = () => {
                   alt="Government Board Meeting"
                   className="w-full h-auto object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/20 to-transparent" />
               </div>
 
               {/* Floating Compliance Badge */}
@@ -116,12 +116,12 @@ export const GovernmentPage: React.FC = () => {
                 className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-2xl p-4 border border-gray-100"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <Award className="w-5 h-5 text-purple-600" />
+                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                    <Award className="w-5 h-5 text-primary-600" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-500">Compliance</p>
-                    <p className="text-lg font-bold text-purple-600">ISO 27001</p>
+                    <p className="text-lg font-bold text-primary-600">ISO 27001</p>
                   </div>
                 </div>
               </motion.div>
@@ -130,7 +130,7 @@ export const GovernmentPage: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 4 }}
-                className="absolute -top-4 -right-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg px-4 py-2 shadow-lg"
+                className="absolute -top-4 -right-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-lg px-4 py-2 shadow-lg"
               >
                 <div className="flex items-center gap-2">
                   <Shield className="w-4 h-4" />
@@ -172,7 +172,7 @@ export const GovernmentPage: React.FC = () => {
       <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-8">
-            <Badge variant="primary" className="mb-3 bg-purple-100 text-purple-700">
+            <Badge variant="primary" className="mb-3 bg-primary-100 text-primary-700">
               Compliance
             </Badge>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
@@ -220,7 +220,7 @@ export const GovernmentPage: React.FC = () => {
                 >
                   <Card className="h-full">
                     <div className="flex items-center justify-between mb-3">
-                      <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600">
+                      <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600">
                         <Icon className="w-5 h-5" />
                       </div>
                       <Badge variant="primary" size="sm">
@@ -239,7 +239,7 @@ export const GovernmentPage: React.FC = () => {
           <div className="flex flex-wrap justify-center items-center gap-6 py-6 border-t border-gray-200">
             {['ISO 27001', 'SOC 2', 'GDPR', 'FedRAMP', 'CCPA'].map((cert) => (
               <div key={cert} className="flex items-center">
-                <Shield className="w-4 h-4 text-purple-600 mr-2" />
+                <Shield className="w-4 h-4 text-primary-600 mr-2" />
                 <span className="text-sm font-medium text-gray-700">{cert}</span>
               </div>
             ))}
@@ -252,7 +252,7 @@ export const GovernmentPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <Badge variant="primary" className="mb-3 bg-purple-100 text-purple-700">
+              <Badge variant="primary" className="mb-3 bg-primary-100 text-primary-700">
                 FOI Compliance
               </Badge>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -292,7 +292,7 @@ export const GovernmentPage: React.FC = () => {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start"
                   >
-                    <CheckCircle className="w-5 h-5 text-purple-600 mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-primary-600 mr-3 flex-shrink-0" />
                     <div>
                       <h3 className="font-medium text-gray-900 text-sm">{item.title}</h3>
                       <p className="text-gray-600 text-sm">{item.description}</p>
@@ -301,14 +301,14 @@ export const GovernmentPage: React.FC = () => {
                 ))}
               </div>
 
-              <div className="mt-6 bg-white rounded-lg p-4 border border-purple-100">
+              <div className="mt-6 bg-white rounded-lg p-4 border border-primary-100">
                 <div className="flex items-center mb-2">
-                  <Clock className="w-4 h-4 text-purple-600 mr-2" />
+                  <Clock className="w-4 h-4 text-primary-600 mr-2" />
                   <span className="font-medium text-gray-900 text-sm">
                     Average FOI response time
                   </span>
                 </div>
-                <div className="text-2xl font-bold text-purple-600 mb-1">2.5 days</div>
+                <div className="text-2xl font-bold text-primary-600 mb-1">2.5 days</div>
                 <p className="text-xs text-gray-500">Industry average: 15-30 days</p>
               </div>
             </div>
@@ -330,7 +330,7 @@ export const GovernmentPage: React.FC = () => {
       <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-8">
-            <Badge variant="primary" className="mb-3 bg-purple-100 text-purple-700">
+            <Badge variant="primary" className="mb-3 bg-primary-100 text-primary-700">
               Features
             </Badge>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
@@ -385,8 +385,8 @@ export const GovernmentPage: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card variant="elevated" className="h-full group hover:border-purple-200">
-                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-3 group-hover:bg-purple-600 group-hover:text-white transition">
+                  <Card variant="elevated" className="h-full group hover:border-primary-200">
+                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mb-3 group-hover:bg-primary-600 group-hover:text-white transition">
                       <Icon className="w-5 h-5" />
                     </div>
                     <h3 className="text-base font-bold text-gray-900 mb-1">{feature.title}</h3>
@@ -400,7 +400,7 @@ export const GovernmentPage: React.FC = () => {
       </section>
 
       {/* Testimonial */}
-      <section className="py-12 bg-purple-600 text-white">
+      <section className="py-12 bg-primary-600 text-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-4">
@@ -414,7 +414,7 @@ export const GovernmentPage: React.FC = () => {
             </blockquote>
             <div>
               <p className="text-lg font-semibold">James Rodriguez</p>
-              <p className="text-purple-200">City Clerk, City of Riverside</p>
+              <p className="text-primary-200">City Clerk, City of Riverside</p>
             </div>
             <div className="mt-6">
               <Link
@@ -430,7 +430,7 @@ export const GovernmentPage: React.FC = () => {
       </section>
 
       {/* Security Certifications */}
-      <section className="py-10 bg-white border-y border-gray-200">
+      {/*  <section className="py-10 bg-white border-y border-gray-200">
         <div className="container-custom">
           <p className="text-center text-gray-500 text-xs font-medium uppercase tracking-wider mb-4">
             Certified and compliant with global standards
@@ -438,13 +438,13 @@ export const GovernmentPage: React.FC = () => {
           <div className="flex flex-wrap justify-center items-center gap-8">
             {['ISO 27001', 'SOC 2 Type II', 'GDPR', 'FedRAMP', 'CCPA', 'HIPAA'].map((cert) => (
               <div key={cert} className="flex flex-col items-center">
-                <Shield className="w-8 h-8 text-purple-600 mb-2" />
+                <Shield className="w-8 h-8 text-primary-600 mb-2" />
                 <span className="text-sm font-medium text-gray-700">{cert}</span>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-12 bg-white">
@@ -458,13 +458,13 @@ export const GovernmentPage: React.FC = () => {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link to={ROUTES.DEMO.INDEX}>
-              <Button size="md" className="bg-purple-600 hover:bg-purple-700">
-                Schedule Demo
+              <Button size="md" className="bg-primary-600 hover:bg-primary-700">
+                Request Demo
               </Button>
             </Link>
             <Link to={ROUTES.COMPANY.CONTACT}>
               <Button size="md" variant="outline">
-                Contact Sales
+                Contact Us
               </Button>
             </Link>
           </div>

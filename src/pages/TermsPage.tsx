@@ -3,17 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  FileText,
-  Scale,
   Shield,
   AlertCircle,
   CheckCircle,
   Download,
   Mail,
   Phone,
-  Globe,
   Calendar,
-  Users,
   Lock,
   CreditCard,
   RefreshCw,
@@ -22,16 +18,11 @@ import {
   Ban,
   AlertTriangle,
   Gavel,
-  Handshake,
-  Zap,
-  Clock,
-  XCircle,
-  HelpCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/Tabs';
 import { ROUTES } from '@/config/routes';
 import { siteConfig } from '@/config/siteConfig';
 
@@ -382,7 +373,12 @@ export const TermsPage: React.FC = () => {
 
             {/* Main Content Area */}
             <div className="lg:col-span-3">
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
+              <Tabs
+                defaultValue="terms"
+                value={activeTab}
+                onValueChange={setActiveTab}
+                className="mb-8"
+              >
                 <TabsList className="grid w-full max-w-md grid-cols-2">
                   <TabsTrigger value="terms">Full Terms</TabsTrigger>
                   <TabsTrigger value="summary">Summary</TabsTrigger>
@@ -980,16 +976,19 @@ export const TermsPage: React.FC = () => {
                           <div className="flex items-center">
                             <Mail className="w-4 h-4 text-primary-600 mr-2" />
                             <a
-                              href="mailto:legal@eboard-solutions.com"
+                              href="mailto:info@matrixsystems.co.ke"
                               className="text-primary-600 hover:underline"
                             >
-                              legal@eboard-solutions.com
+                              info@matrixsystems.co.ke
                             </a>
                           </div>
                           <div className="flex items-center">
                             <Phone className="w-4 h-4 text-primary-600 mr-2" />
-                            <a href="tel:+18885551234" className="text-primary-600 hover:underline">
-                              +1 (888) 555-1234
+                            <a
+                              href="tel:+254721779429"
+                              className="text-primary-600 hover:underline"
+                            >
+                              +2547-21 779 429
                             </a>
                           </div>
                         </div>
@@ -1002,11 +1001,11 @@ export const TermsPage: React.FC = () => {
                           <br />
                           Attn: Legal Department
                           <br />
-                          123 Innovation Drive
+                          B.S.K. Village, Muguga Green, Westlands,
                           <br />
-                          San Francisco, CA 94105
+                          6030 - 00200 Nairobi,
                           <br />
-                          United States
+                          Kenya
                         </p>
                       </Card>
                     </div>
@@ -1015,7 +1014,7 @@ export const TermsPage: React.FC = () => {
                       <h3 className="font-semibold text-gray-900 mb-2">DMCA Agent</h3>
                       <p className="text-sm text-gray-600">
                         For copyright infringement claims under the Digital Millennium Copyright
-                        Act, contact our designated agent at dmca@eboard-solutions.com.
+                        Act, contact our designated agent at info@matrixsystems.co.ke.
                       </p>
                     </Card>
                   </section>

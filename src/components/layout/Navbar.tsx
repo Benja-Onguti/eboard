@@ -25,6 +25,10 @@ import { cn } from '@/utils/cn';
 
 const navigation = [
   {
+    label: 'Home',
+    href: ROUTES.HOME,
+  },
+  {
     label: 'Features',
     children: [
       { label: 'Meeting Management', href: ROUTES.MARKETING.MEETING_MANAGEMENT, icon: Calendar },

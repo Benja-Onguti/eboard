@@ -11,30 +11,30 @@ import { ROUTES } from '@/config/routes';
 // Team member data
 const teamMembers = [
   {
-    name: 'Sarah Johnson',
-    role: 'CEO & Co-Founder',
-    bio: 'Former board director with 15+ years in governance technology.',
-    image: '/images/team/sarah-johnson.jpg',
+    name: 'Eng Enock Mogeni',
+    role: 'CEO & Technical Lead',
+    bio: 'Technical Director and CEO, bringing over 15+ years in governance technology.',
+    image: '/images/team/ai.jpg',
     social: { linkedin: 'https://linkedin.com/in/sarahjohnson' },
   },
   {
-    name: 'Michael Chen',
-    role: 'CTO & Co-Founder',
-    bio: 'AI and security expert with Fortune 500 experience.',
+    name: 'Erick Atinga',
+    role: 'CTO -ICT Innovations and Softwares',
+    bio: 'AI and security expert with 15+ years experience.',
     image: '/images/team/michael-chen.jpg',
     social: { linkedin: 'https://linkedin.com/in/michaelchen' },
   },
   {
-    name: 'Elena Rodriguez',
+    name: 'Robert Mwongera',
     role: 'Head of Product',
     bio: 'Product leader specializing in UX and board portal design.',
     image: '/images/team/elena-rodriguez.jpg',
     social: { linkedin: 'https://linkedin.com/in/elenarodriguez' },
   },
   {
-    name: 'David Okafor',
-    role: 'Head of Customer Success',
-    bio: 'Dedicated to ensuring every client succeeds.',
+    name: 'Morris Kitana',
+    role: 'UI/ UX Designer',
+    bio: 'Dedicated to ensuring smoothuser experience.',
     image: '/images/team/david-okafor.jpg',
     social: { linkedin: 'https://linkedin.com/in/davidokafor' },
   },
@@ -116,12 +116,12 @@ export const AboutPage: React.FC = () => {
               </div>
               <div className="h-10 w-px bg-gray-200" />
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600">2M+</div>
+                <div className="text-3xl font-bold text-green-600">200K+</div>
                 <div className="text-sm text-gray-500">Users</div>
               </div>
               <div className="h-10 w-px bg-gray-200" />
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">30+</div>
+                <div className="text-3xl font-bold text-purple-600">10+</div>
                 <div className="text-sm text-gray-500">Countries</div>
               </div>
             </div>
@@ -130,7 +130,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-white border-y border-gray-200">
+      {/*<section className="py-12 bg-white border-y border-gray-200">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
@@ -146,7 +146,7 @@ export const AboutPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* Mission & Values */}
       <section className="py-16 bg-white">
