@@ -121,7 +121,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       "EBoard's AI capabilities are powered by Google Gemini and Google Cloud, bringing enterprise-grade artificial intelligence to your board governance. From real-time speech transcription to intelligent document summarization, our AI tools help you work smarter, not harder.",
     icon: Brain,
-    image: '/images/features/aii.jpg',
+    image: `${import.meta.env.BASE_URL}images/features/aii.jpg`,
     benefits: [
       {
         title: 'Speech to Text',
@@ -244,7 +244,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       'Meeting Management transforms how boards prepare for, conduct, and follow up on meetings. With powerful agenda building, minute tracking, and video conferencing integration, you can reduce meeting preparation time while improving engagement.',
     icon: Calendar,
-    image: '/images/features/meeting1.jpg',
+    image: `${import.meta.env.BASE_URL}images/features/meeting1.jpg`,
     benefits: [
       {
         title: 'Agenda Builder',
@@ -367,7 +367,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       'Committee Management provides dedicated workspaces for every committee, sub-committee, and working group. With unlimited committees, dedicated libraries, and membership tracking, you can organize governance at scale.',
     icon: Users,
-    image: '/images/features/committee.png',
+    image: `${import.meta.env.BASE_URL}images/features/committee.png`,
     benefits: [
       {
         title: 'Unlimited Committees',
@@ -472,7 +472,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       'Document & Pack Features provide comprehensive document management for your board. From supporting all file types to document signing and survey creation, you have everything you need to manage board materials efficiently.',
     icon: FileText,
-    image: '/images/features/docs.png',
+    image: `${import.meta.env.BASE_URL}images/features/docs.png`,
     benefits: [
       {
         title: 'All File Types',
@@ -570,7 +570,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       'EBoard Security provides military-grade protection for all your board materials. Built on the Microsoft Enterprise Framework, our security infrastructure includes AES-256 encryption, two-factor authentication, activity tracking, and role-based access controls.',
     icon: Shield,
-    image: '/images/features/security.png',
+    image: `${import.meta.env.BASE_URL}images/features/security.png`,
     benefits: [
       {
         title: 'Military-grade Encryption',
@@ -683,7 +683,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     longDescription:
       'EBoard integrates seamlessly with your existing technology stack, including SharePoint, Teams and Zoom,. Plus, every plan includes unlimited training and support to ensure your success.',
     icon: Plug,
-    image: '/images/features/integration1.png',
+    image: `${import.meta.env.BASE_URL}images/features/integration1.png`,
 
     // --- New: Integration categories for a card-style layout ---
     integrationCards: [

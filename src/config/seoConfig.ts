@@ -39,7 +39,7 @@ export const defaultSeo: SeoConfig = {
     description: siteConfig.description,
     url: siteConfig.url,
     type: 'website',
-    image: '/images/og-image.jpg',
+    image: `${import.meta.env.BASE_URL}images/og-image.jpg`,
   },
   twitter: {
     card: 'summary_large_image',
@@ -47,7 +47,7 @@ export const defaultSeo: SeoConfig = {
     creator: siteConfig.social.twitter,
     title: siteConfig.name,
     description: siteConfig.description,
-    image: '/images/twitter-image.jpg',
+    image: `${import.meta.env.BASE_URL}images/twitter-image.jpg`,
   },
 };
 

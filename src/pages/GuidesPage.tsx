@@ -43,7 +43,7 @@ const guides = [
     longDescription:
       'This comprehensive guide covers everything from board roles and responsibilities to meeting management, decision-making frameworks, and governance technology. Perfect for new and experienced board members alike.',
     category: 'governance',
-    image: '/images/guides/governance-guide.jpg',
+    image: `${import.meta.env.BASE_URL}images/guides/governance-guide.jpg`,
     author: 'Dr. Sarah Johnson',
     authorRole: 'Governance Expert',
     readTime: '25 min',
@@ -72,7 +72,7 @@ const guides = [
     longDescription:
       'Discover proven techniques to reduce meeting time, increase engagement, and drive better outcomes from your board meetings. Includes templates and checklists.',
     category: 'governance',
-    image: '/images/guides/meeting-effectiveness.jpg',
+    image: `${import.meta.env.BASE_URL}images/guides/meeting-effectiveness.jpg`,
     author: 'Michael Chen',
     authorRole: 'Board Advisor',
     readTime: '20 min',
@@ -101,7 +101,7 @@ const guides = [
     longDescription:
       'Essential guide for government agencies and public sector boards. Learn how to maintain compliance while leveraging digital tools for transparency.',
     category: 'compliance',
-    image: '/images/guides/foi-compliance.jpg',
+    image: `${import.meta.env.BASE_URL}images/guides/foi-compliance.jpg`,
     author: 'James Rodriguez',
     authorRole: 'Compliance Specialist',
     readTime: '30 min',
@@ -131,7 +131,7 @@ const guides = [
     longDescription:
       'Explore how AI can transform board operations, from automated minutes to predictive analytics. Includes implementation strategies and ethical considerations.',
     category: 'technology',
-    image: '/images/guides/ai-governance.jpg',
+    image: `${import.meta.env.BASE_URL}images/guides/ai-governance.jpg`,
     author: 'Dr. Elena Rodriguez',
     authorRole: 'AI Researcher',
     readTime: '22 min',
@@ -159,7 +159,7 @@ const guides = [
     longDescription:
       'Tailored guidance for nonprofit boards, covering volunteer engagement, donor relations, strategic planning, and regulatory compliance.',
     category: 'leadership',
-    image: '/images/guides/nonprofit-governance.jpg',
+    image: `${import.meta.env.BASE_URL}images/guides/nonprofit-governance.jpg`,
     author: 'Margaret Okonkwo',
     authorRole: 'Nonprofit Executive',
     readTime: '28 min',
@@ -187,7 +187,7 @@ const guides = [
     longDescription:
       'Comprehensive guide to securing board documents, including encryption, access controls, audit trails, and compliance with ISO 27001 and SOC 2.',
     category: 'technology',
-    image: '/images/guides/document-security.jpg',
+    image: `${import.meta.env.BASE_URL}images/guides/document-security.jpg`,
     author: 'David Okafor',
     authorRole: 'Security Expert',
     readTime: '18 min',
@@ -215,7 +215,7 @@ const guides = [
     longDescription:
       'A practical framework for boards to create, monitor, and adjust strategic plans. Includes templates for strategic sessions and progress tracking.',
     category: 'strategy',
-    image: '/images/guides/strategic-planning.jpg',
+    image: `${import.meta.env.BASE_URL}images/guides/strategic-planning.jpg`,
     author: 'Lisa Thompson',
     authorRole: 'Strategy Consultant',
     readTime: '26 min',
@@ -243,7 +243,7 @@ const guides = [
     longDescription:
       'Learn which metrics matter most for board effectiveness, how to collect them, and how to use insights for continuous improvement.',
     category: 'governance',
-    image: '/images/guides/board-metrics.jpg',
+    image: `${import.meta.env.BASE_URL}images/guides/board-metrics.jpg`,
     author: 'Dr. Sarah Johnson',
     authorRole: 'Governance Expert',
     readTime: '15 min',

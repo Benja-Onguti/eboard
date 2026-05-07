@@ -121,7 +121,7 @@ export const EnterprisePage: React.FC = () => {
             >
               <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-slate-700">
                 <img
-                  src="/images/features/business meeting.jpg"
+                  src={`${import.meta.env.BASE_URL}images/features/business meeting.jpg`}
                   alt="Enterprise Meeting"
                   className="w-full h-[450px]"
                 />
@@ -328,7 +328,7 @@ export const EnterprisePage: React.FC = () => {
               className="relative"
             >
               <div className="relative rounded-2xl shadow-2xl overflow-hidden">
-                <img src="/images/features/b1.jpg" alt="Enterprise Solution" className="w-full" />
+                <img src={`${import.meta.env.BASE_URL}images/features/b1.jpg`} alt="Enterprise Solution" className="w-full" />
               </div>
             </motion.div>
           </div>
@@ -685,7 +685,7 @@ export const EnterprisePage: React.FC = () => {
             <div className="relative">
               <div className="relative rounded-2xl shadow-2xl overflow-hidden">
                 <img
-                  src="/images/case-study-torres.jpg"
+                  src={`${import.meta.env.BASE_URL}images/case-study-torres.jpg`}
                   alt="Torres Industries"
                   className="w-full"
                 />

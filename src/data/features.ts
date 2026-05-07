@@ -8,7 +8,7 @@ export const features: Feature[] = [
     description:
       'From scheduling to minutes, manage every aspect of your board meetings in one secure platform.',
     icon: 'Calendar',
-    image: '/images/features/meeting-management.jpg',
+    image: `${import.meta.env.BASE_URL}images/features/meeting-management.jpg`,
     benefits: [
       'Automated scheduling with calendar integration',
       'Digital agenda builder with collaborative editing',
@@ -51,7 +51,7 @@ export const features: Feature[] = [
     description:
       'Store, manage, and share board documents with enterprise-grade encryption and version control.',
     icon: 'FileText',
-    image: '/images/features/document-management.jpg',
+    image: `${import.meta.env.BASE_URL}images/features/document-management.jpg`,
     benefits: [
       'Centralized encrypted document repository',
       'Version control with complete audit trail',
@@ -93,7 +93,7 @@ export const features: Feature[] = [
     description:
       "Boardable's AI captures key takeaways, generates instant minutes, and provides searchable transcripts [citation:2].",
     icon: 'Brain',
-    image: '/images/features/ai-minutes.jpg',
+    image: `${import.meta.env.BASE_URL}images/features/ai-minutes.jpg`,
     benefits: [
       'Auto-generated minutes that adapt to your agenda',
       'Searchable, speaker-tagged transcripts',
@@ -129,7 +129,7 @@ export const features: Feature[] = [
     description:
       'Use built-in templates or create custom forms for conflict of interest, evaluations, and more [citation:2].',
     icon: 'ClipboardList',
-    image: '/images/features/surveys.jpg',
+    image: `${import.meta.env.BASE_URL}images/features/surveys.jpg`,
     benefits: [
       'Pre-built templates for common board needs',
       'Custom form builder with conditional logic',
@@ -165,7 +165,7 @@ export const features: Feature[] = [
     description:
       'Publish agendas, documents, and minutes to a public-facing archive in just a few clicks [citation:2].',
     icon: 'Globe',
-    image: '/images/features/public-sites.jpg',
+    image: `${import.meta.env.BASE_URL}images/features/public-sites.jpg`,
     benefits: [
       'Public meeting archives with one-click publishing',
       'FOI-compliant record keeping',
@@ -200,7 +200,7 @@ export const features: Feature[] = [
     description:
       'Execute documents with legally binding electronic signatures that comply with global standards.',
     icon: 'PenTool',
-    image: '/images/features/esignatures.jpg',
+    image: `${import.meta.env.BASE_URL}images/features/esignatures.jpg`,
     benefits: [
       'Legally binding e-signatures worldwide',
       'Multi-party signing workflows',

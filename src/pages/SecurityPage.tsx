@@ -124,7 +124,7 @@ export const SecurityPage: React.FC = () => {
             >
               <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-gray-700 bg-slate-800">
                 <img
-                  src="/images/features/security.png"
+                  src={`${import.meta.env.BASE_URL}images/features/security.png`}
                   alt="Security Dashboard"
                   className="w-full h-auto"
                   onError={(e) => {

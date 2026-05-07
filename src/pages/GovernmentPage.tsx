@@ -101,7 +101,7 @@ export const GovernmentPage: React.FC = () => {
             >
               <div className="relative rounded-2xl shadow-2xl overflow-hidden h-[450px]">
                 <img
-                  src="/images/features/ngo-meeting.jpg"
+                  src={`${import.meta.env.BASE_URL}images/features/ngo-meeting.jpg`}
                   alt="Government Board Meeting"
                   className="w-full h-auto object-cover"
                 />
@@ -304,7 +304,7 @@ export const GovernmentPage: React.FC = () => {
             <div className="relative">
               <div className="relative rounded-xl shadow-xl overflow-hidden">
                 <img
-                  src="/images/solutions/meet1.png"
+                  src={`${import.meta.env.BASE_URL}images/solutions/meet1.png`}
                   alt="FOI Compliance Dashboard"
                   className="w-full"
                 />
