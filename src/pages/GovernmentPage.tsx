@@ -8,7 +8,6 @@ import {
   Users,
   Globe,
   Scale,
-  Clock,
   CheckCircle,
   Star,
   Award,
