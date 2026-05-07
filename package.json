@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://benja-onguti.github.io/eboard/",
+  "homepage": "https://benja-onguti.gitgithub.io/eboard/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
