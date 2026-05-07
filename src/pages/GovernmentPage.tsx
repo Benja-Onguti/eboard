@@ -300,23 +300,12 @@ export const GovernmentPage: React.FC = () => {
                   </motion.div>
                 ))}
               </div>
-
-              <div className="mt-6 bg-white rounded-lg p-4 border border-primary-100">
-                <div className="flex items-center mb-2">
-                  <Clock className="w-4 h-4 text-primary-600 mr-2" />
-                  <span className="font-medium text-gray-900 text-sm">
-                    Average FOI response time
-                  </span>
-                </div>
-                <div className="text-2xl font-bold text-primary-600 mb-1">2.5 days</div>
-                <p className="text-xs text-gray-500">Industry average: 15-30 days</p>
-              </div>
             </div>
 
             <div className="relative">
               <div className="relative rounded-xl shadow-xl overflow-hidden">
                 <img
-                  src="/images/solutions/foi-dashboard.jpg"
+                  src="/images/solutions/meet1.png"
                   alt="FOI Compliance Dashboard"
                   className="w-full"
                 />

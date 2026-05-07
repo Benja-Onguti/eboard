@@ -113,7 +113,7 @@ export const audiences: Record<string, AudienceConfig> = {
         text: '5K+ Users',
         icon: 'Award',
       },
-      image: '/images/team/board meeting.jpg',
+      image: '/images/solutions/meet2.png',
     },
     challenges: {
       badge: 'Challenges',
@@ -176,7 +176,7 @@ export const audiences: Record<string, AudienceConfig> = {
           description: 'Transparent public archives for community engagement and accountability',
         },
       ],
-      image: '/images/solutions/education-solution.jpg',
+      image: '/images/team/board meeting.jpg',
     },
     features: {
       badge: 'Features',
@@ -321,7 +321,7 @@ export const audiences: Record<string, AudienceConfig> = {
           description: 'Tools to demonstrate effective governance to donors',
         },
       ],
-      image: '/images/solutions/ngo-solution.jpg',
+      image: '/images/solutions/ongoing-meet.jpg',
     },
     features: {
       badge: 'Features',
