@@ -164,7 +164,7 @@ export const HomePage: React.FC = () => {
             >
               <div className="relative rounded-2xl shadow-2xl overflow-hidden">
                 <img
-                  src={siteContent.hero.image}
+                  src={siteContent.hero.image.src}
                   alt="EBoard Dashboard"
                   className="w-full h-[450px] object-cover"
                 />
