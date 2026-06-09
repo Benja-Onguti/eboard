@@ -1,0 +1,12 @@
+# https://www robots.txt for EBoard Solutions
+
+User-agent: *
+Allow: /
+
+# Disallow non-public pages
+Disallow: /404.html
+Disallow: /health
+Disallow: /status
+
+# Sitemap
+Sitemap: https://eboard-solutions.com/sitemap.xml
