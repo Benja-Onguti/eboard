@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { CookieConsent } from '@/components/common/CookieConsent';
 import { BackToTop } from '@/components/common/BackToTop';
+import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { useApp } from '@/context/AppContext';
 
 // Page transition variants
@@ -83,7 +84,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
 
       {/* Main Content with Page Transitions - FIXED PADDING */}
       <AnimatePresence mode="wait">
-        <motion.main
+<motion.main
           key={location.pathname}
           id="main-content"
           variants={pageVariants}
@@ -97,6 +98,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
           ${className}
         `}
         >
+          {!isAuthPage && <Breadcrumbs />}
           <Outlet />
         </motion.main>
       </AnimatePresence>

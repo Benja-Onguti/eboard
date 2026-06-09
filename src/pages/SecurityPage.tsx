@@ -1,7 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import {
   Shield,
   Lock,
@@ -23,21 +24,12 @@ import { Badge } from '@/components/ui/Badge';
 import { ROUTES } from '@/config/routes';
 
 export const SecurityPage: React.FC = () => {
+  const seo = getSeoConfig('security');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>Enterprise Security & Compliance - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="Military-grade security for board documents. AES-256 encryption, zero-trust architecture, ISO 27001, SOC 2 Type II, GDPR, HIPAA compliant. Complete audit trails and granular access controls."
-        />
-        <meta property="og:title" content="Enterprise Security & Compliance - EBoard Solutions" />
-        <meta
-          property="og:description"
-          content="Bank-level security for your board documents with zero-trust architecture and comprehensive compliance certifications."
-        />
-        <link rel="canonical" href="https://eboard-solutions.com/security" />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">

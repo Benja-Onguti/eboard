@@ -1,7 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import { Heart, Target, Users, CheckCircle, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -69,20 +70,12 @@ const values = [
 ];
 
 export const AboutPage: React.FC = () => {
+  const seo = getSeoConfig('about');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>About Us - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="Learn about EBoard Solutions' mission to transform board governance through innovative technology. Meet our team and discover our story."
-        />
-        <meta property="og:title" content="About Us - EBoard Solutions" />
-        <meta
-          property="og:description"
-          content="Learn about EBoard Solutions' mission to transform board governance."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">

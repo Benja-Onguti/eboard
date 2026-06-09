@@ -1,7 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import { ArrowRight, BookOpen, Building2, Calendar, CheckCircle, Shield, Users } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -33,15 +34,12 @@ const caseStudies = [
 ];
 
 export const CaseStudiesPage: React.FC = () => {
+  const seo = getSeoConfig('case-studies');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>Case Studies - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="See how boards, councils, and nonprofits use EBoard to improve governance, streamline meetings, and strengthen compliance."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       <section className="bg-gradient-to-br from-slate-900 via-primary-800 to-primary-600 pt-32 pb-20 text-white">
         <div className="container-custom">

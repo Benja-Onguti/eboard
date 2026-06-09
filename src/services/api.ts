@@ -16,27 +16,29 @@ class ApiService {
 
     // Request interceptor
     this.api.interceptors.request.use(
-      (config) => {
+      (config: any) => {
         const token = localStorage.getItem('auth_token');
         if (token) {
+          config.headers = config.headers || {};
           config.headers.Authorization = `Bearer ${token}`;
         }
 
         // Add API key
         if (import.meta.env.VITE_API_KEY) {
+          config.headers = config.headers || {};
           config.headers['X-API-Key'] = import.meta.env.VITE_API_KEY;
         }
 
         return config;
       },
-      (error) => {
+      (error: any) => {
         return Promise.reject(error);
       }
     );
 
     // Response interceptor
     this.api.interceptors.response.use(
-      (response) => response,
+      (response: any) => response,
       (error: AxiosError) => {
         if (error.response?.status === 401) {
           // Handle unauthorized

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#2563eb"/>
+  <text x="600" y="315" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">
+    EBoard Solutions
+  </text>
+  <text x="600" y="385" font-family="Arial, sans-serif" font-size="32" fill="#e0e7ff" text-anchor="middle">
+    Modern Governance Platform
+  </text>
+</svg>

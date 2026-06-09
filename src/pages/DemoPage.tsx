@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -245,15 +246,12 @@ export const DemoPage: React.FC = () => {
 
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  const seo = getSeoConfig('demo');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>Book a Demo - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="Schedule a personalized demo of EBoard's governance platform. Choose your preferred date and time."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="relative pt-28 pb-16 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">

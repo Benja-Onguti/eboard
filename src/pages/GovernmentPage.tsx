@@ -1,7 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import {
   Shield,
   FileText,
@@ -23,20 +24,12 @@ import { Badge } from '@/components/ui/Badge';
 import { ROUTES } from '@/config/routes';
 
 export const GovernmentPage: React.FC = () => {
+  const seo = getSeoConfig('government');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>Government Board Management - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="Secure, transparent governance for public sector organizations. Achieve 100% FOI compliance with EBoard's government-grade platform."
-        />
-        <meta property="og:title" content="Government Board Management - EBoard Solutions" />
-        <meta
-          property="og:description"
-          content="Secure, transparent governance for public sector organizations."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">

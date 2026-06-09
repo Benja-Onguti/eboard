@@ -1,8 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import {
   ArrowRight,
   Play,
@@ -86,71 +87,68 @@ export const HomePage: React.FC = () => {
   const [featuresRef, featuresInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [testimonialsRef, testimonialsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
+  const seo = getSeoConfig('home');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>EBoard Solutions - Modern Governance Platform</title>
-        <meta name="description" content={siteContent.hero.subheadline} />
-        <meta
-          name="keywords"
-          content="board management, governance, AI meeting minutes, committee management, board portal, secure governance"
-        />
-        <link rel="canonical" href="https://eboard-solutions.com" />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-4 pb-2 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+      <section className="relative min-h-[90vh] flex items-center pt-16 pb-8 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-grid-pattern opacity-20" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-secondary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+        <div className="absolute top-20 right-0 w-64 h-64 md:w-96 md:h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+        <div className="absolute bottom-20 left-0 w-64 h-64 md:w-96 md:h-96 bg-secondary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
 
         <div className="container-custom relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center max-w-4xl mx-auto"
+              className="text-center lg:text-left"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
                 {siteContent.hero.headline}
               </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl">{siteContent.hero.subheadline}</p>
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 max-w-xl lg:max-w-2xl mx-auto lg:mx-0">
+                {siteContent.hero.subheadline}
+              </p>
 
-              <div className="flex flex-wrap gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start mb-6 md:mb-8">
                 <Link to={siteContent.hero.ctas.trial.href}>
-                  <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />} className="w-full sm:w-auto">
                     {siteContent.hero.ctas.trial.text}
                   </Button>
                 </Link>
                 <Link to={siteContent.hero.ctas.sales.href}>
-                  <Button size="lg" variant="outline" leftIcon={<Play className="w-5 h-5" />}>
+                  <Button size="lg" variant="outline" leftIcon={<Play className="w-5 h-5" />} className="w-full sm:w-auto">
                     {siteContent.hero.ctas.sales.text}
                   </Button>
                 </Link>
               </div>
 
               {/* Quick Stats */}
-              <div className="flex items-center gap-6 pt-4 border-t border-gray-200">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-600">2M+</div>
+              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 md:gap-6 pt-4 md:pt-6 border-t border-gray-200">
+                <div className="text-center px-2">
+                  <div className="text-xl md:text-2xl font-bold text-primary-600">2M+</div>
                   <div className="text-xs text-gray-500">Users</div>
                 </div>
-                <div className="h-8 w-px bg-gray-200" />
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">500+</div>
+                <div className="hidden sm:block h-8 w-px bg-gray-200" />
+                <div className="text-center px-2">
+                  <div className="text-xl md:text-2xl font-bold text-green-600">500+</div>
                   <div className="text-xs text-gray-500">Organizations</div>
                 </div>
-                <div className="h-8 w-px bg-gray-200" />
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">50K+</div>
+                <div className="hidden sm:block h-8 w-px bg-gray-200" />
+                <div className="text-center px-2">
+                  <div className="text-xl md:text-2xl font-bold text-blue-600">50K+</div>
                   <div className="text-xs text-gray-500">Meetings</div>
                 </div>
-                <div className="h-8 w-px bg-gray-200" />
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">99.9%</div>
+                <div className="hidden sm:block h-8 w-px bg-gray-200" />
+                <div className="text-center px-2">
+                  <div className="text-xl md:text-2xl font-bold text-purple-600">99.9%</div>
                   <div className="text-xs text-gray-500">Uptime</div>
                 </div>
               </div>
@@ -159,28 +157,28 @@ export const HomePage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative hidden lg:block"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="relative mt-8 lg:mt-0"
             >
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden">
+              <div className="relative rounded-2xl shadow-2xl overflow-hidden bg-white p-2 md:p-4">
                 <img
                   src={siteContent.hero.image.src}
                   alt="EBoard Dashboard"
-                  className="w-full h-[450px] object-cover"
+                  className="w-full h-auto aspect-[4/3] md:h-[400px] lg:h-[450px] object-cover rounded-xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-transparent rounded-xl" />
               </div>
 
-              {/* Floating Stats */}
+              {/* Floating Stats - Repositioned for mobile */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3 }}
-                className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-2xl p-4 border border-gray-100"
+                className="absolute -bottom-3 md:-bottom-4 -left-3 md:-left-4 bg-white rounded-xl shadow-2xl p-3 md:p-4 border border-gray-100"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-lg flex items-center justify-center">
                     <svg
-                      className="w-5 h-5 text-green-600"
+                      className="w-4 h-4 md:w-5 md:h-5 text-green-600"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -195,7 +193,7 @@ export const HomePage: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-xs text-gray-500">Meeting prep time</div>
-                    <div className="text-xl font-bold text-green-600">-70%</div>
+                    <div className="text-lg md:text-xl font-bold text-green-600">-70%</div>
                   </div>
                 </div>
               </motion.div>
@@ -203,15 +201,15 @@ export const HomePage: React.FC = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 4 }}
-                className="absolute -top-4 -right-4 bg-white rounded-xl shadow-2xl p-4 border border-gray-100"
+                className="absolute -top-3 md:-top-4 -right-3 md:-right-4 bg-white rounded-xl shadow-2xl p-3 md:p-4 border border-gray-100"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <Users className="w-5 h-5 text-primary-600" />
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                    <Users className="w-4 h-4 md:w-5 md:h-5 text-primary-600" />
                   </div>
                   <div>
                     <div className="text-xs text-gray-500">Board engagement</div>
-                    <div className="text-xl font-bold text-primary-600">+45%</div>
+                    <div className="text-lg md:text-xl font-bold text-primary-600">+45%</div>
                   </div>
                 </div>
               </motion.div>

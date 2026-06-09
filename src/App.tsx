@@ -1,6 +1,5 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
 import { MainLayout } from './layouts/MainLayout';
 import { ROUTES } from './config/routes';
 import { LoadingSpinner } from './components/common/LoadingSpinner';
@@ -101,80 +100,78 @@ const AnalyticsTracker: React.FC = () => {
 function App() {
   return (
     <ErrorBoundary>
-      <HelmetProvider>
-        {/* Analytics tracking */}
-        <AnalyticsTracker />
+      {/* Analytics tracking */}
+      <AnalyticsTracker />
 
-        {/* Routes with lazy loading */}
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            {/* Main layout routes */}
-            <Route path="/" element={<MainLayout />}>
-              {/* Home */}
-              <Route index element={<HomePage />} />
+      {/* Routes with lazy loading */}
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          {/* Main layout routes */}
+          <Route path="/" element={<MainLayout />}>
+            {/* Home */}
+            <Route index element={<HomePage />} />
 
-              {/* Features */}
-             
-              <Route
-                path={ROUTES.MARKETING.MEETING_MANAGEMENT}
-                element={<MeetingManagementPage />}
-              />
-              <Route
-                path={ROUTES.MARKETING.COMMITTEE_MANAGEMENT}
-                element={<CommitteeManagementPage />}
-              />
-              <Route
-                path={ROUTES.MARKETING.DOCUMENT_MANAGEMENT}
-                element={<DocumentManagementPage />}
-              />
-              <Route path={ROUTES.MARKETING.INTEGRATIONS} element={<IntegrationsPage />} />
-              <Route path="/features/:id" element={<FeatureDetailPage />} />
+            {/* Features */}
+            
+            <Route
+              path={ROUTES.MARKETING.MEETING_MANAGEMENT}
+              element={<MeetingManagementPage />}
+            />
+            <Route
+              path={ROUTES.MARKETING.COMMITTEE_MANAGEMENT}
+              element={<CommitteeManagementPage />}
+            />
+            <Route
+              path={ROUTES.MARKETING.DOCUMENT_MANAGEMENT}
+              element={<DocumentManagementPage />}
+            />
+            <Route path={ROUTES.MARKETING.INTEGRATIONS} element={<IntegrationsPage />} />
+            <Route path="/features/:id" element={<FeatureDetailPage />} />
 
-              {/* Solutions / Use Cases */}
-              <Route path={ROUTES.SOLUTIONS.INDEX} element={<SolutionsPage />} />
-              <Route path={ROUTES.SOLUTIONS.EDUCATION} element={<EducationPage />} />
-              <Route path={ROUTES.SOLUTIONS.GOVERNMENT} element={<GovernmentPage />} />
-              <Route path={ROUTES.SOLUTIONS.NGOS} element={<NGOPage />} />
-              <Route path={ROUTES.SOLUTIONS.ENTERPRISE} element={<EnterprisePage />} />
+            {/* Solutions / Use Cases */}
+            <Route path={ROUTES.SOLUTIONS.INDEX} element={<SolutionsPage />} />
+            <Route path={ROUTES.SOLUTIONS.EDUCATION} element={<EducationPage />} />
+            <Route path={ROUTES.SOLUTIONS.GOVERNMENT} element={<GovernmentPage />} />
+            <Route path={ROUTES.SOLUTIONS.NGOS} element={<NGOPage />} />
+            <Route path={ROUTES.SOLUTIONS.ENTERPRISE} element={<EnterprisePage />} />
 
-              {/* Contact & Demo */}
-              <Route path={ROUTES.COMPANY.CONTACT} element={<ContactPage />} />
-              <Route path={ROUTES.DEMO.INDEX} element={<DemoPage />} />
+            {/* Contact & Demo */}
+            <Route path={ROUTES.COMPANY.CONTACT} element={<ContactPage />} />
+            <Route path={ROUTES.DEMO.INDEX} element={<DemoPage />} />
 
-              {/* Resources */}
-              <Route path={ROUTES.RESOURCES.INDEX} element={<ResourcesPage />} />
-              <Route path={ROUTES.RESOURCES.GUIDES} element={<GuidesPage />} />
-              <Route path={ROUTES.RESOURCES.CASE_STUDIES} element={<CaseStudiesPage />} />
-              <Route path={ROUTES.RESOURCES.HELP_CENTER} element={<HelpCenterPage />} />
+            {/* Resources */}
+            <Route path={ROUTES.RESOURCES.INDEX} element={<ResourcesPage />} />
+            <Route path={ROUTES.RESOURCES.GUIDES} element={<GuidesPage />} />
+            <Route path={ROUTES.RESOURCES.CASE_STUDIES} element={<CaseStudiesPage />} />
+            <Route path={ROUTES.RESOURCES.HELP_CENTER} element={<HelpCenterPage />} />
 
-              {/* Company */}
-              <Route path={ROUTES.COMPANY.ABOUT} element={<AboutPage />} />
+            {/* Company */}
+            <Route path={ROUTES.COMPANY.ABOUT} element={<AboutPage />} />
 
-              {/* Legal */}
-              <Route path={ROUTES.LEGAL.PRIVACY} element={<PrivacyPage />} />
-              <Route path={ROUTES.LEGAL.TERMS} element={<TermsPage />} />
+            {/* Legal */}
+            <Route path={ROUTES.LEGAL.PRIVACY} element={<PrivacyPage />} />
+            <Route path={ROUTES.LEGAL.TERMS} element={<TermsPage />} />
 
-              {/* Redirects */}
-              <Route
-                path={ROUTES.PLATFORM.INTEGRATIONS}
-                element={<Navigate to={ROUTES.MARKETING.INTEGRATIONS} replace />}
-              />
-              <Route
-                path="/solutions/nonprofits"
-                element={<Navigate to={ROUTES.SOLUTIONS.NGOS} replace />}
-              />
-              <Route
-                path="/contact-us"
-                element={<Navigate to={ROUTES.COMPANY.CONTACT} replace />}
-              />
-              <Route path="/security" element={<SecurityPage />} />
+            {/* Redirects */}
+            <Route
+              path={ROUTES.PLATFORM.INTEGRATIONS}
+              element={<Navigate to={ROUTES.MARKETING.INTEGRATIONS} replace />}
+            />
+            <Route
+              path="/solutions/nonprofits"
+              element={<Navigate to={ROUTES.SOLUTIONS.NGOS} replace />}
+            />
+            <Route
+              path="/contact-us"
+              element={<Navigate to={ROUTES.COMPANY.CONTACT} replace />}
+            />
+            <Route path="/security" element={<SecurityPage />} />
 
-              {/* 404 */}
-              {/* <Route path="*" element={<NotFoundPage />} /> */}
-            </Route>
-          </Routes>
-        </Suspense>
-      </HelmetProvider>
+            {/* 404 */}
+            {/* <Route path="*" element={<NotFoundPage />} /> */}
+          </Route>
+        </Routes>
+      </Suspense>
     </ErrorBoundary>
   );
 }

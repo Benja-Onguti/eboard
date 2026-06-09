@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import {
   Calendar,
   Shield,
@@ -864,6 +865,10 @@ export const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ featureIdO
   const actualId = featureIdOverride ?? (id ? getFeatureId(id) : null);
   const feature = actualId ? featureDetails[actualId] : null;
 
+  // Get SEO config based on feature ID
+  const seo = getSeoConfig(actualId as keyof typeof import('@/config/seoConfig').seoConfig);
+  const structuredData = defaultStructuredData;
+
   useEffect(() => {
     if (!feature) {
       navigate(ROUTES.PLATFORM.FEATURES);
@@ -878,13 +883,7 @@ export const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ featureIdO
 
   return (
     <>
-      <Helmet>
-        <title>{feature.name} - EBoard Solutions</title>
-        <meta name="description" content={feature.description} />
-        <meta property="og:title" content={`${feature.name} - EBoard Solutions`} />
-        <meta property="og:description" content={feature.description} />
-        <meta property="og:image" content={feature.image} />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Breadcrumb Navigation */}
       {/*

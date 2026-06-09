@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
+import { motion } from 'framer-motion';
 import {
   Search,
   FileText,
@@ -92,15 +93,12 @@ export const HelpCenterPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  const seo = getSeoConfig('help-center');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>Help Center - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="Get help with EBoard's board management platform. Find guides, FAQs, and support resources."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="pt-28 pb-12 bg-gray-50">

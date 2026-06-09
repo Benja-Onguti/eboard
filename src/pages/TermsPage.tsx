@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
+import { motion } from 'framer-motion';
 import {
   Shield,
   AlertCircle,
@@ -200,6 +201,9 @@ export const TermsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('terms');
   const [acknowledged, setAcknowledged] = useState(false);
 
+  const seo = getSeoConfig('terms');
+  const structuredData = defaultStructuredData;
+
   const handleDownloadPDF = () => {
     // In a real implementation, this would download a PDF
     alert('Terms of Service PDF would download here');
@@ -212,18 +216,7 @@ export const TermsPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Terms of Service - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="EBoard Solutions' terms of service. Please read carefully before using our platform."
-        />
-        <meta property="og:title" content="Terms of Service - EBoard Solutions" />
-        <meta
-          property="og:description"
-          content="Terms of service for EBoard Solutions governance platform."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="pb-16 bg-gradient-to-b from-primary-50 to-white">

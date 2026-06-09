@@ -1,6 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import { motion } from 'framer-motion';
 import { FileText, BookOpen, Video, ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
@@ -101,15 +102,12 @@ export const ResourcesPage: React.FC = () => {
     ? resources.filter((r) => r.type === selectedType)
     : resources;
 
+  const seo = getSeoConfig('resources');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>Resources - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="Explore resources for better board governance: blog posts, case studies, whitepapers, and guides."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">

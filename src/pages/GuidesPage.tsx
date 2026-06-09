@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
+import { motion } from 'framer-motion';
 import {
   BookOpen,
   Download,
@@ -281,20 +282,17 @@ export const GuidesPage: React.FC = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const featuredGuides = guides.filter((g) => g.featured);
-  const recentGuides = [...guides]
-    .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime())
-    .slice(0, 3);
+   const featuredGuides = guides.filter((g) => g.featured);
+   const recentGuides = [...guides]
+     .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime())
+     .slice(0, 3);
 
-  return (
-    <>
-      <Helmet>
-        <title>Governance Guides - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="In-depth governance guides and resources for board members. Learn best practices for board meetings, compliance, technology, and strategic planning."
-        />
-      </Helmet>
+   const seo = getSeoConfig('guides');
+   const structuredData = defaultStructuredData;
+
+   return (
+     <>
+       <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-slate-800 text-white">
@@ -308,9 +306,9 @@ export const GuidesPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
+              {/* <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
                 Knowledge Center
-              </Badge>
+              </Badge> */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 In-depth <span className="text-primary-300">governance guides</span>
               </h1>
@@ -336,7 +334,7 @@ export const GuidesPage: React.FC = () => {
       </section>
 
       {/* Stats Bar */}
-      <section className="py-8 bg-white border-b border-gray-200">
+      {/* <section className="py-8 bg-white border-b border-gray-200">
         <div className="container-custom">
           <div className="flex flex-wrap justify-center gap-8 text-center">
             <div>
@@ -360,10 +358,10 @@ export const GuidesPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Category Navigation */}
-      <section className="sticky top-20 bg-white border-b border-gray-200 z-30 py-3 shadow-sm">
+      <section className="sticky top-20 bg-white border-b border-gray-200 z-30 py-6 shadow-sm">
         <div className="container-custom">
           <div className="flex flex-wrap items-center justify-center gap-2">
             {categories.map((category) => {

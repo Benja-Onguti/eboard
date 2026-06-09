@@ -1,7 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import {
   Shield,
   Users,
@@ -31,20 +32,12 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
 import { ROUTES } from '@/config/routes';
 
 export const EnterprisePage: React.FC = () => {
+  const seo = getSeoConfig('enterprise');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>Enterprise Board Management - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="Scale your corporate governance with enterprise-grade security, integrations, and analytics. Trusted by Fortune 500 companies worldwide."
-        />
-        <meta property="og:title" content="Enterprise Board Management - EBoard Solutions" />
-        <meta
-          property="og:description"
-          content="Enterprise-grade governance platform for corporate boards."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">

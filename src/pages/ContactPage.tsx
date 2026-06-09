@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -51,12 +52,12 @@ export const ContactPage: React.FC = () => {
     }
   };
 
+  const seo = getSeoConfig('contact');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>Contact Us - EBoard Solutions</title>
-        <meta name="description" content="Get in touch with EBoard Solutions. Request a demo, ask questions, or learn more about our governance platform." />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       <section className="py-2 bg-gray-50 min-h-screen flex items-center">
         <div className="px-4 sm:px-6 lg:px-8 xl:px-12 w-full max-w-7xl mx-auto">

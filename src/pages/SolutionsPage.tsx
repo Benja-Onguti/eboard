@@ -1,7 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import {
   GraduationCap,
   Building2,
@@ -11,15 +12,11 @@ import {
   CheckCircle,
   Star,
   Users,
-  Clock,
-  Shield,
-  Globe,
   BookOpen,
   Download,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
 import { ROUTES } from '@/config/routes';
 
 const solutions = [
@@ -196,15 +193,12 @@ const solutions = [
 export const SolutionsPage: React.FC = () => {
   const [selectedSolution, setSelectedSolution] = React.useState(solutions[0]);
 
+  const seo = getSeoConfig('solutions');
+  const structuredData = defaultStructuredData;
+
   return (
     <>
-      <Helmet>
-        <title>Solutions - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="Tailored governance solutions for educational institutions, government bodies, NGOs, and enterprises."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-6 pb-12 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">

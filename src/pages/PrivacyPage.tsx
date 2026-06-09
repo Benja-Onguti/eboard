@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/seo/SEOHead';
+import { getSeoConfig, defaultStructuredData } from '@/config/seoConfig';
 import {
   Shield,
   Lock,
@@ -242,6 +243,9 @@ export const PrivacyPage: React.FC = () => {
     marketing: false,
   });
 
+  const seo = getSeoConfig('privacy');
+  const structuredData = defaultStructuredData;
+
   const handleDownloadPDF = () => {
     // In a real implementation, this would download a PDF
     alert('Privacy policy PDF would download here');
@@ -249,18 +253,7 @@ export const PrivacyPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy - EBoard Solutions</title>
-        <meta
-          name="description"
-          content="EBoard Solutions' privacy policy. Learn how we collect, use, and protect your personal information."
-        />
-        <meta property="og:title" content="Privacy Policy - EBoard Solutions" />
-        <meta
-          property="og:description"
-          content="Learn how EBoard Solutions protects your privacy."
-        />
-      </Helmet>
+      <SEOHead seo={seo} structuredData={structuredData} />
 
       {/* Hero Section */}
       <section className="pb-16 bg-gradient-to-b from-primary-50 to-white">
