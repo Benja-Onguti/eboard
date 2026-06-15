@@ -133,7 +133,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-gray-800">
           <p className="text-sm mb-3 md:mb-0">
-            © {currentYear} EBoard Solutions. All rights reserved.
+            © {currentYear} Kikao360 Solutions. All rights reserved.
           </p>
           <div className="flex space-x-4 text-sm">
             <Link to="/privacy" className="hover:text-white transition">
