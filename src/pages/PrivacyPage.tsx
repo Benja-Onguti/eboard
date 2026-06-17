@@ -173,7 +173,7 @@ const securityMeasures = [
   {
     icon: Shield,
     title: 'Certifications',
-    description: 'ISO 27001, SOC 2 Type II, and GDPR compliant',
+    description: SOC 2 Type II, and GDPR compliant',
   },
   {
     icon: Eye,
