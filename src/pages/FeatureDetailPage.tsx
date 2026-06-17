@@ -120,7 +120,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     description:
       'Leverage cutting-edge AI to transform how your board works. From transcription to summarization, our AI capabilities save time and improve accuracy.',
     longDescription:
-      "EBoard's AI capabilities are powered by Google Gemini and Google Cloud, bringing enterprise-grade artificial intelligence to your board governance. From real-time speech transcription to intelligent document summarization, our AI tools help you work smarter, not harder.",
+      "Kikao360's AI capabilities are powered by Google Gemini and Google Cloud, bringing enterprise-grade artificial intelligence to your board governance. From real-time speech transcription to intelligent document summarization, our AI tools help you work smarter, not harder.",
     icon: Brain,
     image: `${import.meta.env.BASE_URL}images/features/aii.jpg`,
     benefits: [
@@ -433,7 +433,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     integrations: ['SharePoint', 'Microsoft Teams'],
     security: {
       encryption: 'Committee-level access controls',
-      compliance: ['SOC 2 Type II', 'ISO 27001'],
+      compliance: ['SOC 2 Type II', '2FA'],
       certifications: ['Role-based access', 'Audit trails'],
     },
     faq: [
@@ -569,7 +569,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     description:
       'Protect your board documents with enterprise-grade security built on the Microsoft Enterprise Framework.',
     longDescription:
-      'EBoard Security provides military-grade protection for all your board materials. Built on the Microsoft Enterprise Framework, our security infrastructure includes AES-256 encryption, two-factor authentication, activity tracking, and role-based access controls.',
+      'Kikao360 Security provides military-grade protection for all your board materials. Built on the Microsoft Enterprise Framework, our security infrastructure includes AES-256 encryption, two-factor authentication, activity tracking, and role-based access controls.',
     icon: Shield,
     image: `${import.meta.env.BASE_URL}images/features/security.png`,
     benefits: [
@@ -642,7 +642,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     integrations: ['Microsoft Azure AD', 'Okta', 'OneLogin', 'Ping Identity'],
     security: {
       encryption: 'AES-256 encryption with HSM key management',
-      compliance: ['ISO 27001', 'SOC 2 Type II', 'GDPR', 'FedRAMP'],
+      compliance: ['SOC 2 Type II', 'GDPR', 'FedRAMP'],
       certifications: ['Microsoft Enterprise Framework', 'ISO 27001 Certified'],
     },
     faq: [
@@ -682,7 +682,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     description:
       'Seamlessly integrate with your existing tools and get unlimited training and support.',
     longDescription:
-      'EBoard integrates seamlessly with your existing technology stack, including SharePoint, Teams and Zoom,. Plus, every plan includes unlimited training and support to ensure your success.',
+      'Kikao360 integrates seamlessly with your existing technology stack, including SharePoint, Teams and Zoom,. Plus, every plan includes unlimited training and support to ensure your success.',
     icon: Plug,
     image: `${import.meta.env.BASE_URL}images/features/integration1.png`,
 
@@ -712,14 +712,14 @@ const featureDetails: Record<string, FeatureDetail> = {
       {
         title: 'Single Sign‑On (SSO)',
         description:
-          'Connect EBoard to identity providers like Okta and OneLogin. Streamline logins and centralize access control while keeping board access secure and fully in sync with your organization’s existing authentication systems.',
+          'Connect Kikao360 to identity providers like Okta and OneLogin. Streamline logins and centralize access control while keeping board access secure and fully in sync with your organization’s existing authentication systems.',
         icon: 'Shield',
         technical: 'SAML 2.0 / OIDC support, SCIM provisioning',
       },
       {
         title: 'Task Management',
         description:
-          'Integrate with Asana, Trello, Jira, and more. Sync action items from board meetings directly into your team’s project management workflows.',
+          'Kikao360 supports Task assignment (one or more) per agenda items, with one-to-many assignees, Task listing that is dynamically added to the meeting minutes.',
         icon: 'CheckCircle',
         technical: 'Two-way webhook syncing',
       },
@@ -807,7 +807,7 @@ const featureDetails: Record<string, FeatureDetail> = {
     ],
     security: {
       encryption: 'Secure API connections',
-      compliance: ['SOC 2 Type II', 'ISO 27001'],
+      compliance: ['SOC 2 Type II', 'Enterprise Security'],
       certifications: ['Integration certified'],
     },
     faq: [
