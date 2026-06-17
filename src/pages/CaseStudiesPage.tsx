@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/Badge';
 import { ROUTES } from '@/config/routes';
 
 const caseStudies = [
-  {
+ /* {
     title: 'Lincoln School District',
     industry: 'Education',
     summary: 'Reduced board prep time from two weeks to two days with centralized agendas and packets.',
@@ -30,7 +30,7 @@ const caseStudies = [
     summary: 'Connected a distributed volunteer board with secure documents, scheduling, and action tracking.',
     outcome: 'Board collaboration across three continents',
     icon: Users,
-  },
+  },*/
 ];
 
 export const CaseStudiesPage: React.FC = () => {
