@@ -100,7 +100,7 @@ const faqs = [
   },
   {
     question: 'Do I need to install anything?',
-    answer: 'No. EBoard is a web-based platform — just bring your browser and your questions.',
+    answer: 'No. Kikao360 is a web-based platform — just bring your browser and your questions.',
   },
   {
     question: 'What happens after the demo?',
@@ -112,7 +112,7 @@ const faqs = [
 const testimonials = [
   {
     quote:
-      'The demo was eye-opening — we saw exactly how EBoard would transform our board meetings.',
+      'The demo was eye-opening — we saw exactly how Kika0360 would transform our board meetings.',
     name: 'Sarah Chen',
     title: 'Board Secretary',
     org: 'Metro School District',
