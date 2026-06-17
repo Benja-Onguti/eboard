@@ -64,7 +64,7 @@ export const ContactPage: React.FC = () => {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <Badge variant="primary" className="mb-3">Get in Touch</Badge>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Let's start a conversation</h1>
-            <p className="text-gray-600">Have questions about EBoard? Our team is ready to help.</p>
+            <p className="text-gray-600">Have questions about Kikao360? Our team is ready to help.</p>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-6">
