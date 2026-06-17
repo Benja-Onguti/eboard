@@ -73,15 +73,15 @@ const faqs = [
   },
   {
     question: 'Is my data secure and compliant?',
-    answer: 'Absolutely. We use AES-256 encryption, are ISO 27001 certified, SOC 2 Type II compliant, and GDPR ready.',
+    answer: 'Absolutely. We use AES-256 encryption, SOC 2 Type II compliant, and GDPR ready.',
   },
   {
     question: 'What happens to my data if I cancel my subscription?',
     answer: 'You can export all your data before cancellation. We retain data for 30 days after cancellation for recovery, then it is permanently deleted.',
   },
   {
-    question: 'Does EBoard integrate with Zoom and Microsoft Teams?',
-    answer: 'Yes! EBoard seamlessly integrates with Zoom, Microsoft Teams, Google Meet, and Webex for virtual meetings.',
+    question: 'Does Kikao360 integrate with Zoom and Microsoft Teams?',
+    answer: 'Yes! Kikao360 seamlessly integrates with Zoom, Microsoft Teams, Google Meet, and Webex for virtual meetings.',
   },
   {
     question: 'Can I get dedicated support for my organization?',
@@ -108,7 +108,7 @@ export const HelpCenterPage: React.FC = () => {
               How can we help you?
             </h1>
             <p className="text-gray-600 mb-6">
-              Find answers, guides, and tutorials to make the most of EBoard.
+              Find answers, guides, and tutorials to make the most of Kikao360.
             </p>
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
