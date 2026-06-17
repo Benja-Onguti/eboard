@@ -390,7 +390,7 @@ export const GovernmentPage: React.FC = () => {
               ))}
             </div>
             <blockquote className="text-xl md:text-2xl font-medium mb-6">
-              "EBoard helped us achieve 100% FOI compliance while reducing administrative workload
+              "Kikao360 helped us achieve 100% FOI compliance while reducing administrative workload
               by 50%. The public meeting sites have transformed how we engage with our community."
             </blockquote>
             <div>
