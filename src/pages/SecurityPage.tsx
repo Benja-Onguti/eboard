@@ -78,7 +78,7 @@ export const SecurityPage: React.FC = () => {
               {/* Key Certifications */}
               <div className="flex flex-wrap items-center gap-4 mb-8">
                 <BadgeCheck className="w-5 h-5 text-primary-600" />
-                <span className="text-sm font-medium text-gray-700">ISO 27001</span>
+               <span className="text-sm font-medium text-gray-700">Enterprise Security</span>
                 <BadgeCheck className="w-5 h-5 text-primary-600" />
                 <span className="text-sm font-medium text-gray-700">SOC 2 Type II</span>
                 <BadgeCheck className="w-5 h-5 text-primary-600" />
@@ -269,7 +269,7 @@ export const SecurityPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="p-6">
               <Award className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">ISO 27001:2022</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Enterprise Security</h3>
               <p className="text-gray-600 text-sm mb-3">
                 Information Security Management System certified.
               </p>
@@ -378,7 +378,7 @@ export const SecurityPage: React.FC = () => {
                 </div>
               </div>
               <blockquote className="text-xl md:text-2xl text-gray-700 mb-6 leading-relaxed">
-                "EBoard's security gave our compliance team complete confidence. The audit trails
+                "Kikao360's security gave our compliance team complete confidence. The audit trails
                 and access controls are exactly what we needed. We've reduced audit time by 60%."
               </blockquote>
               <div className="flex items-center justify-center">
