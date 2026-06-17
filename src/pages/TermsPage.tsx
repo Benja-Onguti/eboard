@@ -228,7 +228,7 @@ export const TermsPage: React.FC = () => {
             Our commitment to <span className="text-primary-600">fairness</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            These terms govern your use of EBoard Solutions' platform and services. Please read them
+            These terms govern your use of Kikao360 Solutions' platform and services. Please read them
             carefully before accessing or using our services.
           </p>
 
@@ -677,7 +677,7 @@ export const TermsPage: React.FC = () => {
 
                     <p className="text-gray-600 mb-4">
                       The Services, including their code, design, features, and branding, are owned
-                      by EBoard Solutions Inc. and protected by intellectual property laws. You may
+                      by Kikao360 Solutions Inc. and protected by intellectual property laws. You may
                       not:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-gray-600 mb-4">
@@ -852,7 +852,7 @@ export const TermsPage: React.FC = () => {
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">16. Indemnification</h2>
 
                     <p className="text-gray-600 mb-4">
-                      You agree to indemnify and hold harmless EBoard Solutions Inc., its
+                      You agree to indemnify and hold harmless Kikao360 Solutions Inc., its
                       affiliates, and their respective officers, directors, employees, and agents
                       from any claims, damages, losses, liabilities, costs, and expenses arising out
                       of:
@@ -1041,7 +1041,7 @@ export const TermsPage: React.FC = () => {
                       <li className="flex items-start">
                         <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
                         <span className="text-gray-700">
-                          <strong>Security first</strong> - AES-256 encryption, ISO 27001 certified
+                          <strong>Security first</strong> - AES-256 encryption, Enterprise Security
                         </span>
                       </li>
                       <li className="flex items-start">
