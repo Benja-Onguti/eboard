@@ -54,9 +54,9 @@ const solutions = [
     caseStudy: {
       title: 'Lincoln School District',
       quote:
-        'EBoard reduced our board meeting prep time from two weeks to two days. Our members actually enjoy using the platform.',
-      author: 'Dr. Sarah Chen',
-      role: 'Board Chair',
+        'Kikao360 reduced our board meeting prep time from two weeks to two days. Our members actually enjoy using the platform.',
+      author: 'Mr. Gilbert Nyamweya',
+      role: 'Board Secretary',
     },
     image: `${import.meta.env.BASE_URL}images/solutions/education.jpg`,
     gradient: 'from-blue-600 to-indigo-600',
@@ -77,13 +77,13 @@ const solutions = [
     ],
     benefits: [
       'FOI-compliant records with complete audit trails',
-      'Military-grade security with ISO 27001 certification',
+      'Military-grade security ',
       'Accessible meetings with proper controls',
       'Streamlined multi-committee management',
     ],
     features: [
       'FOI-compliant record keeping with automated archiving',
-      'Security certifications (ISO 27001, SOC 2)',
+      'Security certifications (SOC 2)',
       'Public meeting support with live streaming',
       'Inter-agency collaboration tools',
       'Automated redaction for public records',
@@ -96,7 +96,7 @@ const solutions = [
     caseStudy: {
       title: 'City of Riverside',
       quote:
-        'EBoard helped us achieve 100% FOI compliance while reducing administrative workload by 50%.',
+        'Kikao360 helped us achieve 100% FOI compliance while reducing administrative workload by 50%.',
       author: 'James Rodriguez',
       role: 'City Clerk',
     },
