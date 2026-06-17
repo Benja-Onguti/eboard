@@ -30,7 +30,7 @@ export const features: Feature[] = [
       {
         title: 'Board Pack Assembly',
         description:
-          'Automatically compile documents, reports, and presentations into a single board book',
+          'Automatically compile documents, reports, and presentations into a single board pack',
       },
       {
         title: 'Real-time Collaboration',
@@ -63,7 +63,7 @@ export const features: Feature[] = [
       {
         title: 'Secure Storage',
         description:
-          'AES-256 encryption for all stored documents with ISO 27001 certification [citation:8]',
+          'AES-256 encryption for all stored documents [citation:8]',
       },
       {
         title: 'Version Control',
