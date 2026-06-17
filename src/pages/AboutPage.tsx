@@ -249,7 +249,7 @@ export const AboutPage: React.FC = () => {
         <div className="container-custom text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Get started today</h2>
           <p className="text-lg text-primary-100 mb-6 max-w-2xl mx-auto">
-            Join 500+ organizations already using EBoard to transform their governance.
+            Join 500+ organizations already using Kikao360 to transform their governance.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link to={ROUTES.DEMO.INDEX}>
