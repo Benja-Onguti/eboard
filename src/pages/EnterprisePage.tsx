@@ -133,7 +133,7 @@ export const EnterprisePage: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400">Security</p>
-                    <p className="text-lg font-bold text-white">ISO 27001</p>
+                    <p className="text-lg font-bold text-white">Military Grade</p>
                   </div>
                 </div>
               </motion.div>
