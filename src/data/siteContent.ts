@@ -87,7 +87,7 @@ export const siteContent = {
   // Core Features - Updated with all 6 features
   coreFeatures: {
     headline: 'Everything you need for modern governance',
-    subheadline: 'From AI-powered tools to enterprise-grade security, EBoard has you covered.',
+    subheadline: 'From AI-powered tools to enterprise-grade security, Kikao360 has you covered.',
     cta: { text: 'Explore All Features', href: '/features' },
     features: [
       {
@@ -194,7 +194,7 @@ export const siteContent = {
       capabilities: [
         'All file types supported – PDF, Word, Excel, images, and more',
         'Document signing – Legally binding e-signatures',
-        'Forms & surveys – Powered by Orbeon Forms',
+        'Forms & surveys – Powered by versatile Forms',
         'Clone any agenda – Save time with templates',
         'Votes & resolutions – Track decisions',
       ],
@@ -263,12 +263,12 @@ export const siteContent = {
   ],
 
   // Testimonials
-  testimonials: [
+  /*testimonials: [
     {
       quote:
-        'EBoard cut our meeting prep time from two weeks to two days. Our board members actually enjoy using it.',
-      name: 'Dr. Sarah Cheng',
-      title: 'Board Chair',
+        'EBoard cut our meeting prep time from weeks to days. Our board members actually enjoy using it.',
+      name: 'Mr. Gilbert Nyamweya',
+      title: 'Company Secretary',
       organization: 'Nairobi Hospital',
       type: 'Enterprise',
       rating: 5,
@@ -303,7 +303,7 @@ export const siteContent = {
       type: 'enterprise',
       rating: 5,
       link: '/case-studies/sony-sugar',
-    },
+    },*/
   ],
 
   // Results/Metrics
